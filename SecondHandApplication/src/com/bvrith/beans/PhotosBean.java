@@ -33,5 +33,5 @@ public class PhotosBean {
 		this.photo2 = photo2;
 		this.photo3 = photo3;
 	}
-	
+
 }

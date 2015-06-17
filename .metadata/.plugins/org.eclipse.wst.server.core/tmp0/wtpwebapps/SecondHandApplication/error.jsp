@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%-- <%
+	pageEncoding="UTF-8"%>
+<%-- <%
     String msg = request.getParameter("errormsg");
     if(msg != null) {
     	out.print("<h3>" + msg + "</h3>");
@@ -13,6 +13,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Some error has been encountered. Try again.</h1>
+	<h1>Some error has been encountered. Try again.</h1>
 </body>
 </html>

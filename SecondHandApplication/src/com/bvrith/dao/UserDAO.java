@@ -33,6 +33,7 @@ public class UserDAO {
 	}
 	public int createUser(UserBean userBean) throws SQLException {
 		String query = "INSERT INTO register VALUES(?,?)";
+		
 		st = conn.prepareStatement(query);
 		st.setString(1,userBean.getEmail());
 		st.setString(2,userBean.getPassword());
@@ -40,4 +41,5 @@ public class UserDAO {
 		result = st.executeUpdate();
 		return result;
 	}
+
 }
