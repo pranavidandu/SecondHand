@@ -47,23 +47,26 @@
 
 .submitbtn {
 	position: absolute;
-	top: 26px;
-	left: 730px;
+	top: 24px;
+	left: 1010px;
 }
 </style>
 </head>
 <body>
 	<div class="logo">
-		<img src="./IMG/logo.PNG" style="width: 220px; height: 160px;">
+		<!-- <img src="./IMG/logo.PNG" style="width: 220px; height: 100px;"> -->
+		<img src="./IMG/logo.PNG" style="width: 150px; height: 100px;">
 	</div>
-	<div class="submitbtn">
+	<!-- <div class="submitbtn">
 		<a href="submitanad.jsp"><button type="button"
-				class="btn btn-primary btn-md">Submit An Ad</button></a>
-	</div>
+				class="btn btn-primary btn-lg">Submit An Ad</button></a>
+	</div> -->
 	<div class="well well-lg menu">
 		<form action="SearchController">
 			<table align="right">
 				<tr>
+				<td><div class="submitbtn"><a href="submitanad.jsp"><button type="button"
+				class="btn btn-primary btn-lg">Submit An Ad</button></a></div></td>
 					<!-- <td><input name = "item" type = "text" placeholder = "What are you looking for?" style = "width: 200px; height: 35px;"></td> -->
 					<td>
 						<div class="pull-right">

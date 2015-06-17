@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	HttpSession hs = request.getSession();
-	String email = (String) hs.getAttribute("emailid");
+	String email = (String)hs.getAttribute("emailid");
 	if (email == null) {
 		response.sendRedirect("login.jsp");
 	}
