@@ -4,6 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" src="/SecondHandApplication/WebContent/styling.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
 <%
@@ -45,6 +50,21 @@
 		<h1>
 			<p class="sansserif" align="center">SecondHand.com</p>
 		</h1>
+	</div>
+	<div class="col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="mobiles.jsp">Mobiles and Tablets</a></li>
+			<li><a href="electronics.jsp">Electronics and Appliances</a></li>
+			<li><a href="vehicles.jsp">Vehicles</a></li>
+			<li><a href="home.jsp">Home & Furniture</a></li>
+			<li><a href="animals.jsp">Animals</a></li>
+			<li><a href="books.jsp">Books, Sports & Hobbies</a></li>
+			<li><a href="fashion.jsp">Fashion & Beauty</a></li>
+			<li><a href="kids.jsp">Kids & Baby Products</a></li>
+			<li><a href="services.jsp">Services</a></li>
+			<li><a href="jobs.jsp">Jobs</a></li>
+			<li><a href="realestate.jsp">Real Estate</a></li>
+		</ul>
 	</div>
 </body>
 </html>
