@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -90,15 +89,20 @@
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="signup.jsp"><span
-						class="glyphicon glyphicon-user" style="font-size: 50px;"></span>
-						Sign Up</a></li>
-				<li><a href="login.jsp"><span
-						class="glyphicon glyphicon-log-in" style="font-size: 50px;"></span>
-						Login</a></li>
-
-			</ul>
+			<%
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
+					out.print("</ul>");
+				}
+				else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
+					out.print("</ul>");
+				}
+			%>
 		</div>
 	</div>
 	</nav>
@@ -210,10 +214,13 @@
 		</div>
 	</div>
 	<table>
-	<tr><td><footer class="footer" >
-	<h4 style="color: black">Designed and Developed by Flora Moses,
-		Pranavi Dandu and Naga Purnika from Computer Science and Engineering </h4>
-	</footer></tr>
+		<tr>
+			<td><footer class="footer">
+				<h4 style="color: black">Designed and Developed by Flora Moses,
+					Pranavi Dandu and Naga Purnika from Computer Science and
+					Engineering</h4>
+				</footer>
+		</tr>
 	</table>
 </body>
 </html>

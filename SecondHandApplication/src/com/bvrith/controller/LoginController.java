@@ -41,7 +41,6 @@ public class LoginController extends HttpServlet {
 			se.printStackTrace();
 		}
 		SecondHandLog log = new SecondHandLog();
-		
 		log.write(email);
 		if(result) {
 			response.sendRedirect("start.jsp");

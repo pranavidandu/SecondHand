@@ -2,7 +2,10 @@ package com.bvrith.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bvrith.beans.SubmitAnAdBean;
 
@@ -30,4 +33,27 @@ public class SubmitAnAdDAO {
 		result = st.executeUpdate();
 		return result;
 	}
+	public List<SubmitAnAdBean> listAds(String category) throws SQLException {
+		List<SubmitAnAdBean> lst = new ArrayList<SubmitAnAdBean>();
+		String query = "SELECT * FROM submitanad WHERE category = ?";
+		st = conn.prepareStatement(query);
+		st.setString(1, category);
+		ResultSet rs = st.executeQuery();
+		SubmitAnAdBean submitAnAdBean;
+		while(rs.next()) {
+			submitAnAdBean = new SubmitAnAdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			lst.add(submitAnAdBean);
+		}
+		return lst;
+	}
 }
+
+
+
+
+
+
+
+
+
+
