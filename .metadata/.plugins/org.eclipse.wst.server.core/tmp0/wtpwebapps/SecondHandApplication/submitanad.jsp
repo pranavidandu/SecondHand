@@ -103,7 +103,7 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<input type="text" class="form-control" name="adtitle"
-											placeholder="Enter AdTitle">
+											placeholder="Enter AdTitle" required>
 									</div>
 								</div>
 
@@ -112,7 +112,7 @@
 									<div class="panel-body">
 										<div class="form-group">
 											<input type="text" class="form-control" name="category"
-												placeholder="Select a Category">
+												placeholder="Select a Category" required>
 										</div>
 									</div>
 
@@ -120,7 +120,7 @@
 										<div class="panel-heading">Ad Description</div>
 										<div class="panel-body">
 											<div class="form-group">
-												<textarea class="form-control" rows="5" name="addescription"></textarea>
+												<textarea class="form-control" rows="5" name="addescription" required></textarea>
 											</div>
 										</div>
 
@@ -150,7 +150,7 @@
 													<div class="panel-body">
 														<div class="form-group">
 															<input type="text" class="form-control" name="price"
-																maxlength="10" placeholder="Enter Price">
+																maxlength="10" placeholder="Enter Price" required>
 														</div>
 													</div>
 												</div>
@@ -160,7 +160,7 @@
 														<div class="panel-body">
 															<div class="form-group">
 																<input type="text" class="form-control" name="names"
-																	placeholder="Enter Name">
+																	placeholder="Enter Name" required>
 															</div>
 														</div>
 													</div>
@@ -170,7 +170,7 @@
 															<div class="panel-body">
 																<div class="form-group">
 																	<input type="text" class="form-control" name="emails"
-																		placeholder="Enter Email" value=<%=email%>>
+																		placeholder="Enter Email" value=<%=email%> required>
 																</div>
 															</div>
 														</div>
@@ -180,7 +180,7 @@
 																<div class="panel-body">
 																	<div class="form-group">
 																		<input type="text" class="form-control" name="phone"
-																			placeholder="Enter phone">
+																			placeholder="Enter phone" required>
 																	</div>
 																	<br> <label class="checkbox-inline"><input
 																		type="checkbox" value="" name="availableonwhatsapp">Available
@@ -193,7 +193,7 @@
 																	<div class="panel-body">
 																		<div class="form-group">
 																			<input type="text" class="form-control" name="city"
-																				placeholder="Enter city">
+																				placeholder="Enter city" required>
 																		</div>
 																	</div>
 																</div>
