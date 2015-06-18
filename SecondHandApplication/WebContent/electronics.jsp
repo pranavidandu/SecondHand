@@ -26,46 +26,98 @@
 	top: 31px;
 	right: 410px;
 }
+
+.submitbtn {
+	position: absolute;
+	top: 24px;
+	left: 710px;
+}
+
+.header {
+	height: 40px;
+	text-align: center;
+}
+
+.drop {
+	height: 20px;
+}
+
+.tablediv {
+	height: 300px;
+}
+
+.pagediv {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	z-index: 15;
+	top: 38%;
+	left: 33%;
+	margin: -100px 0 0 -150px;
+	background: #DFF2BF;
+}
+
+.griddiv {
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	z-index: 15;
+	top: 35%;
+	left: 33%;
+	margin: -100px 0 0 -150px;
+	background: #DFF2BF;
+}
+
+.jumbotron {
+	width: 150px;
+	height: 150px;
+	left: 30%;
+	background-color: red;
+}
+
+.searchbox {
+	width: 200px;
+}
+
+.footer {
+	position: absolute;
+	top: 900px;
+}
+.active {
+color: #004700;
+}
 </style>
 </head>
 <body>
-	<div class="well well-lg menu">
-		<form action="SearchController">
-			<table align="right">
-				<tr>
-					<td>
-						<div class="pull-right">
-							<div class="dropdown">
-								<input name="item" class="dropdown-toggle"
-									data-toggle="dropdown"><span class="caret"></span>
-								<ul class="dropdown-menu">
-									<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles</a></li>
-									<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-											Estate</a></li>
-									<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-									<li class="divider"></li>
-									<li><a tabindex="-1" href="productdisplay.jsp">All
-											Categories</a></li>
-								</ul>
-							</div>
-						</div>
-					</td>
-					<td>&nbsp;</td>
-					<td><button type="submit" class="btn btn-xs btn-success">
-							<span class="glyphicon glyphicon-search"
-								style="color: white; font-size: 29px;"></span>
-						</button></td>
-				</tr>
-			</table>
-		</form>
-		<a href="login.jsp"> <span class="glyphicon glyphicon-user user1"
-			style="color: blue; font-size: 22px;"></span>
-			<p class="account" style="font-size: 22px; color: blue;">My
-				Account</p>
-		</a>
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid ">
+
+		<div>
+			<ul class="nav navbar-nav">
+
+				<li class="active"><a href="submitanad.jsp"><button
+							type="button" class="btn btn-success btn-lg">Submit An
+							Ad</button></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="signup.jsp"><span
+						class="glyphicon glyphicon-user" style="font-size: 50px;"></span>
+						Sign Up</a></li>
+				<li><a href="login.jsp"><span
+						class="glyphicon glyphicon-log-in" style="font-size: 50px;"></span>
+						Login</a></li>
+
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div class="page-header header">
+		<h1>
+			<p class="sansserif">SecondHand.com</p>
+		</h1>
 	</div>
 	<div class="col-md-3">
-		<ul class="nav nav-pills nav-stacked">
+		<ul class="nav nav-pills nav-stacked" style="color: #004700;">
 			<li><a href="mobiles.jsp">Mobiles and Tablets</a></li>
 			<li class="active"><a href="electronics.jsp">Electronics and
 					Appliances</a></li>
@@ -80,7 +132,7 @@
 			<li><a href="realestate.jsp">Real Estate</a></li>
 		</ul>
 	</div>
-	<h3>Mobiles and Tablets</h3>
+	<h3>Electronic & Computers</h3>
 	<hr>
 	<div>
 		<table>
