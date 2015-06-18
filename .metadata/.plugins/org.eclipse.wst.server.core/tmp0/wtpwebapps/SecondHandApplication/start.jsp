@@ -1,9 +1,7 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	HttpSession hs = request.getSession();
-	String email = (String) hs.getAttribute("emailid");
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,70 +14,14 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Second Hand</title>
-<style type="text/css">
-.submitbtn {
-	position: absolute;
-	top: 24px;
-	left: 710px;
-}
-
-.header {
-	height: 40px;
-	text-align: center;
-}
-
-.drop {
-	height: 20px;
-}
-
-.tablediv {
-	height: 300px;
-}
-
-.pagediv {
-	position: absolute;
-	width: 800px;
-	height: 600px;
-	z-index: 15;
-	top: 38%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.griddiv {
-	position: absolute;
-	width: 100px;
-	height: 200px;
-	z-index: 15;
-	top: 35%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.jumbotron {
-	width: 150px;
-	height: 150px;
-	left: 30%;
-	background-color: red;
-}
-
-.searchbox {
-	width: 200px;
-}
-
-.footer {
-	position: absolute;
-	top: 900px;
-	left: 350px;
-}
-</style>
+<%
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+%>
+<link rel="stylesheet" src="/SecondHandApplication/WebContent/styling.css">
 </head>
 <body>
-
-
-	<nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
 
 		<div>
@@ -88,6 +30,7 @@
 				<li class="active"><a href="submitanad.jsp"><button
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
+
 			</ul>
 			<%
 				if (email == null) {
@@ -106,29 +49,32 @@
 		</div>
 	</div>
 	</nav>
-	<div class="page-header header">
+	<div class="page-header">
 		<h1>
-			<p class="sansserif">SecondHand.com</p>
+			<p class="sansserif" align="center">SecondHand.com</p>
 		</h1>
-		<div class="dropdown" style="font-size: 20px;" align="right">
-			<input name="item" class="dropdown-toggle" data-toggle="dropdown"><span
-				class="caret"></span>
-			<ul class="dropdown-menu dropdown-menu-right">
-				<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles
-						& Tablets</a></li>
-				<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-						Estate</a></li>
-				<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-				<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-				<li class="divider"></li>
-				<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
-			</ul>
-			<button type="submit" class="btn btn-xs btn-success">
-				<span class="glyphicon glyphicon-search"
-					style="color: white; font-size: 30px;"></span>
-			</button>
-		</div>
+
 	</div>
+	<div class="dropdown" style="font-size: 20px;" align="right">
+		<input name="item" class="dropdown-toggle" data-toggle="dropdown"><span
+			class="caret"></span>
+		<ul class="dropdown-menu dropdown-menu-right">
+			<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles
+					& Tablets</a></li>
+			<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
+					Estate</a></li>
+			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
+			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
+			<li class="divider"></li>
+			<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
+		</ul>
+		<button type="submit" class="btn btn-xs btn-success">
+			<span class="glyphicon glyphicon-search"
+				style="color: white; font-size: 30px;"></span>
+		</button>
+	</div>
+   
+	
 	<div class="container pagediv">
 		<div class="container-fluid">
 			<h3>To By Or Find Anything Select An Option Below :</h3>
@@ -215,9 +161,10 @@
 	<table>
 		<tr>
 			<td><footer class="footer">
-				<h4 style="color: black">Designed and Developed by Flora Moses,
-					Pranavi Dandu and Naga Purnika from Computer Science and
-					Engineering</h4>
+				<h4 align="center"
+					style="color: black; position: absolute; top: 900px; left: 350px;">Designed
+					and Developed by Flora Moses, Pranavi Dandu and Naga Purnika from
+					Computer Science and Engineering</h4>
 				</footer>
 		</tr>
 	</table>

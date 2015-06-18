@@ -8,7 +8,13 @@
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	src="/SecondHandApplication/WebContent/styling.css">
 <title>SecondHand</title>
+<%
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+%>
 <style type="text/css">
 .menu {
 	float: none;
@@ -83,8 +89,9 @@
 	position: absolute;
 	top: 900px;
 }
+
 .active {
-color: #004700;
+	color: #004700;
 }
 </style>
 </head>
@@ -99,21 +106,25 @@ color: #004700;
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="signup.jsp"><span
-						class="glyphicon glyphicon-user" style="font-size: 50px;"></span>
-						Sign Up</a></li>
-				<li><a href="login.jsp"><span
-						class="glyphicon glyphicon-log-in" style="font-size: 50px;"></span>
-						Login</a></li>
-
-			</ul>
+			<%
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
+					out.print("</ul>");
+				}
+			%>
 		</div>
 	</div>
 	</nav>
 	<div class="page-header header">
 		<h1>
-			<p class="sansserif">SecondHand.com</p>
+			<p class="sansserif" align="center">SecondHand.com</p>
 		</h1>
 	</div>
 	<div class="col-md-3">

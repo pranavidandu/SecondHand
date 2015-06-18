@@ -18,35 +18,10 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Second Hand</title>
+<link rel="stylesheet" src="/SecondHandApplication/WebContent/styling.css">
 <style type="text/css">
-.tablediv {
-	height: 800px;
-	width: 800px;
-}
 
-.menu {
-	float: none;
-	height: 80px;
-}
-
-.account {
-	position: absolute;
-	top: 25px;
-	right: 289px;
-}
-
-.logo {
-	position: absolute;
-	top: 20px;
-	left: 20px;
-}
-
-.user1 {
-	position: absolute;
-	top: 31px;
-	right: 410px;
-}
 
 .panel-heading {
 	background-color: #4791DA !important
@@ -54,42 +29,39 @@
 </style>
 </head>
 <body>
-	<div class="logo">
-		<img src="./IMG/logo.PNG" style="width: 220px; height: 160px;">
+	 <nav class="navbar navbar-inverse">
+	<div class="container-fluid ">
+
+		<div>
+			<ul class="nav navbar-nav">
+
+				<li class="active"><a href="submitanad.jsp"><button
+							type="button" class="btn btn-success btn-lg">Submit An
+							Ad</button></a></li>
+
+			</ul>
+			<%
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
+					out.print("</ul>");
+				}
+				else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
+					out.print("</ul>");
+				}
+			%>
+		</div>
 	</div>
-	<div class="well well-lg menu">
-		<form action="SearchController">
-			<table align="right">
-				<tr>
-					<!-- <td><input name = "item" type = "text" placeholder = "What are you looking for?" style = "width: 200px; height: 35px;"></td> -->
-					<td>
-						<div class="pull-right">
-							<div class="dropdown">
-								<input name="item" class="dropdown-toggle"
-									data-toggle="dropdown"><span class="caret"></span>
-								<ul class="dropdown-menu">
-									<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles</a></li>
-									<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-											Estate</a></li>
-									<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-									<li class="divider"></li>
-									<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
-								</ul>
-							</div>
-						</div>
-					</td>
-					<td>&nbsp;</td>
-					<td><button type="submit" class="btn btn-xs btn-success">
-							<span class="glyphicon glyphicon-search"
-								style="color: white; font-size: 29px;"></span>
-						</button></td>
-				</tr>
-			</table>
-		</form>
-		<a href="login.jsp"> <span class="glyphicon glyphicon-user user1"
-			style="color: blue; font-size: 22px;"></span>
-			<p class="account" style="font-size: 22px; color: blue;">My Account</p>
-		</a>
+	</nav>
+	<div class="page-header">
+		<h1>
+			<p class="sansserif" align="center">SecondHand.com</p>
+		</h1>
+
 	</div>
 	<div class="container tablediv">
 		<div class="container tablediv">

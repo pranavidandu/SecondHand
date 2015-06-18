@@ -23,62 +23,10 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Second Hand</title>
-<style type="text/css">
-.submitbtn {
-	position: absolute;
-	top: 24px;
-	left: 710px;
-}
+<link rel="stylesheet"
+	src="/SecondHandApplication/WebContent/styling.css">
+s
 
-.header {
-	height: 40px;
-	text-align: center;
-}
-
-.drop {
-	height: 20px;
-}
-
-.tablediv {
-	height: 300px;
-}
-
-.pagediv {
-	position: absolute;
-	width: 800px;
-	height: 600px;
-	z-index: 15;
-	top: 35%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.griddiv {
-	position: absolute;
-	width: 100px;
-	height: 200px;
-	z-index: 15;
-	top: 35%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.jumbotron {
-	width: 150px;
-	height: 150px;
-	left: 30%;
-	background-color: red;
-}
-
-.showcase {
-	width: 700px;
-	position: absolute;
-	top: 200px;
-	left: 300px;
-}
-</style>
 </head>
 <body>
 	<div class="page-header header">
@@ -126,43 +74,50 @@
 	</div>
 	</nav>
 	<div>
-	<h3>
-	<%=category %>
-	</h3>
+		<h3>
+			<%=category%>
+		</h3>
 	</div>
 	<div class="showcase">
-			<%
+		<%
 			String whatsapp = "";
-				while (list.hasNext()) {
-					SubmitAnAdBean submitAnAdBean = list.next();
-					out.print("<table class="+"table table-bordered table-hover>"+"");
-					out.print("<tr>");
-					out.print("<td> <h4>Ad Title:</h4>" + submitAnAdBean.getAdtitle() + "</td>");
-					out.print("<td> <h4>Category:</h4>" + submitAnAdBean.getCategory() + "</td>");
-					out.print("</tr>");
-					out.print("<tr>");
-					out.print("<td> <h4>Ad Description:</h4>" + submitAnAdBean.getAddescription() + "</td>");
-					out.print("<td>" + submitAnAdBean.getPrice() + "</td>");
-					out.print("</tr>");
-					out.print("<tr>");
-					out.print("<td> <h4>Name:</h4>" + submitAnAdBean.getName() + "</td>");
-					out.print("<td> <h4>Email:</h4>" + submitAnAdBean.getEmail() + "</td>");
-					out.print("<td> <h4>Phone:</h4>" + submitAnAdBean.getPhone() + "</td");
-					out.print("</tr>");
-					out.print("<tr>");
-					if (submitAnAdBean.getWhatsapp().equalsIgnoreCase("y")) {
-						whatsapp = "Avaliable";
-					}
-					else {
-						whatsapp = "Not Avaliable";
-					}
-					out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
-					out.print("<td> <h4>City:</h4>" + submitAnAdBean.getCity() + "</td>");
-					out.print("</tr>");
-					out.print("</table>");
-					out.print("<br> <br> <br> ");
+			while (list.hasNext()) {
+				SubmitAnAdBean submitAnAdBean = list.next();
+				out.print("<table class=" + "table table-bordered table-hover>"
+						+ "");
+				out.print("<tr>");
+				out.print("<td> <h4>Ad Title:</h4>"
+						+ submitAnAdBean.getAdtitle() + "</td>");
+				out.print("<td> <h4>Category:</h4>"
+						+ submitAnAdBean.getCategory() + "</td>");
+				out.print("</tr>");
+				out.print("<tr>");
+				out.print("<td> <h4>Ad Description:</h4>"
+						+ submitAnAdBean.getAddescription() + "</td>");
+				out.print("<td>" + submitAnAdBean.getPrice() + "</td>");
+				out.print("</tr>");
+				out.print("<tr>");
+				out.print("<td> <h4>Name:</h4>" + submitAnAdBean.getName()
+						+ "</td>");
+				out.print("<td> <h4>Email:</h4>" + submitAnAdBean.getEmail()
+						+ "</td>");
+				out.print("<td> <h4>Phone:</h4>" + submitAnAdBean.getPhone()
+						+ "</td");
+				out.print("</tr>");
+				out.print("<tr>");
+				if (submitAnAdBean.getWhatsapp().equalsIgnoreCase("y")) {
+					whatsapp = "Avaliable";
+				} else {
+					whatsapp = "Not Avaliable";
 				}
-			%>
+				out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
+				out.print("<td> <h4>City:</h4>" + submitAnAdBean.getCity()
+						+ "</td>");
+				out.print("</tr>");
+				out.print("</table>");
+				out.print("<br> <br> <br> ");
+			}
+		%>
 	</div>
 </body>
 </html>

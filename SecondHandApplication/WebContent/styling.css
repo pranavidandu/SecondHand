@@ -1,0 +1,55 @@
+.submitbtn {
+	position: absolute;
+	top: 24px;
+	left: 710px;
+}
+
+.mainheader {
+	height: 40px;
+	text-align: center;
+}
+
+.drop {
+	height: 20px;
+}
+
+.tablediv {
+	height: 300px;
+}
+
+.pagediv {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	z-index: 15;
+	top: 38%;
+	left: 33%;
+	margin: -100px 0 0 -150px;
+	background: #DFF2BF;
+}
+
+.griddiv {
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	z-index: 15;
+	top: 35%;
+	left: 33%;
+	margin: -100px 0 0 -150px;
+	background: #DFF2BF;
+}
+
+.jumbotron {
+	width: 150px;
+	height: 150px;
+	left: 30%;
+	background-color: red;
+}
+
+.searchbox {
+	width: 200px;
+}
+
+.footer {
+	
+}
