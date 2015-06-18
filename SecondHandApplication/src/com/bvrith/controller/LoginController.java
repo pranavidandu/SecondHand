@@ -40,6 +40,9 @@ public class LoginController extends HttpServlet {
 		catch(SQLException se) {
 			se.printStackTrace();
 		}
+		SecondHandLog log = new SecondHandLog();
+		
+		log.write(email);
 		if(result) {
 			response.sendRedirect("start.jsp");
 		}

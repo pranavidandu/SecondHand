@@ -73,6 +73,7 @@
 .footer {
 	position: absolute;
 	top: 900px;
+	left: 350px;
 }
 </style>
 </head>
@@ -184,7 +185,7 @@
 				<div class="col-sm-4" style="background-color: #DFF2BF;">
 					<p>
 						<a href="fashion.jsp"><img src="./IMG/watch.png"
-							style="width: 120px; height: 130px;"> <br>
+							style="width: 100px; height: 130px;"> <br>
 							<h4>Fashion & Beauty</h4></a>
 					</p>
 
@@ -208,9 +209,11 @@
 			</div>
 		</div>
 	</div>
-	<footer class="footer">
-	<h4 style="color: #003D00">Designed and Developed by Flora Moses,
-		Pranavi Dandu and Naga Purnika</h4>
-	</footer>
+	<table>
+	<tr><td><footer class="footer" >
+	<h4 style="color: black">Designed and Developed by Flora Moses,
+		Pranavi Dandu and Naga Purnika from Computer Science and Engineering </h4>
+	</footer></tr>
+	</table>
 </body>
 </html>
