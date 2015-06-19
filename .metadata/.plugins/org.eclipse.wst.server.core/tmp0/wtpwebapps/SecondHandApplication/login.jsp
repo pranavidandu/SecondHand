@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	<%
+	String status = request.getParameter("status");
+	if(status != null) {
+		out.print("<h3>"+ status+"</h3>");
+	}
+	/* String error = request.getParameter("error");
+	if(status != null) {
+		out.print("<h3>" + error + "</h3>");
+	} */
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +29,7 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="submitanad.jsp"><button
+				<li class="active"><a href="ads.jsp"><button
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
 
@@ -69,22 +78,7 @@
 
 					</span> <input type="text" name="email" class="form-control"
 						placeholder="Enter email">
-					<%-- <div class="alert alert-danger">
-						<strong>Danger!</strong>
-						
-					</div> --%>
 				</div>
-				<div class="alert alert-warning">
-					<strong>
-						<%
-							String message = request.getParameter("message");
-							if (message != null) {
-								out.print("<h2>" + message + "</h2>");
-							}
-						%>
-					</strong>
-				</div>
-
 			</div>
 		</div>
 		<div class="form-group">

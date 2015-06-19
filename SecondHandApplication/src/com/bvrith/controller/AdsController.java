@@ -31,9 +31,7 @@ public class AdsController extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String whatsapp = "Y";
 		String city = request.getParameter("city");
-		System.out.println("Here" + whatsapp);
 		AdDAO submitAnAdDAO;
-		
 		int result = 0;
 		try {
 			submitAnAdDAO = new AdDAO();

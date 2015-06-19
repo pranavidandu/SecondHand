@@ -27,7 +27,7 @@ public class SignupController extends HttpServlet {
 		String pass = request.getParameter("password1");
 		String pass1 = request.getParameter("password2");
 		if(!pass.equals(pass1)) {
-			response.sendRedirect("signup.jsp");
+			response.sendRedirect("signup.jsp?status=Passwords don't match. Please try again.");
 		}
 		else {
 			UserDAO userDAO;

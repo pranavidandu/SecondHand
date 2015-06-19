@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
+	<%
 	HttpSession hs = request.getSession();
 	String email = (String)hs.getAttribute("emailid");
-	if (email == null) {
+	if(email == null) {
 		response.sendRedirect("login.jsp");
 	}
-%>
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,8 +21,6 @@
 <title>Second Hand</title>
 <link rel="stylesheet" src="/SecondHandApplication/WebContent/styling.css">
 <style type="text/css">
-
-
 .panel-heading {
 	background-color: #31B94D !important
 }
@@ -41,18 +39,10 @@
 
 			</ul>
 			<%
-			if (email == null) {
-				out.print("<ul class=\"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-				out.print("</ul>");
-			}
-			else {
 				out.print("<ul class = \"nav navbar-nav navbar-right\">");
 				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
 				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 				out.print("</ul>");
-			}
 			%>
 		</div>
 	</div>
@@ -67,7 +57,7 @@
 		<div class="container tablediv">
 			<h2>Submit a Free Classified Ad</h2>
 			<h3>
-				<form action="SubmitanadController">
+				<form action="AdsController">
 					<div class="form-group">
 						<div class="panel-group">
 							<div class="panel panel-default">
@@ -87,8 +77,48 @@
 												placeholder="Select a Category" required>
 												<option>Mobiles</option>
 												<option>Tablets</option>
-												<option>EarPhones</option>
-												<option>CaeCovers</option>
+												<option>Ear Phones</option>
+												<option>Case Covers</option>
+												<option>Computers</option>
+												<option>Cds</option>
+												<option>Camera</option>
+												<option>Video Games</option>
+												<option>TV</option>
+												<option>Other Electronics</option>
+												<option>Cars</option>
+												<option>Motorcycle</option>
+												<option>Scooters</option>
+												<option>Bicycles</option>
+												<option>Commercial Vehicles</option>
+												<option>Other Vehicles</option>
+												<option>Furniture</option>
+												<option>Decor</option>
+												<option>Fridge and AC</option>
+												<option>Kitchen Appliances</option>
+												<option>Paintings and Handicrafts</option>
+												<option>Dogs</option>
+												<option>Aquarium and Fishes</option>
+												<option>Birds</option>
+												<option>Cats</option>
+												<option>Animal food</option>
+												<option>Other Animals</option>
+												<option>Books</option>
+												<option>Musical Instruments</option>
+												<option>Sports</option>
+												<option>Fitness</option>
+												<option>Coins and Collectibles</option>
+												<option>Clothes</option>
+												<option>Shoes</option>
+												<option>Jewellary</option>
+												<option>Bags</option>
+												<option>Watches</option>
+												<option>Health and Beauty</option>
+												<option>Strollers</option>
+												<option>Kid Furnitures</option>
+												<option>Car Seat</option>
+												<option>Nutrition</option>
+												<option>Kid Clothing</option>
+												<option>Toys and Games</option>
 												</select>
 										</div>
 									</div>
@@ -104,22 +134,7 @@
 										<div class="panel panel-default">
 											<div class="panel-heading">Upload Photos</div>
 											<div class="panel-body">
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> <br>
-												<br> <img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100"> &nbsp;
-												<img src="./IMG/upload.png" class="img-thumbnail"
-													alt="cannot upload" width="100" height="100">
+												<input type = "file" name = "photo1"/>
 											</div>
 											<div class="panel panel-default">
 												<div class="panel-heading">Price</div>

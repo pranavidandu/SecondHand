@@ -90,7 +90,7 @@
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td><a href="show.jsp?category=Cd"><img src="./IMG/cd.png"
 						style="width: 140px; height: 120px;"> <br> <br>
-						<h4 align="center">CD's & VCD's</h4></a></td>
+						<h4 align="center">CDs & VCDs</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td><a href="show.jsp?category=Cameras"><img
 						src="./IMG/camera.png" style="width: 180px; height: 120px;">

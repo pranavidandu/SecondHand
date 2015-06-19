@@ -25,10 +25,7 @@ public class LoginController extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-		String emailreg = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-		String password = request.getParameter("password");
-		Boolean b = email.matches(emailreg);
-		
+		String password = request.getParameter("password");	
 		HttpSession hs = request.getSession();
 		hs.setAttribute("emailid", email);
 		boolean result = true;
@@ -50,11 +47,7 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("start.jsp");
 		}
 		else {
-			if (b == false) {
-				response.sendRedirect("login.jsp?message=Enter a valid email address");
-			}
-			else
-				response.sendRedirect("login.jsp");
+			response.sendRedirect("login.jsp?status=Invalid email or password");
 		}
 			
 	}

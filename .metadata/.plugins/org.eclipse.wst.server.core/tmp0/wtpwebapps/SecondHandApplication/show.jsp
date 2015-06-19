@@ -35,7 +35,7 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="submitanad.jsp"><button
+				<li class="active"><a href="ads.jsp"><button
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
 

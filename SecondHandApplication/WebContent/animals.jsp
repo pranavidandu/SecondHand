@@ -107,7 +107,7 @@
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td><img src="./IMG/dogfood.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Paintings and Handicrafts</h4></td>
+					<h4 align="center">Animal food</h4></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td><img src="./IMG/rabbit.png"
 					style="width: 140px; height: 120px;"> <br> <br>
