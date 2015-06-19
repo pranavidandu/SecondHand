@@ -3,7 +3,11 @@
 <%
 	String msg = request.getParameter("msg");
 	if (msg != null) {
-		out.print("<h1>" + msg + "</h1>");
+		out.print("<h3>" + msg + "</h3>");
+	}
+	String msg1 = request.getParameter("msg1");
+	if(msg1 != null) {
+		out.print("<h3>"+ msg1 +"</h3>");
 	}
 	String pwdmsg = request.getParameter("pwdmssg");
 	if (pwdmsg != null) {
@@ -22,8 +26,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SecondHand</title>
 <script type="text/javascript">
-
-
+	function validate() {
+		String pass1 = request.getParameter("password1");
+		String pass2 = request.getParameter("password2");
+		if(pass1 != pass2) {
+			alert("Passwords doesn't match. Try again.");
+		}
+	}
 </script>
 </head>
 <body>
@@ -51,9 +60,9 @@
 		<h2>SignUp here</h2>
 	</center>
 	<br>
-	<form class="form-horizontal" action="SignupController">
+	<form class="form-horizontal" action="SignupController" onsubmit="validate()">
 		<div class="form-group">
-			<label class="control-label col-md-4">User:</label>
+			<label class="control-label col-md-4">Email:</label>
 			<div class="col-md-offset-4 col-md-6">
 				<div class="input-group input-group-lg">
 
@@ -75,13 +84,14 @@
 					<span class="input-group-addon"> <span
 						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
-					</span> <input type="password" class="form-control" name="password"
+					</span> <input type="password" class="form-control" name="password1"
 						placeholder="Enter password" required>
 
 				</div>
+
 			</div>
 		</div>
-		<div class="form-group">
+<!-- 		<div class="form-group">
 			<label class="control-label col-md-4" for="pwd">Re-enter
 				Password:</label>
 			<div class="col-md-offset-4 col-md-6">
@@ -91,9 +101,18 @@
 					<span class="input-group-addon"> <span
 						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
-					</span> <input type="password" class="form-control" name="password1"
+					</span> <input type="password" class="form-control" name="password2"
 						placeholder="Enter password" required>
 
+				</div> -->
+				<div class="alert alert-warning">
+					<strong> <%
+ 	String message = request.getParameter("message");
+ 	if (message != null) {
+ 		out.print("<h2>" + message + "</h2>");
+ 	}
+ %>
+					</strong>
 				</div>
 			</div>
 		</div>

@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bvrith.beans.SubmitAnAdBean;
-import com.bvrith.dao.SubmitAnAdDAO;
+import com.bvrith.beans.AdsBean;
+import com.bvrith.dao.AdDAO;
 
-public class SubmitanadController extends HttpServlet {
+public class AdsController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
@@ -32,12 +32,12 @@ public class SubmitanadController extends HttpServlet {
 		String whatsapp = "Y";
 		String city = request.getParameter("city");
 		System.out.println("Here" + whatsapp);
-		SubmitAnAdDAO submitAnAdDAO;
+		AdDAO submitAnAdDAO;
 		
 		int result = 0;
 		try {
-			submitAnAdDAO = new SubmitAnAdDAO();
-			SubmitAnAdBean subbean = new SubmitAnAdBean(adtitle, category, addescription, price, name, email, phone, whatsapp, city);
+			submitAnAdDAO = new AdDAO();
+			AdsBean subbean = new AdsBean(adtitle, category, addescription, price, name, email, phone, whatsapp, city);
 		    result = submitAnAdDAO.createAd(subbean);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

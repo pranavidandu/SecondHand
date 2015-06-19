@@ -1,5 +1,5 @@
-<%@page import="com.bvrith.dao.SubmitAnAdDAO"%>
-<%@page import="com.bvrith.beans.SubmitAnAdBean"%>
+<%@page import="com.bvrith.dao.AdDAO"%>
+<%@page import="com.bvrith.beans.AdsBean"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,10 +7,9 @@
 	HttpSession hs = request.getSession();
 	String email = (String) hs.getAttribute("emailid");
 	String category = request.getParameter("category");
-	SubmitAnAdDAO submitAnAdDAO = new SubmitAnAdDAO();
-	List<SubmitAnAdBean> lst = submitAnAdDAO.listAds(category);
-	ListIterator<SubmitAnAdBean> list = lst.listIterator();
-
+	AdDAO submitAnAdDAO = new AdDAO();
+	List<AdsBean> lst = submitAnAdDAO.listAds(category);
+	ListIterator<AdsBean> list = lst.listIterator();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,18 +42,18 @@
 			</ul>
 			<%
 				if (email == null) {
-						out.print("<ul class=\"nav navbar-nav navbar-right\">");
-						out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-						out.print("</ul>");
-					}
-					else {
-						out.print(email);
-						out.print("<ul class = \"nav navbar-nav navbar-right\">");
-						out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-						out.print("</ul>");
-					}
+							out.print("<ul class=\"nav navbar-nav navbar-right\">");
+							out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+							out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+							out.print("</ul>");
+						}
+						else {
+							out.print(email);
+							out.print("<ul class = \"nav navbar-nav navbar-right\">");
+							out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+							out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+							out.print("</ul>");
+						}
 			%>
 		</div>
 	</div>
@@ -111,7 +110,7 @@
 		<%
 			String whatsapp = "";
 			while (list.hasNext()) {
-				SubmitAnAdBean submitAnAdBean = list.next();
+				AdsBean submitAnAdBean = list.next();
 				out.print("<table class=" + "table table-bordered table-hover>"
 						+ "");
 				out.print("<tr>");

@@ -1,10 +1,10 @@
 package com.bvrith.beans;
 
-public class SubmitAnAdBean {
+public class AdsBean {
 	String adtitle, category, addescription, name, email, phone, whatsapp, city;
 	int price;
 	
-	public SubmitAnAdBean(String adtitle, String category,
+	public AdsBean(String adtitle, String category,
 			String addescription,int price, String name, String email, String phone,
 			String whatsapp, String city) {
 		super();

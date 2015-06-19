@@ -1,7 +1,10 @@
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,15 +16,14 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+</style>
 <title>Second Hand</title>
-<%
-	HttpSession hs = request.getSession();
-	String email = (String) hs.getAttribute("emailid");
-%>
-<link rel="stylesheet" src="/SecondHandApplication/WebContent/styling.css">
+<link rel="stylesheet"
+	src="/SecondHandApplication/WebContent/styling.css">
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
 
 		<div>
@@ -38,8 +40,7 @@
 					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
 					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
 					out.print("</ul>");
-				}
-				else {
+				} else {
 					out.print(email);
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
 					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
@@ -74,26 +75,26 @@
 				style="color: white; font-size: 30px;"></span>
 		</button>
 	</div>
-   
-	
+
+
 	<div class="container pagediv">
-		<div class="container-fluid">
-			<h3>To buy or find anything select a category below :</h3>
+	<h3>To buy or find anything select a category below :</h3>
+		<div class="container-fluid" align = "center" style = "color: green;">	
 			<div class="row">
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="mobiles.jsp"><img src="./IMG/mobile.png"
 							style="width: 150px; height: 130px;"> <br>
 							<h4>Mobiles & Tablets</h4></a>
 					</p>
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="electronics.jsp"><img src="./IMG/laptop.png"
 							style="width: 150px; height: 130px;"> <br>
-							<h4>Electronics and computers</h4></a>
+							<h4>Electronics</h4></a>
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="vehicles.jsp"><img src="./IMG/car.png"
 							style="width: 150px; height: 130px;"> <br>
@@ -105,7 +106,7 @@
 			</div>
 			&nbsp;
 			<div class="row">
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="home.jsp"><img src="./IMG/sofaa.png"
 							style="width: 150px; height: 130px;"> <br>
@@ -113,7 +114,7 @@
 					</p>
 
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="animals.jsp"><img src="./IMG/dog.png"
 							style="width: 150px; height: 130px;"> <br>
@@ -121,11 +122,11 @@
 					</p>
 
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="books.jsp"><img src="./IMG/books.png"
 							style="width: 150px; height: 130px;"> <br>
-							<h4>Books, Sports & Hobbies</h4></a>
+							<h4>Sports & Hobbies</h4></a>
 					</p>
 
 				</div>
@@ -133,7 +134,7 @@
 			</div>
 			&nbsp;
 			<div class="row">
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="fashion.jsp"><img src="./IMG/watch.png"
 							style="width: 100px; height: 130px;"> <br>
@@ -141,15 +142,15 @@
 					</p>
 
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="kids.jsp"><img src="./IMG/toys.png"
 							style="width: 150px; height: 130px;"> <br>
-							<h4>Kids & Baby Products</h4></a>
+							<h4>Kid Products</h4></a>
 					</p>
 
 				</div>
-				<div class="col-sm-4" style="background-color: #DFF2BF;">
+				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
 						<a href="services.jsp"><img src="./IMG/chef.png"
 							style="width: 120px; height: 130px;"> <br>
@@ -163,9 +164,9 @@
 		<tr>
 			<td><footer class="footer">
 				<h4 align="center"
-					style="color: black; position: absolute; top: 900px; left: 350px;">Designed
-					and Developed by Flora Moses, Pranavi Dandu and Naga Purnika from
-					Computer Science and Engineering</h4>
+					style="color: black; position: absolute; top: 900px; left: 50px;">Designed
+					and Developed by Flora Moses, Pranavi Dandu and Naga Purnika <br /> from
+					Computer Science and Engineering Department</h4>
 				</footer>
 		</tr>
 	</table>

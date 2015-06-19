@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bvrith.beans.SubmitAnAdBean;
+import com.bvrith.beans.AdsBean;
 
-public class SubmitAnAdDAO {
+public class AdDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public SubmitAnAdDAO() throws SQLException, ClassNotFoundException{
+	public AdDAO() throws SQLException, ClassNotFoundException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}
-	public int createAd(SubmitAnAdBean submitAnAdBean) throws SQLException {
+	public int createAd(AdsBean submitAnAdBean) throws SQLException {
 		int result = 1;
 		String query = "INSERT INTO submitanad VALUES(?,?,?,?,?,?,?,?,?)";
 		st = conn.prepareStatement(query);
@@ -33,15 +33,15 @@ public class SubmitAnAdDAO {
 		result = st.executeUpdate();
 		return result;
 	}
-	public List<SubmitAnAdBean> listAds(String category) throws SQLException {
-		List<SubmitAnAdBean> lst = new ArrayList<SubmitAnAdBean>();
+	public List<AdsBean> listAds(String category) throws SQLException {
+		List<AdsBean> lst = new ArrayList<AdsBean>();
 		String query = "SELECT * FROM submitanad WHERE category = ?";
 		st = conn.prepareStatement(query);
 		st.setString(1, category);
 		ResultSet rs = st.executeQuery();
-		SubmitAnAdBean submitAnAdBean;
+		AdsBean submitAnAdBean;
 		while(rs.next()) {
-			submitAnAdBean = new SubmitAnAdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			submitAnAdBean = new AdsBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
 			lst.add(submitAnAdBean);
 		}
 		return lst;
