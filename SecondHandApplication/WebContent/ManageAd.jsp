@@ -45,9 +45,7 @@
 						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
 						out.print("</ul>");
 					} else {
-						out.print(email);
 						out.print("<ul class = \"nav navbar-nav navbar-right\">");
-
 						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
 						out.print("</ul>");
 					}
