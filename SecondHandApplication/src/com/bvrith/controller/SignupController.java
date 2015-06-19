@@ -25,26 +25,28 @@ public class SignupController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user = request.getParameter("email");
 		String pass = request.getParameter("password1");
-		/*String pass1 = request.getParameter("password2");
-		String emailreg = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-		Boolean b = user.matches(emailreg);
-		Boolean res = (pass == pass1);*/
-		UserDAO userDAO;
-		UserBean userBean = new UserBean(user, pass);
-		try {
-			int result = 0;
-			userDAO = new UserDAO();
-			result = userDAO.createUser(userBean);
-			if(result >= 1) {
-				HttpSession hs = request.getSession();
-				hs.setAttribute("emailid", user);
-				response.sendRedirect("start.jsp");
-			}
-			else {
-				response.sendRedirect("signup.jsp?msg1=Sign up failed. Try again.");
-			}
-		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
-		} 
+		String pass1 = request.getParameter("password2");
+		if(!pass.equals(pass1)) {
+			response.sendRedirect("signup.jsp");
+		}
+		else {
+			UserDAO userDAO;
+			UserBean userBean = new UserBean(user, pass);
+			try {
+				int result = 0;
+				userDAO = new UserDAO();
+				result = userDAO.createUser(userBean);
+				if(result >= 1) {
+					HttpSession hs = request.getSession();
+					hs.setAttribute("emailid", user);
+					response.sendRedirect("start.jsp");
+				}
+				else {
+					response.sendRedirect("signup.jsp?msg1=Sign up failed. Try again.");
+				}
+			} catch (ClassNotFoundException | SQLException e1) {
+				e1.printStackTrace();
+			} 
+		}
 	}
 }

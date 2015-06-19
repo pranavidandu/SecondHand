@@ -26,11 +26,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SecondHand</title>
 <script type="text/javascript">
-	function validate() {
-		String pass1 = request.getParameter("password1");
-		String pass2 = request.getParameter("password2");
+	function display() {
+		var pass1 = $("password1").val();
+		var pass2 = $("password2").val();
+		var pass2 = document.getElementsByName("password2");
 		if(pass1 != pass2) {
-			alert("Passwords doesn't match. Try again.");
+			alert("Passwords don't match. Try again");
 		}
 	}
 </script>
@@ -60,7 +61,8 @@
 		<h2>SignUp here</h2>
 	</center>
 	<br>
-	<form class="form-horizontal" action="SignupController" onsubmit="validate()">
+	<form class="form-horizontal" action="SignupController"
+		onsubmit="validate()">
 		<div class="form-group">
 			<label class="control-label col-md-4">Email:</label>
 			<div class="col-md-offset-4 col-md-6">
@@ -91,7 +93,7 @@
 
 			</div>
 		</div>
-<!-- 		<div class="form-group">
+		<div class="form-group">
 			<label class="control-label col-md-4" for="pwd">Re-enter
 				Password:</label>
 			<div class="col-md-offset-4 col-md-6">
@@ -102,23 +104,14 @@
 						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
 					</span> <input type="password" class="form-control" name="password2"
-						placeholder="Enter password" required>
+						placeholder="Re-enter password" required>
 
-				</div> -->
-				<div class="alert alert-warning">
-					<strong> <%
- 	String message = request.getParameter("message");
- 	if (message != null) {
- 		out.print("<h2>" + message + "</h2>");
- 	}
- %>
-					</strong>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-4 col-md-7">
-				<button type="submit" class="btn btn-success">Sign Up</button>
+				<button name="submitbtn" type="submit" class="btn btn-success" onclick="display()">Sign Up</button>
 			</div>
 		</div>
 	</form>

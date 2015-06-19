@@ -8,23 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ErrorHandler
- */
-public class ErrorHandler extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    
+public class ErrorHandler extends HttpServlet { 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Analyze the servlet exception       
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{ 
 	      Throwable throwable = (Throwable)
 	      request.getAttribute("javax.servlet.error.exception");
 	      Integer statusCode = (Integer)
@@ -39,19 +31,7 @@ public class ErrorHandler extends HttpServlet {
 	      if (requestUri == null){
 	         requestUri = "Unknown";
 	      }
-
-	      // Set response content type
 	      response.setContentType("text/html");
-	      
-	      /*if (throwable == null && statusCode == null) {
-	    	  response.sendRedirect("errorpage1.jsp");
-	      }
-	      else if (statusCode != null) {
-	    	  response.sendRedirect("errorpage2.jsp");
-	      }
-	      else {
-	    	  response.sendRedirect("errorpage3.jsp");
-	      }*/
 	      PrintWriter out = response.getWriter();
 		  String title = "Error/Exception Information";
 	      String docType =
