@@ -1,6 +1,7 @@
 package com.bvrith.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -23,8 +24,12 @@ public class LoginController extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String email = request.getParameter("email");
+		String emailreg = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 		String password = request.getParameter("password");
+		Boolean b = email.matches(emailreg);
+		
 		HttpSession hs = request.getSession();
 		hs.setAttribute("emailid", email);
 		boolean result = true;
@@ -45,8 +50,14 @@ public class LoginController extends HttpServlet {
 		if(result) {
 			response.sendRedirect("start.jsp");
 		}
-		else 
-			response.sendRedirect("login.jsp");
+		else {
+			if (b == false) {
+				response.sendRedirect("login.jsp?message=enter a valid email address");
+			}
+			else
+				response.sendRedirect("login.jsp");
+		}
+			
 	}
 
 }

@@ -8,12 +8,7 @@
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
-<%
-	HttpSession hs = request.getSession();
-	String email = (String) hs.getAttribute("emailid");
-%>
 <title>SecondHand</title>
 <style type="text/css">
 .menu {
@@ -33,9 +28,13 @@
 	right: 410px;
 }
 </style>
+<%
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+%>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
 
 		<div>
@@ -47,17 +46,19 @@
 
 			</ul>
 			<%
-				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
-					out.print("</ul>");
-				} else {
-					out.print(email);
-					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
-					out.print("</ul>");
-				}
+			if (email == null) {
+				out.print("<ul class=\"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+				out.print("</ul>");
+			}
+			else {
+				out.print(email);
+				out.print("<ul class = \"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+				out.print("</ul>");
+			}
 			%>
 		</div>
 	</div>
@@ -87,22 +88,26 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/mobile.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Mobiles</h4></td>
+				<td><a href="show.jsp?category=Mobiles"><img
+						src="./IMG/mobile.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Mobiles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/tablet.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Tablets</h4></td>
+				<td><a href="show.jsp?category=Tablets"><img
+						src="./IMG/tablet.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Tablets</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/earphones.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Ear Phones</h4></td>
+				<td><a href="show.jsp?category=EarPhoes"><img
+						src="./IMG/earphones.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Ear Phones</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/casecover.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Case Covers</h4></td>
+				<td><a href="show.jsp?category=CaseCovers"><img
+						src="./IMG/casecover.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Case Covers</h4></a></td>
 			</tr>
 		</table>
 	</div>

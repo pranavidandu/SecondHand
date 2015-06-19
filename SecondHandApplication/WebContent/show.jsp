@@ -10,6 +10,7 @@
 	SubmitAnAdDAO submitAnAdDAO = new SubmitAnAdDAO();
 	List<SubmitAnAdBean> lst = submitAnAdDAO.listAds(category);
 	ListIterator<SubmitAnAdBean> list = lst.listIterator();
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,21 +26,49 @@
 <title>Second Hand</title>
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
-s
-
 </head>
 <body>
-	<div class="page-header header">
-		<h1>
-			<p class="sansserif">SecondHand.com</p>
-		</h1>
-	</div>
+	
 <body>
-
-	<nav class="navbar navbar-inverse ">
+	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
 
 		<div>
+			<ul class="nav navbar-nav">
+
+				<li class="active"><a href="submitanad.jsp"><button
+							type="button" class="btn btn-success btn-lg">Submit An
+							Ad</button></a></li>
+
+			</ul>
+			<%
+				if (email == null) {
+						out.print("<ul class=\"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+						out.print("</ul>");
+					}
+					else {
+						out.print(email);
+						out.print("<ul class = \"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+						out.print("</ul>");
+					}
+			%>
+		</div>
+	</div>
+	</nav>
+	<div class="page-header header">
+		<h1>
+			<p class="sansserif" align="center">SecondHand.com</p>
+		</h1>
+	</div>
+
+<!-- 	<nav class="navbar navbar-inverse ">
+	<div class="container-fluid ">
+ -->
+<!-- 		<div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="submitanad.jsp"><button
 							type="button" class="btn btn-success btn-md">Submit An
@@ -72,7 +101,7 @@ s
 			</ul>
 		</div>
 	</div>
-	</nav>
+	</nav> -->
 	<div>
 		<h3>
 			<%=category%>

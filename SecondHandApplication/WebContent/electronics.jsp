@@ -11,10 +11,6 @@
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
 <title>SecondHand</title>
-<%
-	HttpSession hs = request.getSession();
-	String email = (String) hs.getAttribute("emailid");
-%>
 <style type="text/css">
 .menu {
 	float: none;
@@ -32,68 +28,11 @@
 	top: 31px;
 	right: 410px;
 }
-
-.submitbtn {
-	position: absolute;
-	top: 24px;
-	left: 710px;
-}
-
-.header {
-	height: 40px;
-	text-align: center;
-}
-
-.drop {
-	height: 20px;
-}
-
-.tablediv {
-	height: 300px;
-}
-
-.pagediv {
-	position: absolute;
-	width: 800px;
-	height: 600px;
-	z-index: 15;
-	top: 38%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.griddiv {
-	position: absolute;
-	width: 100px;
-	height: 200px;
-	z-index: 15;
-	top: 35%;
-	left: 33%;
-	margin: -100px 0 0 -150px;
-	background: #DFF2BF;
-}
-
-.jumbotron {
-	width: 150px;
-	height: 150px;
-	left: 30%;
-	background-color: red;
-}
-
-.searchbox {
-	width: 200px;
-}
-
-.footer {
-	position: absolute;
-	top: 900px;
-}
-
-.active {
-	color: #004700;
-}
 </style>
+<%
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+%>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -105,30 +44,27 @@
 				<li class="active"><a href="submitanad.jsp"><button
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
+
 			</ul>
 			<%
 				if (email == null) {
 					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
 					out.print("</ul>");
 				} else {
 					out.print(email);
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
+					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 					out.print("</ul>");
 				}
 			%>
 		</div>
 	</div>
 	</nav>
-	<div class="page-header header">
-		<h1>
-			<p class="sansserif" align="center">SecondHand.com</p>
-		</h1>
-	</div>
 	<div class="col-md-3">
-		<ul class="nav nav-pills nav-stacked" style="color: #004700;">
+		<ul class="nav nav-pills nav-stacked">
 			<li><a href="mobiles.jsp">Mobiles and Tablets</a></li>
 			<li class="active"><a href="electronics.jsp">Electronics and
 					Appliances</a></li>
@@ -143,35 +79,39 @@
 			<li><a href="realestate.jsp">Real Estate</a></li>
 		</ul>
 	</div>
-	<h3>Electronic & Computers</h3>
+	<h3>Electronics</h3>
 	<hr>
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/laptop.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Computers and Laptops</h4></td>
+				<td><a href="show.jsp?category=Laptops"><img
+						src="./IMG/laptop.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Computers and Laptops</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/cd.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">CD's & VCD's</h4></td>
+				<td><a href="show.jsp?category=Cd"><img src="./IMG/cd.png"
+						style="width: 140px; height: 120px;"> <br> <br>
+						<h4 align="center">CD's & VCD's</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/camera.png"
-					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Cameras & Accessories</h4></td>
+				<td><a href="show.jsp?category=Cameras"><img
+						src="./IMG/camera.png" style="width: 180px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Cameras & Accessories</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/videogames.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Video Games</h4></td>
+				<td><a href="show.jsp?category=Video"><img
+						src="./IMG/videogames.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Video Games</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/tv.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">TV, Video, Audio</h4></td>
+				<td><a href="show.jsp?category=Tv"><img src="./IMG/tv.png"
+						style="width: 140px; height: 120px;"> <br> <br>
+						<h4 align="center">TV, Video, Audio</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/speaker.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Electronics</h4></td>
+				<td><a href="show.jsp?category=Otherelec"><img
+						src="./IMG/speaker.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Other Electronics</h4></a></td>
 			</tr>
 		</table>
 	</div>

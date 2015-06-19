@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-    %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,7 +25,7 @@
 							Ad</button></a></li>
 
 			</ul>
-			
+
 		</div>
 	</div>
 	</nav>
@@ -66,12 +65,26 @@
 				<div class="input-group input-group-lg">
 
 					<span class="input-group-addon"> <span
-						class="glyphicon glyphicon-envelope" style="color: blue"></span>
+						class="glyphicon glyphicon-envelope" style="color: #31B94D"></span>
 
-					</span> <input type="email" name="email" class="form-control"
-						placeholder="Enter email" required>
-
+					</span> <input type="text" name="email" class="form-control"
+						placeholder="Enter email">
+					<%-- <div class="alert alert-danger">
+						<strong>Danger!</strong>
+						
+					</div> --%>
 				</div>
+				<div class="alert alert-warning">
+					<strong>
+						<%
+							String message = request.getParameter("message");
+							if (message != null) {
+								out.print("<h2>" + message + "</h2>");
+							}
+						%>
+					</strong>
+				</div>
+
 			</div>
 		</div>
 		<div class="form-group">
@@ -80,7 +93,7 @@
 				<div class="input-group input-group-lg">
 
 					<span class="input-group-addon"> <span
-						class="glyphicon glyphicon-lock" style="color: blue"></span>
+						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
 					</span> <input type="password" class="form-control" name="password"
 						placeholder="Enter password" required>
@@ -98,13 +111,14 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-4 col-md-7">
-				<button type="submit" class="btn btn-primary">Login</button>
+				<button type="submit" class="btn btn-success">Login</button>
 			</div>
 		</div>
 	</form>
 	<center>
 		<h3>
-			New User?&nbsp;<a href="signup.jsp" style="color: blue;">Sign Up</a>
+			New User?&nbsp;<a href="signup.jsp" style="color: #31B94D;">Sign
+				Up</a>
 		</h3>
 	</center>
 </body>

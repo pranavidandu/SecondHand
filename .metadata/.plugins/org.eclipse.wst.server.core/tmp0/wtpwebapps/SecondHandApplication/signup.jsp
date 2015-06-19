@@ -21,6 +21,10 @@
 	src="/SecondHandApplication/WebContent/styling.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SecondHand</title>
+<script type="text/javascript">
+
+
+</script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -54,7 +58,7 @@
 				<div class="input-group input-group-lg">
 
 					<span class="input-group-addon"> <span
-						class="glyphicon glyphicon-envelope" style="color: blue"></span>
+						class="glyphicon glyphicon-envelope" style="color: #31B94D"></span>
 
 					</span> <input type="email" name="email" class="form-control"
 						placeholder="Enter email" required>
@@ -69,7 +73,7 @@
 				<div class="input-group input-group-lg">
 
 					<span class="input-group-addon"> <span
-						class="glyphicon glyphicon-lock" style="color: blue"></span>
+						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
 					</span> <input type="password" class="form-control" name="password"
 						placeholder="Enter password" required>
@@ -85,7 +89,7 @@
 				<div class="input-group input-group-lg">
 
 					<span class="input-group-addon"> <span
-						class="glyphicon glyphicon-lock" style="color: blue"></span>
+						class="glyphicon glyphicon-lock" style="color: #31B94D"></span>
 
 					</span> <input type="password" class="form-control" name="password1"
 						placeholder="Enter password" required>
@@ -95,7 +99,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-4 col-md-7">
-				<button type="submit" class="btn btn-primary">Sign Up</button>
+				<button type="submit" class="btn btn-success">Sign Up</button>
 			</div>
 		</div>
 	</form>

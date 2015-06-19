@@ -24,7 +24,7 @@
 
 
 .panel-heading {
-	background-color: #4791DA !important
+	background-color: #31B94D !important
 }
 </style>
 </head>
@@ -41,18 +41,19 @@
 
 			</ul>
 			<%
-				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span> Sign Up</a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px;\"></span>Login</a></li>");
-					out.print("</ul>");
-				}
-				else {
-					out.print(email);
-					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px;\"></span>Logout</a></li>");
-					out.print("</ul>");
-				}
+			if (email == null) {
+				out.print("<ul class=\"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+				out.print("</ul>");
+			}
+			else {
+				out.print(email);
+				out.print("<ul class = \"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+				out.print("</ul>");
+			}
 			%>
 		</div>
 	</div>
@@ -83,8 +84,13 @@
 									<div class="panel-heading">Category</div>
 									<div class="panel-body">
 										<div class="form-group">
-											<input type="text" class="form-control" name="category"
+											<select class="form-control" name="category"
 												placeholder="Select a Category" required>
+												<option>Mobiles</option>
+												<option>Tablets</option>
+												<option>EarPhones</option>
+												<option>CaeCovers</option>
+												</select>
 										</div>
 									</div>
 
@@ -169,7 +175,7 @@
 																		</div>
 																	</div>
 																</div>
-																<button type="submit" class="btn btn-primary btn-lg">SUBMIT</button>
+																<button type="submit" class="btn btn-success btn-lg">SUBMIT</button>
 															</div>
 														</div>
 													</div>

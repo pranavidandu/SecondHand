@@ -41,7 +41,7 @@ public class SubmitAnAdDAO {
 		ResultSet rs = st.executeQuery();
 		SubmitAnAdBean submitAnAdBean;
 		while(rs.next()) {
-			submitAnAdBean = new SubmitAnAdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			submitAnAdBean = new SubmitAnAdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
 			lst.add(submitAnAdBean);
 		}
 		return lst;
