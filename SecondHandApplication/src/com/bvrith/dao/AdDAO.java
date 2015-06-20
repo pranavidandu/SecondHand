@@ -46,6 +46,27 @@ public class AdDAO {
 		}
 		return lst;
 	}
+	public List<AdsBean> listAds1(String email) throws SQLException {
+		List<AdsBean> lst = new ArrayList<AdsBean>();
+		String query = "SELECT * FROM submitanad WHERE email = ?";
+		st = conn.prepareStatement(query);
+		st.setString(1, email);
+		ResultSet rs = st.executeQuery();
+		AdsBean submitAnAdBean;
+		while(rs.next()) {
+			submitAnAdBean = new AdsBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			lst.add(submitAnAdBean);
+		}
+		return lst;
+	}
+	public int delete(String adtitle) throws SQLException {
+		int result = 0;
+		String query = "delete from submitanad where adtitle = ?";
+		st = conn.prepareStatement(query);
+		st.setString(1, adtitle);
+		result = st.executeUpdate();
+		return result;
+	}
 }
 
 

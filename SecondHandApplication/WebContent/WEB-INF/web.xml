@@ -91,4 +91,14 @@
     <filter-name>LoginCheckFilter</filter-name>
     <url-pattern>/LoginCheckFilter</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteController</display-name>
+    <servlet-name>DeleteController</servlet-name>
+    <servlet-class>com.bvrith.controller.DeleteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteController</servlet-name>
+    <url-pattern>/DeleteController</url-pattern>
+  </servlet-mapping>
 </web-app>

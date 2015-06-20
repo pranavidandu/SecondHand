@@ -10,6 +10,10 @@
 	AdDAO submitAnAdDAO = new AdDAO();
 	List<AdsBean> lst = submitAnAdDAO.listAds(category);
 	ListIterator<AdsBean> list = lst.listIterator();
+	String message = request.getParameter("message");
+	if (message != null) {
+		out.print("<h3>" + message + "</h3>");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -27,7 +31,6 @@
 	src="/SecondHandApplication/WebContent/styling.css">
 </head>
 <body>
-	
 <body>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
@@ -35,24 +38,22 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
 			<%
 				if (email == null) {
-							out.print("<ul class=\"nav navbar-nav navbar-right\">");
-							out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-							out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-							out.print("</ul>");
-						}
-						else {
-							out.print("<ul class = \"nav navbar-nav navbar-right\">");
-							out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-							out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-							out.print("</ul>");
-						}
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+					out.print("</ul>");
+				} else {
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
@@ -62,44 +63,6 @@
 			<p class="sansserif" align="center">SecondHand.com</p>
 		</h1>
 	</div>
-
-<!-- 	<nav class="navbar navbar-inverse ">
-	<div class="container-fluid ">
- -->
-<!-- 		<div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="submitanad.jsp"><button
-							type="button" class="btn btn-success btn-md">Submit An
-							Ad</button></a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><div class="dropdown">
-						<input name="item" class="dropdown-toggle" data-toggle="dropdown"><span
-							class="caret"></span>
-						<ul class="dropdown-menu">
-							<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles</a></li>
-							<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-									Estate</a></li>
-							<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-							<li class="divider"></li>
-							<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
-						</ul>
-						<button type="submit" class="btn btn-xs btn-success">
-							<span class="glyphicon glyphicon-search"
-								style="color: white; font-size: 29px;"></span>
-						</button>
-					</div></li>
-				<li><a href="signup.jsp"><span
-						class="glyphicon glyphicon-user" style="font-size: 50px"></span>
-						Sign Up</a></li>
-				<li><a href="login.jsp"><span
-						class="glyphicon glyphicon-log-in" style="font-size: 50px"></span>
-						Login</a></li>
-
-			</ul>
-		</div>
-	</div>
-	</nav> -->
 	<div>
 		<h3>
 			<%=category%>
@@ -115,21 +78,29 @@
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Title:</h4>"
 						+ submitAnAdBean.getAdtitle() + "</td>");
-				out.print("<td> <h4>Category:</h4>"
+				out.print("<td> <h4>Sub-Category:</h4>"
 						+ submitAnAdBean.getCategory() + "</td>");
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Description:</h4>"
 						+ submitAnAdBean.getAddescription() + "</td>");
-				out.print("<td>" + submitAnAdBean.getPrice() + "</td>");
+				out.print("<td><h4>Price:</h4>" + submitAnAdBean.getPrice()
+						+ "</td>");
+				out.print("<td> <h4>Phone:</h4>" + submitAnAdBean.getPhone()
+						+ "</td");
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td> <h4>Name:</h4>" + submitAnAdBean.getName()
 						+ "</td>");
 				out.print("<td> <h4>Email:</h4>" + submitAnAdBean.getEmail()
 						+ "</td>");
-				out.print("<td> <h4>Phone:</h4>" + submitAnAdBean.getPhone()
-						+ "</td");
+				String adname = submitAnAdBean.getAdtitle();
+				String phoneno = submitAnAdBean.getPhone();
+				out.print("<td><a href = DeleteController?adtitle1="
+						+ adname
+						+ " &phone1="
+						+ phoneno
+						+ "><button type=\"button\" class=\"btn btn-success btn-lg\">Buy</button></a></td>");
 				out.print("</tr>");
 				out.print("<tr>");
 				if (submitAnAdBean.getWhatsapp().equalsIgnoreCase("y")) {
