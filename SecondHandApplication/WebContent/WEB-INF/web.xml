@@ -59,7 +59,7 @@
     <location>/ErrorHandler</location>
   </error-page>
   <error-page>
-    <exception-type>java.lang.NullPointerException</exception-type>
+    <exception-type>java.lang.Exception</exception-type>
     <location>/ErrorHandler</location>
   </error-page>
   <servlet>
@@ -100,5 +100,15 @@
   <servlet-mapping>
     <servlet-name>DeleteController</servlet-name>
     <url-pattern>/DeleteController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BuyAdController</display-name>
+    <servlet-name>BuyAdController</servlet-name>
+    <servlet-class>com.bvrith.controller.BuyAdController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BuyAdController</servlet-name>
+    <url-pattern>/BuyAdController</url-pattern>
   </servlet-mapping>
 </web-app>
