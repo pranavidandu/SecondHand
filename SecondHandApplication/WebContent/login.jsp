@@ -5,6 +5,7 @@
 	if(status != null) {
 		out.print("<h3>"+ status+"</h3>");
 	}
+
 	/* String error = request.getParameter("error");
 	if(status != null) {
 		out.print("<h3>" + error + "</h3>");
@@ -34,6 +35,7 @@
 							Ad</button></a></li>
 
 			</ul>
+			
 
 		</div>
 	</div>
@@ -44,24 +46,7 @@
 		</h1>
 
 	</div>
-	<div class="dropdown" style="font-size: 20px;" align="right">
-		<input name="item" class="dropdown-toggle" data-toggle="dropdown"><span
-			class="caret"></span>
-		<ul class="dropdown-menu dropdown-menu-right">
-			<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles
-					& Tablets</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-					Estate</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-			<li class="divider"></li>
-			<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
-		</ul>
-		<button type="submit" class="btn btn-xs btn-success">
-			<span class="glyphicon glyphicon-search"
-				style="color: white; font-size: 30px;"></span>
-		</button>
-	</div>
+
 
 	<center>
 		<h2>Login here</h2>
