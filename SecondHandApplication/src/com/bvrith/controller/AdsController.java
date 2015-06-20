@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bvrith.beans.AdsBean;
+import com.bvrith.beans.AdBean;
 import com.bvrith.dao.AdDAO;
 
 public class AdsController extends HttpServlet {
@@ -35,7 +35,7 @@ public class AdsController extends HttpServlet {
 		int result = 0;
 		try {
 			adDAO = new AdDAO();
-			AdsBean subbean = new AdsBean(adtitle, category, addescription, price, name, email, phone, whatsapp, city);
+			AdBean subbean = new AdBean(adtitle, category, addescription, price, name, email, phone, whatsapp, city);
 		    result = adDAO.createAd(subbean);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

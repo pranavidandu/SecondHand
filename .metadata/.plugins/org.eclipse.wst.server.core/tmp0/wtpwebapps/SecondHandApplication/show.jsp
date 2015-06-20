@@ -1,5 +1,5 @@
 <%@page import="com.bvrith.dao.AdDAO"%>
-<%@page import="com.bvrith.beans.AdsBean"%>
+<%@page import="com.bvrith.beans.AdBean"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,8 +8,8 @@
 	String email = (String) hs.getAttribute("emailid");
 	String category = request.getParameter("category");
 	AdDAO submitAnAdDAO = new AdDAO();
-	List<AdsBean> lst = submitAnAdDAO.listAds(category);
-	ListIterator<AdsBean> list = lst.listIterator();
+	List<AdBean> lst = submitAnAdDAO.listAds(category);
+	ListIterator<AdBean> list = lst.listIterator();
 	String message = request.getParameter("message");
 	if (message != null) {
 		out.print("<h3>" + message + "</h3>");
@@ -44,16 +44,16 @@
 			</ul>
 			<%
 				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-					out.print("</ul>");
-				} else {
-					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-					out.print("</ul>");
-				}
+						out.print("<ul class=\"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+						out.print("</ul>");
+					} else {
+						out.print("<ul class = \"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+						out.print("</ul>");
+					}
 			%>
 		</div>
 	</div>
@@ -72,7 +72,7 @@
 		<%
 			String whatsapp = "";
 			while (list.hasNext()) {
-				AdsBean submitAnAdBean = list.next();
+				AdBean submitAnAdBean = list.next();
 				out.print("<table class=" + "table table-bordered table-hover>"
 						+ "");
 				out.print("<tr>");
