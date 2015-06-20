@@ -88,35 +88,35 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/jeans.png"
+				<td><a href="show.jsp?category=Clothes"><img src="./IMG/jeans.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Clothes</h4></td>
+					<h4 align="center">Clothes</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/shoes.png"
+				<td><a href="show.jsp?category=Shoes"><img src="./IMG/shoes.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Shoes</h4></td>
+					<h4 align="center">Shoes</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/jewellary.png"
+				<td><a href="show.jsp?category=Jewellery"><img src="./IMG/jewellary.png"
 					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Jewellery</h4></td>
+					<h4 align="center">Jewellery</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/bags.png"
+				<td><a href="show.jsp?category=Bags"><img src="./IMG/bags.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Bags & Luggages</h4></td>
+					<h4 align="center">Bags & Luggages</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/perfume.png"
+				<td><a href="show.jsp?category=Books"><img src="./IMG/perfume.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Accessories</h4></td>
+					<h4 align="center">Other Accessories</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/watch.png"
+				<td><a href="show.jsp?category=Watches"><img src="./IMG/watch.png"
 					style="width: 120px; height: 120px;"> <br> <br>
-					<h4 align="center">Watches</h4></td>
+					<h4 align="center">Watches</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/weighting.png"
+				<td><a href="show.jsp?category=Health and Beauty"><img src="./IMG/weighting.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Health and Beauty</h4>
+					<h4 align="center">Health and Beauty</h4></a></td>
 			</tr>
 		</table>
 	</div>

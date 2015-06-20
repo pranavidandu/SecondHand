@@ -88,35 +88,35 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/car.png"
+				<td><a href="show.jsp?category=Cars"><img src="./IMG/car.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Cars</h4></td>
+					<h4 align="center">Cars</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/bike.png"
+				<td><a href="show.jsp?category=Motorcycle"><img src="./IMG/bike.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Motorcycle</h4></td>
+					<h4 align="center">Motorcycle</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/scootor.png"
+				<td><a href="show.jsp?category=Scooters"><img src="./IMG/scootor.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Scooters</h4></td>
+					<h4 align="center">Scooters</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/cycle.png"
+				<td><a href="show.jsp?category=Bicycles"><img src="./IMG/cycle.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Bicycles</h4></td>
+					<h4 align="center">Bicycles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/lorry.png"
+				<td><a href="show.jsp?category=Commercial Vehicles"><img src="./IMG/lorry.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Commercial Vehicles</h4></td>
+					<h4 align="center">Commercial Vehicles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/tyres.png"
+				<td><a href="show.jsp?category=Parts"><img src="./IMG/tyres.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Spare Parts</h4></td>
+					<h4 align="center">Spare Parts</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/auto.png"
+				<td><a href="show.jsp?category=Other Vehicles"><img src="./IMG/auto.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other vehicles</h4></td>
+					<h4 align="center">Other Vehicles</h4></a></td>
 			</tr>
 		</table>
 	</div>

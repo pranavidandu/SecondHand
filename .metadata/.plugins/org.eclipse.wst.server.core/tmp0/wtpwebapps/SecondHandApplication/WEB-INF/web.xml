@@ -26,13 +26,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>SubmitanadController</display-name>
-    <servlet-name>SubmitanadController</servlet-name>
-    <servlet-class>com.bvrith.controller.SubmitanadController</servlet-class>
+    <display-name>AdsController</display-name>
+    <servlet-name>AdsController</servlet-name>
+    <servlet-class>com.bvrith.controller.AdsController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SubmitanadController</servlet-name>
-    <url-pattern>/SubmitanadController</url-pattern>
+    <servlet-name>AdsController</servlet-name>
+    <url-pattern>/AdsController</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -59,7 +59,7 @@
     <location>/ErrorHandler</location>
   </error-page>
   <error-page>
-    <exception-type>java.lang.Exception</exception-type>
+    <exception-type>java.lang.NullPointerException</exception-type>
     <location>/ErrorHandler</location>
   </error-page>
   <servlet>

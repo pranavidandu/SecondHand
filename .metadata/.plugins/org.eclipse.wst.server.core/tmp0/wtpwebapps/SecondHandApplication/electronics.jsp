@@ -83,31 +83,31 @@
 	<div>
 		<table>
 			<tr>
-				<td><a href="show.jsp?category=Laptops"><img
+				<td><a href="show.jsp?category=Computers"><img
 						src="./IMG/laptop.png" style="width: 140px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Computers and Laptops</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Cd"><img src="./IMG/cd.png"
+				<td><a href="show.jsp?category=Cds"><img src="./IMG/cd.png"
 						style="width: 140px; height: 120px;"> <br> <br>
 						<h4 align="center">CDs & VCDs</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Cameras"><img
+				<td><a href="show.jsp?category=Camera"><img
 						src="./IMG/camera.png" style="width: 180px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Cameras & Accessories</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=Video"><img
+				<td><a href="show.jsp?category=Video Games"><img
 						src="./IMG/videogames.png" style="width: 140px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Video Games</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Tv"><img src="./IMG/tv.png"
+				<td><a href="show.jsp?category=TV"><img src="./IMG/tv.png"
 						style="width: 140px; height: 120px;"> <br> <br>
 						<h4 align="center">TV, Video, Audio</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Otherelec"><img
+				<td><a href="show.jsp?category=Other Electronics"><img
 						src="./IMG/speaker.png" style="width: 140px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Other Electronics</h4></a></td>

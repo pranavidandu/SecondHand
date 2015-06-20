@@ -88,30 +88,30 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/dog.png"
+				<td><a href="show.jsp?category=Dogs"><img src="./IMG/dog.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Dogs</h4></td>
+					<h4 align="center">Dogs</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/fishes.png"
+				<td><a href="show.jsp?category=Aquarium and Fishes"><img src="./IMG/fishes.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Aquarium</h4></td>
+					<h4 align="center">Aquarium and Fishes</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/bird.png"
+				<td><a href="show.jsp?category=Birds"><img src="./IMG/bird.png"
 					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Birds</h4></td>
+					<h4 align="center">Birds</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/cat.png"
+				<td><a href="show.jsp?category=Cats"><img src="./IMG/cat.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Cats</h4></td>
+					<h4 align="center">Cats</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/dogfood.png"
+				<td><a href="show.jsp?category=Animal food"><img src="./IMG/dogfood.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Animal food</h4></td>
+					<h4 align="center">Animal food</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/rabbit.png"
+				<td><a href="show.jsp?category=Other Animals"><img src="./IMG/rabbit.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Animals</h4></td>
+					<h4 align="center">Other Animals</h4></a></td>
 			</tr>
 		</table>
 	</div>

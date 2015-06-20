@@ -90,30 +90,30 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/sofaa.png"
+				<td><a href="show.jsp?category=Furniture"><img src="./IMG/sofaa.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Furniture</h4></td>
+					<h4 align="center">Furniture</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/vase.png"
+				<td><a href="show.jsp?category=Decor"><img src="./IMG/vase.png"
 					style="width: 120px; height: 120px;"> <br> <br>
-					<h4 align="center">Decor</h4></td>
+					<h4 align="center">Decor</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/fridge.png"
+				<td><a href="show.jsp?category=Fridge and AC"><img src="./IMG/fridge.png"
 					style="width: 180px; height: 130px;"> <br> <br>
-					<h4 align="center">Fridge and AC</h4></td>
+					<h4 align="center">Fridge and AC</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/griders.png"
+				<td><a href="show.jsp?category=Kitchen Appliances"><img src="./IMG/griders.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Kitchen Appliances</h4></td>
+					<h4 align="center">Kitchen Appliances</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/painting.png"
+				<td><a href="show.jsp?category=Paintings and Handicrafts"><img src="./IMG/painting.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Paintings and Handicrafts</h4></td>
+					<h4 align="center">Paintings and Handicrafts</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/items.png"
+				<td><a href="show.jsp?category=Other"><img src="./IMG/items.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Items</h4></td>
+					<h4 align="center">Other Items</h4></a></td>
 			</tr>
 		</table>
 	</div>

@@ -88,35 +88,35 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/strollers.png"
+				<td><a href="show.jsp?category=Strollers"><img src="./IMG/strollers.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Strollers</h4></td>
+					<h4 align="center">Strollers</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/kidchair.png"
+				<td><a href="show.jsp?category=Kid Furnitures"><img src="./IMG/kidchair.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Kid Furnitures</h4></td>
+					<h4 align="center">Kid Furnitures</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/carseat.png"
+				<td><a href="show.jsp?category=Car Seat"><img src="./IMG/carseat.png"
 					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Car Seat</h4></td>
+					<h4 align="center">Car Seat</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/nutrition.png"
+				<td><a href="show.jsp?category=Nutrition"><img src="./IMG/nutrition.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Nutrition</h4></td>
+					<h4 align="center">Nutrition</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/kidclothes.png"
+				<td><a href="show.jsp?category=Kid Clothing"><img src="./IMG/kidclothes.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Kids Clothing</h4></td>
+					<h4 align="center">Kids Clothing</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/toys.png"
+				<td><a href="show.jsp?category=Toys & Games"><img src="./IMG/toys.png"
 					style="width: 120px; height: 120px;"> <br> <br>
-					<h4 align="center">Toys & Games</h4></td>
+					<h4 align="center">Toys & Games</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/kidbags.png"
+				<td><a href="show.jsp?category=Clothes"><img src="./IMG/kidbags.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Accessories</h4>
+					<h4 align="center">Other Accessories</h4></a></td>
 			</tr>
 		</table>
 	</div>

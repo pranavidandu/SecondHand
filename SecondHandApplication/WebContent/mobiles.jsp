@@ -96,13 +96,13 @@
 						<br> <br>
 						<h4 align="center">Tablets</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=EarPhoes"><img
+				<td><a href="show.jsp?category=Ear Phones"><img
 						src="./IMG/earphones.png" style="width: 140px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Ear Phones</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=CaseCovers"><img
+				<td><a href="show.jsp?category=Case Covers"><img
 						src="./IMG/casecover.png" style="width: 140px; height: 120px;">
 						<br> <br>
 						<h4 align="center">Case Covers</h4></a></td>

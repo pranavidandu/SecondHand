@@ -31,12 +31,12 @@ public class AdsController extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String whatsapp = "Y";
 		String city = request.getParameter("city");
-		AdDAO submitAnAdDAO;
+		AdDAO adDAO;
 		int result = 0;
 		try {
-			submitAnAdDAO = new AdDAO();
+			adDAO = new AdDAO();
 			AdsBean subbean = new AdsBean(adtitle, category, addescription, price, name, email, phone, whatsapp, city);
-		    result = submitAnAdDAO.createAd(subbean);
+		    result = adDAO.createAd(subbean);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

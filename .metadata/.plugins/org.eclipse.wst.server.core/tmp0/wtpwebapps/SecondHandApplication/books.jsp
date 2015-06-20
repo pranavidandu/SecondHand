@@ -89,30 +89,30 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="./IMG/books.png"
+				<td><a href="show.jsp?category=Books"><img src="./IMG/books.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Books</h4></td>
+					<h4 align="center">Books</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/guitar.png"
+				<td><a href="show.jsp?category=Musical Instruments"><img src="./IMG/guitar.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Musical Instruments</h4></td>
+					<h4 align="center">Musical Instruments</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/ball.png"
+				<td><a href="show.jsp?category=Sports"><img src="./IMG/ball.png"
 					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Sports</h4></td>
+					<h4 align="center">Sports</h4></a></td>
 			</tr>
 			<tr>
-				<td><img src="./IMG/dumbell.png"
+				<td><a href="show.jsp?category=Fitness"><img src="./IMG/dumbell.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Fitness</h4></td>
+					<h4 align="center">Fitness</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/coins.png"
+				<td><a href="show.jsp?category=Coins and Collectibles"><img src="./IMG/coins.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Coins and Collectibles</h4></td>
+					<h4 align="center">Coins and Collectibles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><img src="./IMG/hobby.png"
+				<td><a href="show.jsp?category=Other Hobbies"><img src="./IMG/hobby.png"
 					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Hobbies</h4></td>
+					<h4 align="center">Other Hobbies</h4></a></td>
 			</tr>
 		</table>
 	</div>
