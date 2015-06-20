@@ -27,7 +27,6 @@
 	src="/SecondHandApplication/WebContent/styling.css">
 </head>
 <body>
-	
 <body>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
@@ -35,9 +34,8 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
 			<%
@@ -50,7 +48,7 @@
 							}
 							else {
 								out.print("<ul class = \"nav navbar-nav navbar-right\">");
-								out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
 								out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 								out.print("</ul>");
 							}
@@ -73,7 +71,7 @@
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Title:</h4>"
 						+ submitAnAdBean.getAdtitle() + "</td>");
-				out.print("<td> <h4>Category:</h4>"
+				out.print("<td> <h4> Sub Category:</h4>"
 						+ submitAnAdBean.getCategory() + "</td>");
 				out.print("</tr>");
 				out.print("<tr>");

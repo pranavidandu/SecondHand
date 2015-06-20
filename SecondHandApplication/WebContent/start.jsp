@@ -29,10 +29,26 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button type="button"
-							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button
+							type="button" class="btn btn-success btn-lg">Submit An
+							Ad</button></a></li>
 
 			</ul>
+			<%
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
+					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+					out.print("</ul>");
+				} else {
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
+					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+					out.print("</ul>");
+				}
+			%>
 		</div>
 	</div>
 	</nav>
@@ -63,8 +79,8 @@
 
 
 	<div class="container pagediv">
-		<h3>To buy or find anything select a category below :</h3>
-		<div class="container-fluid" align="center" style="color: green;">
+	<h3>To buy or find anything select a category below :</h3>
+		<div class="container-fluid" align = "center" style = "color: green;">	
 			<div class="row">
 				<div class="col-sm-3" style="background-color: #DFF2BF;">
 					<p>
@@ -149,10 +165,9 @@
 		<tr>
 			<td><footer class="footer">
 				<h4 align="center"
-					style="color: black; position: absolute; top: 900px; left: 50px;">
-					Designed and Developed by Flora Moses, Pranavi Dandu and Naga
-					Purnika <br /> from Computer Science and Engineering Department
-				</h4>
+					style="color: black; position: absolute; top: 900px; left: 50px;">Designed
+					and Developed by Flora Moses, Pranavi Dandu and Naga Purnika <br /> from
+					Computer Science and Engineering Department</h4>
 				</footer>
 		</tr>
 	</table>

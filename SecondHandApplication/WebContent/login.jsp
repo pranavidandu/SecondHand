@@ -35,8 +35,10 @@
 							Ad</button></a></li>
 
 			</ul>
-			
-
+			<% 
+			out.print("<ul class=\"nav navbar-nav navbar-right\">");
+			out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+			%>
 		</div>
 	</div>
 	</nav>

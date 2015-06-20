@@ -94,11 +94,7 @@
 						+ "</td>");
 				out.print("<td> <h4>Email:</h4>" + submitAnAdBean.getEmail()
 						+ "</td>");
-				out.print("<td><a href = BuyAdController?adtitle1="
-						+ submitAnAdBean.getAdtitle()
-						+ "&phone1="
-						+ submitAnAdBean.getPhone()
-						+ "><button type=\"button\" class=\"btn btn-success btn-lg\">Buy</button></a></td>");
+				
 				out.print("</tr>");
 				out.print("<tr>");
 				if (submitAnAdBean.getWhatsapp().equalsIgnoreCase("y")) {

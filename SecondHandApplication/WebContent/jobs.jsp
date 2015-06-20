@@ -23,7 +23,7 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="submitanad.jsp"><button
+				<li class="active"><a href="ads.jsp"><button
 							type="button" class="btn btn-success btn-lg">Submit An
 							Ad</button></a></li>
 
@@ -38,7 +38,7 @@
 			}
 			else {
 				out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
+				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
 				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 				out.print("</ul>");
 			}
