@@ -19,7 +19,7 @@ public class AdDAO {
 	}
 	public int createAd(AdBean adBean) throws SQLException {
 		int result = 1;
-		String query = "INSERT INTO submitanad VALUES(?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO Ad VALUES(?,?,?,?,?,?,?,?,?)";
 		st = conn.prepareStatement(query);
 		st.setString(1, adBean.getAdtitle());
 		st.setString(2, adBean.getCategory());
