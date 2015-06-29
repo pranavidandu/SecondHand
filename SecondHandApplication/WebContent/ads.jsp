@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%
 	HttpSession hs = request.getSession();
-	String email = (String)hs.getAttribute("emailid");
-	if(email == null) {
+	String email = (String) hs.getAttribute("emailid");
+	if (email == null) {
 		response.sendRedirect("login.jsp");
 	}
 %>
@@ -71,10 +71,10 @@
 								</div>
 
 								<div class="panel panel-default">
-									<div class="panel-heading">Category</div>
+									<div class="panel-heading">Select a Sub-Category</div>
 									<div class="panel-body">
 										<div class="form-group">
-											<select class="form-control" name="Sub category"
+											<select class="form-control" name="category"
 												placeholder="Select a  Sub Category" required>
 												<option>Mobiles</option>
 												<option>Tablets</option>
@@ -111,7 +111,7 @@
 												<option>Clothes</option>
 												<option>Shoes</option>
 												<option>Jewellary</option>
-												<option>Bags</option>
+												<option>Bags</option> 
 												<option>Watches</option>
 												<option>Health and Beauty</option>
 												<option>Strollers</option>
@@ -135,73 +135,84 @@
 
 
 										<div class="panel panel-default">
-											<div class="panel-heading">Price</div>
+											<div class="panel-heading">Upload Photo</div>
 											<div class="panel-body">
 												<div class="panel-body">
 													<div class="form-group">
-														<input type="text" class="form-control" name="price"
-															maxlength="10" placeholder="Enter Price" required>
+														<input type="file" name="photo" size="50"
+															placeholder="Upload Your Image" required />
 													</div>
 												</div>
 											</div>
 											<div class="panel panel-default">
-												<div class="panel-heading">Name</div>
+												<div class="panel-heading">Price</div>
 												<div class="panel-body">
 													<div class="panel-body">
 														<div class="form-group">
-															<input type="text" class="form-control" name="names"
-																placeholder="Enter Name" required>
+															<input type="text" class="form-control" name="price"
+																maxlength="10" placeholder="Enter Price" required>
 														</div>
 													</div>
 												</div>
 												<div class="panel panel-default">
-													<div class="panel-heading">Email</div>
+													<div class="panel-heading">Name</div>
 													<div class="panel-body">
 														<div class="panel-body">
 															<div class="form-group">
-																<input type="text" class="form-control" name="emails"
-																	placeholder="Enter Email" value=<%=email%> required>
+																<input type="text" class="form-control" name="names"
+																	placeholder="Enter Name" required>
 															</div>
 														</div>
 													</div>
 													<div class="panel panel-default">
-														<div class="panel-heading">Phone</div>
+														<div class="panel-heading">Email</div>
 														<div class="panel-body">
 															<div class="panel-body">
 																<div class="form-group">
-																	<input type="text" class="form-control" name="phone"
-																		placeholder="Enter phone" required>
+																	<input type="text" class="form-control" name="emails"
+																		placeholder="Enter Email" value=<%=email%> required>
 																</div>
-																<br> <label class="checkbox-inline"><input
-																	type="checkbox" value="" name="availableonwhatsapp">Available
-																	on whatsapp</label>
 															</div>
 														</div>
 														<div class="panel panel-default">
-															<div class="panel-heading">Enter a City</div>
+															<div class="panel-heading">Phone</div>
 															<div class="panel-body">
 																<div class="panel-body">
 																	<div class="form-group">
-																		<input type="text" class="form-control" name="city"
-																			placeholder="Enter city" required>
+																		<input type="text" class="form-control" name="phone"
+																			placeholder="Enter phone" required>
 																	</div>
+																	<br> <label class="checkbox-inline"><input
+																		type="checkbox" value="" name="availableonwhatsapp">Available
+																		on whatsapp</label>
 																</div>
 															</div>
-															<button type="submit" class="btn btn-success btn-lg">SUBMIT</button>
+															<div class="panel panel-default">
+																<div class="panel-heading">Enter a City</div>
+																<div class="panel-body">
+																	<div class="panel-body">
+																		<div class="form-group">
+																			<input type="text" class="form-control" name="city"
+																				placeholder="Enter city" required>
+																		</div>
+																	</div>
+																</div>
+																<button type="submit" class="btn btn-success btn-lg">SUBMIT</button>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+				</form>
+			</h3>
 		</div>
-		</form>
-		</h3>
-	</div>
 	</div>
 </body>
 </html>

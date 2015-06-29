@@ -19,7 +19,7 @@ public class AdDAO {
 	}
 	public int createAd(AdBean adBean) throws SQLException {
 		int result = 1;
-		String query = "INSERT INTO Ad VALUES(?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO ad VALUES(?,?,?,?,?,?,?,?,?)";
 		st = conn.prepareStatement(query);
 		st.setString(1, adBean.getAdtitle());
 		st.setString(2, adBean.getCategory());
@@ -35,33 +35,33 @@ public class AdDAO {
 	}
 	public List<AdBean> listAds(String category) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
-		String query = "SELECT * FROM Ad WHERE category = ?";
+		String query = "SELECT * FROM ad WHERE category = ?";
 		st = conn.prepareStatement(query);
 		st.setString(1, category);
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
 			lst.add(adbean);
 		}
 		return lst;
 	}
 	public List<AdBean> listAds1(String email) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
-		String query = "SELECT * FROM Ad WHERE email = ?";
+		String query = "SELECT * FROM ad WHERE email = ?";
 		st = conn.prepareStatement(query);
 		st.setString(1, email);
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("adadescrption"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
 			lst.add(adbean);
 		}
 		return lst;
 	}
 	public int delete(String adtitle) throws SQLException {
 		int result = 0;
-		String query = "delete from Ad where adtitle = ?";
+		String query = "delete from ad where adtitle = ?";
 		st = conn.prepareStatement(query);
 		st.setString(1, adtitle);
 		result = st.executeUpdate();

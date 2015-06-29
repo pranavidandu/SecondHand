@@ -44,7 +44,7 @@ public class AdsController extends HttpServlet {
 			response.sendRedirect("start.jsp");
 		}
 		else {
-			response.sendRedirect("submitanad.jsp");
+			response.sendRedirect("ad.jsp");
 		}
 	}
 }

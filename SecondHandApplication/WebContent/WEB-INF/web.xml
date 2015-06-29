@@ -111,4 +111,14 @@
     <servlet-name>BuyAdController</servlet-name>
     <url-pattern>/BuyAdController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FileUploadDbServlet</display-name>
+    <servlet-name>FileUploadDbServlet</servlet-name>
+    <servlet-class>com.bvrith.controller.FileUploadDbServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadDbServlet</servlet-name>
+    <url-pattern>/uploadServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
