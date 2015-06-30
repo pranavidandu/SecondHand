@@ -17,6 +17,36 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+                // When any key is down
+                $(document).keydown(function(){
+
+                    // Get the input element and its value
+                    var i=$("#com");
+                    var val=i.val();
+
+                    // Send request only if user types alphabet
+                    // because auto.jsp returns names of companies
+                    // which contains only alphabets
+                    if(val.match(/^[A-z]+$/))
+                    {
+                        // Send request and get the data
+                        $.get("index.jsp?com="+val,function(data){
+
+                            // Get each item separated by new line
+                            var items=data.split("\n");
+
+                            // put those items in autocomplete! That's it!
+                            i.autocomplete({source:items});
+                        });
+                    }
+                    
+                });
+        </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Second Hand</title>
 <link rel="stylesheet"
@@ -72,56 +102,7 @@
 
 								<div class="panel panel-default">
 									<div class="panel-heading">Select a Sub-Category</div>
-									<div class="panel-body">
-										<div class="form-group">
-											<select class="form-control" name="category"
-												placeholder="Select a  Sub Category" required>
-												<option>Mobiles</option>
-												<option>Tablets</option>
-												<option>Ear Phones</option>
-												<option>Case Covers</option>
-												<option>Computers</option>
-												<option>Cds</option>
-												<option>Camera</option>
-												<option>Video Games</option>
-												<option>TV</option>
-												<option>Other Electronics</option>
-												<option>Cars</option>
-												<option>Motorcycle</option>
-												<option>Scooters</option>
-												<option>Bicycles</option>
-												<option>Commercial Vehicles</option>
-												<option>Other Vehicles</option>
-												<option>Furniture</option>
-												<option>Decor</option>
-												<option>Fridge and AC</option>
-												<option>Kitchen Appliances</option>
-												<option>Paintings and Handicrafts</option>
-												<option>Dogs</option>
-												<option>Aquarium and Fishes</option>
-												<option>Birds</option>
-												<option>Cats</option>
-												<option>Animal food</option>
-												<option>Other Animals</option>
-												<option>Books</option>
-												<option>Musical Instruments</option>
-												<option>Sports</option>
-												<option>Fitness</option>
-												<option>Coins and Collectibles</option>
-												<option>Clothes</option>
-												<option>Shoes</option>
-												<option>Jewellary</option>
-												<option>Bags</option> 
-												<option>Watches</option>
-												<option>Health and Beauty</option>
-												<option>Strollers</option>
-												<option>Kid Furnitures</option>
-												<option>Car Seat</option>
-												<option>Nutrition</option>
-												<option>Kid Clothing</option>
-												<option>Toys and Games</option>
-											</select>
-										</div>
+									<div class="panel-body"><input type="text" id="com" name="category" required/>
 									</div>
 
 									<div class="panel panel-default">
