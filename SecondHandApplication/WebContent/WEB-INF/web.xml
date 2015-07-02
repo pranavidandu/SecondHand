@@ -121,4 +121,14 @@
     <servlet-name>FileUploadDbServlet</servlet-name>
     <url-pattern>/uploadServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FilterController</display-name>
+    <servlet-name>FilterController</servlet-name>
+    <servlet-class>com.bvrith.controller.FilterController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterController</servlet-name>
+    <url-pattern>/FilterController</url-pattern>
+  </servlet-mapping>
 </web-app>

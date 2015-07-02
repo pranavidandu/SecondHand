@@ -1,15 +1,40 @@
 <%@page import="com.bvrith.dao.AdDAO"%>
 <%@page import="com.bvrith.beans.AdBean"%>
 <%@page import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	HttpSession hs = request.getSession();
 	String email = (String) hs.getAttribute("emailid");
 	String category = request.getParameter("category");
+
+	int pages = 1;
+	int recordsPerPage = 1;
+	if (request.getParameter("pages") != null)
+		pages = Integer.parseInt(request.getParameter("pages"));
+
 	AdDAO submitAnAdDAO = new AdDAO();
-	List<AdBean> lst = submitAnAdDAO.listAds(category);
-	ListIterator<AdBean> list = lst.listIterator();
+	ListIterator<AdBean> list = null;
+	String from = request.getParameter("from");
+	String to = request.getParameter("to");
+	if (from == null && to == null) {
+
+		List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1)
+				* recordsPerPage, recordsPerPage);
+		list = lst.listIterator();
+	}
+	else {
+		List<AdBean> lst = submitAnAdDAO.priceFilter(from, to, category);
+        list = lst.listIterator();
+	} 
+	
+	int noOfRecords = submitAnAdDAO.getNoOfRecords();
+	int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+	request.setAttribute("noOfPages", noOfPages);
+	request.setAttribute("currentPage", pages);
+
 	String message = request.getParameter("message");
 	if (message != null) {
 		out.print("<h3>" + message + "</h3>");
@@ -29,55 +54,12 @@
 <script src="js/jquery-1.8.2.js" type="text/javascript"></script>
 <script src="js/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
 <script src="js/jquery.jtable.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#AdTableContainer').jtable({
-			title : 'Ads List',
-            paging: true, //Enable paging
-            pageSize: 3, //Set page size (default: 10)           
-            actions: {
-                listAction: 'Controller?action=list',
-                createAction:'Controller?action=create',
-                updateAction: 'Controller?action=update',
-                deleteAction: 'Controller?action=delete'
-            },
-			fields : {
-				studentId : {
-					title : 'Student Id',
-					sort :true,
-					width : '30%',
-					key : true,
-					list : true,
-					edit : false,
-					create : true
-				},
-				name : {
-					title : 'Name',
-					width : '30%',
-					edit : true
-				},
-				department : {
-					title : 'Department',
-					width : '30%',
-					edit : true
-				},
-				emailId : {
-					title : 'Email',
-					width : '20%',
-					edit : true
-				}
-			}
-		});
-		$('#StudentTableContainer').jtable('load');
-	});
-</script>
 <title>Second Hand</title>
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
 </head>
 <body>
-	<body>
+
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
 
@@ -103,7 +85,7 @@
 					out.print("</ul>");
 				}
 			%>
-	</div>
+		</div>
 	</div>
 	</nav>
 	<div class="page-header header">
@@ -116,33 +98,41 @@
 			<%=category%>
 		</h3>
 	</div>
+	<form action="FilterController">
+		<input type="text" id="from" name="from" style="width: 80px;"
+			placeholder="From"> - <input type="text" id="to" name="to"
+			style="width: 80px;" placeholder="To">
+		<button class="btn btn-success btn-md" onclick="myFunction()">
+			<span class="glyphicon glyphicon-filter">
+		</button>
+	</form>
+	<br>
+	<br>
+	<br>
+
 	<div class="showcase">
 		<%
 			String whatsapp = "";
 			while (list.hasNext()) {
 				AdBean adbean = list.next();
-				
+
 				out.print("<table class=" + "table table-bordered table-hover>"
 						+ "");
 				out.print("<tr>");
-				out.print("<td> <h4>Ad Title:</h4>"
-						+ adbean.getAdtitle() + "</td>");
-				out.print("<td> <h4>Sub-Category:</h4>"
-						+ adbean.getCategory() + "</td>");
+				out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
+						+ "</td>");
+				out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
+						+ "</td>");
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Description:</h4>"
 						+ adbean.getAddescription() + "</td>");
-				out.print("<td><h4>Price:</h4>" +adbean.getPrice()
-						+ "</td>");
-				out.print("<td> <h4>Phone:</h4>" + adbean.getPhone()
-						+ "</td");
+				out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
+				out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
 				out.print("</tr>");
 				out.print("<tr>");
-				out.print("<td> <h4>Name:</h4>" + adbean.getName()
-						+ "</td>");
-				out.print("<td> <h4>Email:</h4>" + adbean.getEmail()
-						+ "</td>");
+				out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
+				out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
 
 				out.print("</tr>");
 				out.print("<tr>");
@@ -152,24 +142,44 @@
 					whatsapp = "Not Avaliable";
 				}
 				out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
-				out.print("<td> <h4>City:</h4>" + adbean.getCity()
-						+ "</td>");
+				out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
 				out.print("</tr>");
 				out.print("</table>");
 				out.print("<br> <br> <br> ");
 			}
-			
 		%>
-		 <ul class="pagination">
-			  <li><a href="#">1</a></li>
-			  <li><a href="#">2</a></li>
-			  <li><a href="#">3</a></li>
-			  <li><a href="#">4</a></li>
-			  <li><a href="#">5</a></li>
-			</ul>
+
+		<%--For displaying Previous link except for the 1st page --%>
+		<c:if test="${currentPage != 1}">
+			<td><a href="show.jsp?pages=${currentPage - 1}">Previous</a></td>
+		</c:if>
+
+		<%--For displaying Page numbers.
+    The when condition does not display a link for the current page--%>
+    <center>
+		<table border="1" cellpadding="10" cellspacing="10">
+			<tr>
+				<c:forEach begin="1" end="${noOfPages}" var="i">
+					<c:choose>
+						<c:when test="${currentPage eq i}">
+							<td>${i}</td>
+						</c:when>
+						<c:otherwise>
+							<td><a href="show.jsp?pages=${i}">${i}</a></td>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</tr>
+		</table>
+
+		<%--For displaying Next link --%>
+		<c:if test="${currentPage lt noOfPages}">
+			<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
+		</c:if>
+       </center>
 	</div>
 </body>
 
 
-		
+
 </html>
