@@ -11,7 +11,7 @@
 	String category = request.getParameter("category");
 
 	int pages = 1;
-	int recordsPerPage = 1;
+	int recordsPerPage = 10;
 	if (request.getParameter("pages") != null)
 		pages = Integer.parseInt(request.getParameter("pages"));
 
@@ -22,7 +22,7 @@
 	if (from == null && to == null) {
 
 		List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1)
-				* recordsPerPage, recordsPerPage);
+		* recordsPerPage, recordsPerPage);
 		list = lst.listIterator();
 	}
 	else {
@@ -55,6 +55,18 @@
 <script src="js/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
 <script src="js/jquery.jtable.js" type="text/javascript"></script>
 <title>Second Hand</title>
+<link rel="stylesheet" href="css/fullsizable.css">
+<link rel="stylesheet" href="/css/jquery-fullsizable.css" />
+<link rel="stylesheet" href="/css/jquery-fullsizable-theme.css" />
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/jquery.fullsizable.js"></script>
+
+<style type="text/css">
+img {
+	height: 200px;
+	width: 200px;
+}
+</style>
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
 </head>
@@ -72,18 +84,18 @@
 			</ul>
 			<%
 				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-					out.print("</ul>");
-				} else {
-					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-					out.print("</ul>");
-				}
+							out.print("<ul class=\"nav navbar-nav navbar-right\">");
+							out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+							out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+							out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+							out.print("</ul>");
+						} else {
+							out.print("<ul class = \"nav navbar-nav navbar-right\">");
+							out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+							out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
+							out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+							out.print("</ul>");
+						}
 			%>
 		</div>
 	</div>
@@ -127,6 +139,13 @@
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Description:</h4>"
 						+ adbean.getAddescription() + "</td>");
+				out.print("<td>");
+				out.print("<div id=" + "container" + ">");
+				out.print("<a href=" + adbean.getFile() + ">");
+				out.print("<img src =" + adbean.getFile() + ">");
+				out.print("</a>");
+				out.print("</div>");
+				out.print("</td>");
 				out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
 				out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
 				out.print("</tr>");
@@ -148,6 +167,29 @@
 				out.print("<br> <br> <br> ");
 			}
 		%>
+		<script>
+			$(function() {
+				/* $('#container a').fullsizable();
+				 */
+				$('a.fullsizable').fullsizable({
+					detach_id : 'wrapper',
+					clickBehaviour : 'next'
+				});
+				$(document).on('fullsizable:opened', function() {
+					$("#jquery-fullsizable").swipe({
+						/* swipeLeft : function() {
+							$(document).trigger('fullsizable:next')
+						},
+						swipeRight : function() {
+							$(document).trigger('fullsizable:prev')
+						}, */
+						swipeUp : function() {
+							$(document).trigger('fullsizable:close')
+						}
+					});
+				});
+			});
+		</script>
 
 		<%--For displaying Previous link except for the 1st page --%>
 		<c:if test="${currentPage != 1}">
@@ -156,27 +198,27 @@
 
 		<%--For displaying Page numbers.
     The when condition does not display a link for the current page--%>
-    <center>
-		<table border="1" cellpadding="10" cellspacing="10">
-			<tr>
-				<c:forEach begin="1" end="${noOfPages}" var="i">
-					<c:choose>
-						<c:when test="${currentPage eq i}">
-							<td>${i}</td>
-						</c:when>
-						<c:otherwise>
-							<td><a href="show.jsp?pages=${i}">${i}</a></td>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-			</tr>
-		</table>
+		<center>
+			<table border="1" cellpadding="10" cellspacing="10">
+				<tr>
+					<c:forEach begin="1" end="${noOfPages}" var="i">
+						<c:choose>
+							<c:when test="${currentPage eq i}">
+								<td>${i}</td>
+							</c:when>
+							<c:otherwise>
+								<td><a href="show.jsp?pages=${i}">${i}</a></td>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</tr>
+			</table>
 
-		<%--For displaying Next link --%>
-		<c:if test="${currentPage lt noOfPages}">
-			<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
-		</c:if>
-       </center>
+			<%--For displaying Next link --%>
+			<c:if test="${currentPage lt noOfPages}">
+				<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
+			</c:if>
+		</center>
 	</div>
 </body>
 

@@ -1,5 +1,6 @@
 package com.bvrith.dao;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bvrith.beans.AdBean;
+import com.bvrith.controller.AdsController;
+
 
 
 public class AdDAO {
@@ -20,27 +23,13 @@ public class AdDAO {
 	}
 
 	private int noOfRecords;
+	private String filePath;
 
 	public int getNoOfRecords() {
 		return noOfRecords;
 	}
 
-	public int createAd(AdBean adBean) throws SQLException {
-		int result = 1;
-		String query = "INSERT INTO ad VALUES(?,?,?,?,?,?,?,?,?)";
-		st = conn.prepareStatement(query);
-		st.setString(1, adBean.getAdtitle());
-		st.setString(2, adBean.getCategory());
-		st.setString(3, adBean.getAddescription());
-		st.setInt(4, adBean.getPrice());
-		st.setString(5, adBean.getName());
-		st.setString(6, adBean.getEmail());
-		st.setString(7, adBean.getPhone());
-		st.setString(8, adBean.getWhatsapp());
-		st.setString(9, adBean.getCity());
-		result = st.executeUpdate();
-		return result;
-	}
+
 	public List<AdBean> listAds(String category,  int offset,
 			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
@@ -51,7 +40,8 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getString("id"), rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+
 			lst.add(adbean);
 		}
 
@@ -71,19 +61,13 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getString("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+
 			lst.add(adbean);
 		}
 		return lst;
 	}
-	public int delete(String adtitle) throws SQLException {
-		int result = 0;
-		String query = "delete from ad where adtitle = ?";
-		st = conn.prepareStatement(query);
-		st.setString(1, adtitle);
-		result = st.executeUpdate();
-		return result;
-	}
+
 	public List<AdBean> priceFilter(String fromRange, String toRange, String category) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
 		String query = "select * from ad where price >= ? and price <= ? and category = ?";
@@ -96,11 +80,42 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("availableonwhatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getString("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
 			lst.add(adbean);
 		}
 		return lst;
 	}
+	
+	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
+		int result = 0;
+	    AdsController adscontroller = new AdsController();
+		String adtitle = adBean.getAdtitle();
+		String addescription = adBean.getAddescription();
+		String category = adBean.getCategory();
+		String file = adscontroller.getFilePath();
+		System.out.println(file);
+		String name = adBean.getName();
+		String phone = adBean.getPhone();
+		String whatsapp = adBean.getWhatsapp();
+		int price = adBean.getPrice();
+		String city = adBean.getCity();
+		String email = adBean.getEmail();
+		String query = "update ad set category = ?, addescription = ?, file = ?, price = ?, name = ?, email = ?, phone = ?, whatsapp = ?, city = ? where adtitle= ?";
+		st.setString(1, category);
+		st.setString(2, addescription);
+		st.setString(3, file);
+		st.setInt(4, price);
+		st.setString(5, name);
+		st.setString(6, email);
+		st.setString(7, phone);
+		st.setString(8, whatsapp);
+		st.setString(9, city);
+		st.setString(10, adtitle);
+		st = conn.prepareStatement(query);
+		result = st.executeUpdate();
+		return result;
+	}
+	
 }
 
 
