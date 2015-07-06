@@ -25,8 +25,8 @@ public class DeleteAdController extends HttpServlet {
 		try {
 			String adtitle = request.getParameter("adtitle");
 			String email = request.getParameter("email");
-			AdDAO adDAO = new AdDAO();
-			int result = adDAO.deleteAd(adtitle);
+			AdDAO addao = new  AdDAO();
+			int result = addao.deleteAd(adtitle);
 			if(result >= 1) {
 				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Deleted Successfully");
 			}

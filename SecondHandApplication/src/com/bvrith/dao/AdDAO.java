@@ -115,6 +115,16 @@ public class AdDAO {
 		result = st.executeUpdate();
 		return result;
 	}
+
+
+	public int deleteAd(String adtitle) throws SQLException {
+		int result = 1;
+		String query = "delete from ad where adtitle = ?";
+		st = conn.prepareStatement(query);
+		st.setString(1, adtitle);
+		result = st.executeUpdate();
+		return result;
+	}
 	
 }
 
