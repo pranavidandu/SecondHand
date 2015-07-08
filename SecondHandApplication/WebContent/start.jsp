@@ -43,7 +43,7 @@
 					out.print("</ul>");
 				} else {
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
+					out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
 					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
 					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 					out.print("</ul>");
@@ -57,24 +57,6 @@
 			<p class="sansserif" align="center">SecondHand.com</p>
 		</h1>
 
-	</div>
-	<div class="dropdown" style="font-size: 20px;" align="right">
-		<input name="item" class="dropdown-toggle" data-toggle="dropdown"><span
-			class="caret"></span>
-		<ul class="dropdown-menu dropdown-menu-right">
-			<li><a tabindex="-1" href="show.jsp?category=Mobile">Mobiles
-					& Tablets</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=RealEstate">Real
-					Estate</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-			<li><a tabindex="-1" href="show.jsp?category=Books">Books</a></li>
-			<li class="divider"></li>
-			<li><a tabindex="-1" href="mobiles.jsp">All Categories</a></li>
-		</ul>
-		<button type="submit" class="btn btn-xs btn-success">
-			<span class="glyphicon glyphicon-search"
-				style="color: white; font-size: 30px;"></span>
-		</button>
 	</div>
 
 

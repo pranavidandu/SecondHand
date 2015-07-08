@@ -6,12 +6,11 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
-import sun.util.logging.resources.logging;
-
 import com.mysql.jdbc.Statement;
 import com.mysql.jdbc.log.Log;
 
 public class ConnectionDAO {
+	Logger log = Logger.getLogger(ConnectionDAO.class);
 	String url = "jdbc:mysql://localhost:3306/secondhand";
 	String username = "root";
 	String password = "radheradhe";
@@ -21,9 +20,10 @@ public class ConnectionDAO {
 
 	public Connection getConnection() throws ClassNotFoundException{
 		Class.forName("com.mysql.jdbc.Driver");
-
+		log.info("driver loaded");
 		try {
 			conn = DriverManager.getConnection(url,username,password);
+			//log.info("Driver loaded");
 
 
 		} catch (SQLException e) {

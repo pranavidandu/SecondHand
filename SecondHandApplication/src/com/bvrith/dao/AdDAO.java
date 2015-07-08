@@ -11,8 +11,6 @@ import java.util.List;
 import com.bvrith.beans.AdBean;
 import com.bvrith.controller.AdsController;
 
-
-
 public class AdDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
@@ -21,22 +19,23 @@ public class AdDAO {
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}
-
 	private int noOfRecords;
 	private String filePath;
 
 	public int getNoOfRecords() {
 		return noOfRecords;
 	}
-
-
 	public List<AdBean> listAds(String category,  int offset,
 			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
 		String query = "select SQL_CALC_FOUND_ROWS * from ad where category = ? limit " + offset + "," + noOfRecords;
 		System.out.println(query);
 		st = conn.prepareStatement(query);
+		
 		st.setString(1, category);
+		System.out.println("query=");
+		System.out.println(st);
+		System.out.println("addao::category =" + category);
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
@@ -86,7 +85,7 @@ public class AdDAO {
 		return lst;
 	}
 	
-	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
+/*	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
 		int result = 0;
 	    AdsController adscontroller = new AdsController();
 		String adtitle = adBean.getAdtitle();
@@ -114,7 +113,7 @@ public class AdDAO {
 		st = conn.prepareStatement(query);
 		result = st.executeUpdate();
 		return result;
-	}
+	}*/
 
 
 	public int deleteAd(String adtitle) throws SQLException {
@@ -127,14 +126,3 @@ public class AdDAO {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-

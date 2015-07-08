@@ -47,9 +47,6 @@ public class AdsController extends HttpServlet {
 		conn = conectionDao.getConnection();
 	}
 	private  String filePath;
-
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AdDAO adDAO;
 		response.setContentType("text/html;charset=UTF-8");
@@ -63,6 +60,7 @@ public class AdsController extends HttpServlet {
 			fileSaveDir.mkdir();
 		}
 		Part part=request.getPart("file");
+		System.out.println(part);
 		String fileName=extractFileName(part);
 		part.write(savePath + File.separator + fileName);
 		String id = request.getParameter("id");
@@ -87,7 +85,7 @@ public class AdsController extends HttpServlet {
 			st.setString(1, adtitle);
 			st.setString(2, category);
 			st.setString(3, addescription);
-		
+
 			System.out.println(filePath);
 			st.setString(4, filePath);
 			st.setInt(5, price);
@@ -105,12 +103,8 @@ public class AdsController extends HttpServlet {
 		}
 		else {
 			response.sendRedirect("ad.jsp");
-		}
-		
-		
+		}		
 	}
-	
-
 	private String extractFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
@@ -120,11 +114,5 @@ public class AdsController extends HttpServlet {
 			}
 		}
 		return "";
-	}
-	public void setFilePath(String filePath){
-		this.filePath = filePath;
-	}
-	public  String getFilePath(){
-		return filePath;
 	}
 }

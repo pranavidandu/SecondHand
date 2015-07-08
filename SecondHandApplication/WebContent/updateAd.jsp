@@ -88,9 +88,6 @@
 
 		<div>
 			<ul class="nav navbar-nav">
-
-
-
 			</ul>
 			<%
 				out.print("<ul class = \"nav navbar-nav navbar-right\">");
@@ -111,7 +108,7 @@
 		<div class="container tablediv">
 			<h2>Submit a Free Classified Ad</h2>
 			<h3>
-				<form action="UpdateController?email" + <%=email%>>
+				<form action="UpdateController" method = "post">
 
 					<div class="form-group">
 						<div class="panel-group">
@@ -127,7 +124,7 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">Select a Sub-Category</div>
 									<div class="panel-body">
-										<input type="text" id="com" name="category" required />
+										<input type="text" id="com" value = <%=category %> name="category" required />
 									</div>
 
 									<div class="panel panel-default">
@@ -203,7 +200,7 @@
 																		</div>
 																	</div>
 																</div>
-																<button type="submit" class="btn btn-primary btn-lg">Update</button>
+																<button type="submit" class="btn btn-success btn-lg">Update</button>
 															</div>
 
 														</div>

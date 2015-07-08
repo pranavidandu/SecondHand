@@ -9,9 +9,9 @@
 	HttpSession hs = request.getSession();
 	String email = (String) hs.getAttribute("emailid");
 	String category = request.getParameter("category");
-
+    System.out.print("show::category=" + category);
 	int pages = 1;
-	int recordsPerPage = 10;
+	int recordsPerPage = 2;
 	if (request.getParameter("pages") != null)
 		pages = Integer.parseInt(request.getParameter("pages"));
 
@@ -19,19 +19,19 @@
 	ListIterator<AdBean> list = null;
 	String from = request.getParameter("from");
 	String to = request.getParameter("to");
-	if (from == null && to == null) {
-
-		List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1)
-		* recordsPerPage, recordsPerPage);
+	/* List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1) * recordsPerPage, recordsPerPage);
+	 list = lst.listIterator(); */
+	 if (from == null && to == null) {
+		List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1) * recordsPerPage, recordsPerPage);
 		list = lst.listIterator();
 	}
 	else {
 		List<AdBean> lst = submitAnAdDAO.priceFilter(from, to, category);
         list = lst.listIterator();
 	} 
-	
 	int noOfRecords = submitAnAdDAO.getNoOfRecords();
 	int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+	request.setAttribute("cat", category);
 	request.setAttribute("noOfPages", noOfPages);
 	request.setAttribute("currentPage", pages);
 
@@ -84,18 +84,18 @@ img {
 			</ul>
 			<%
 				if (email == null) {
-							out.print("<ul class=\"nav navbar-nav navbar-right\">");
-							out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-							out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-							out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-							out.print("</ul>");
-						} else {
-							out.print("<ul class = \"nav navbar-nav navbar-right\">");
-							out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-							out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
-							out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-							out.print("</ul>");
-						}
+								out.print("<ul class=\"nav navbar-nav navbar-right\">");
+								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+								out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
+								out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+								out.print("</ul>");
+							} else {
+								out.print("<ul class = \"nav navbar-nav navbar-right\">");
+								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+								out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
+								out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+								out.print("</ul>");
+							}
 			%>
 		</div>
 	</div>
@@ -121,104 +121,103 @@ img {
 	<br>
 	<br>
 	<br>
+	<%--For displaying Previous link except for the 1st page --%>
+	<c:if test="${currentPage != 1}">
+		<td><a href="show.jsp?pages=${currentPage - 1}">Previous</a></td>
+	</c:if>
 
-	<div class="showcase">
-		<%
-			String whatsapp = "";
-			while (list.hasNext()) {
-				AdBean adbean = list.next();
+	<%--For displaying Page numbers.
+    The when condition does not display a link for the current page--%>
+	<center>
+		<table border="1" cellpadding="10" cellspacing="10">
+			<tr>
+				<c:forEach begin="1" end="${noOfPages}" var="i">
+					<c:choose>
+						<c:when test="${currentPage eq i}">
+							<td>${i}</td>
+						</c:when>
+						<c:otherwise>
+							<td><a href="show.jsp?pages=${i}">${i}</a></td>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</tr>
+		</table>
 
-				out.print("<table class=" + "table table-bordered table-hover>"
-						+ "");
-				out.print("<tr>");
-				out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
-						+ "</td>");
-				out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
-						+ "</td>");
-				out.print("</tr>");
-				out.print("<tr>");
-				out.print("<td> <h4>Ad Description:</h4>"
-						+ adbean.getAddescription() + "</td>");
-				out.print("<td>");
-				out.print("<div id=" + "container" + ">");
-				out.print("<a href=" + adbean.getFile() + ">");
-				out.print("<img src =" + adbean.getFile() + ">");
-				out.print("</a>");
-				out.print("</div>");
-				out.print("</td>");
-				out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
-				out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
-				out.print("</tr>");
-				out.print("<tr>");
-				out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
-				out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
-
-				out.print("</tr>");
-				out.print("<tr>");
-				if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
-					whatsapp = "Avaliable";
-				} else {
-					whatsapp = "Not Avaliable";
-				}
-				out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
-				out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
-				out.print("</tr>");
-				out.print("</table>");
-				out.print("<br> <br> <br> ");
-			}
-		%>
-		<script>
-			$(function() {
-				/* $('#container a').fullsizable();
-				 */
-				$('a.fullsizable').fullsizable({
-					detach_id : 'wrapper',
-					clickBehaviour : 'next'
-				});
-				$(document).on('fullsizable:opened', function() {
-					$("#jquery-fullsizable").swipe({
-						/* swipeLeft : function() {
-							$(document).trigger('fullsizable:next')
-						},
-						swipeRight : function() {
-							$(document).trigger('fullsizable:prev')
-						}, */
-						swipeUp : function() {
-							$(document).trigger('fullsizable:close')
-						}
-					});
-				});
-			});
-		</script>
-
-		<%--For displaying Previous link except for the 1st page --%>
-		<c:if test="${currentPage != 1}">
-			<td><a href="show.jsp?pages=${currentPage - 1}">Previous</a></td>
+		<%--For displaying Next link --%>
+		<c:if test="${currentPage lt noOfPages}">
+			<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
 		</c:if>
 
-		<%--For displaying Page numbers.
-    The when condition does not display a link for the current page--%>
-		<center>
-			<table border="1" cellpadding="10" cellspacing="10">
-				<tr>
-					<c:forEach begin="1" end="${noOfPages}" var="i">
-						<c:choose>
-							<c:when test="${currentPage eq i}">
-								<td>${i}</td>
-							</c:when>
-							<c:otherwise>
-								<td><a href="show.jsp?pages=${i}">${i}</a></td>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</tr>
-			</table>
+		<div class="showcase">
+			<%
+				String whatsapp = "";
+				while (list.hasNext()) {
+					AdBean adbean = list.next();
 
-			<%--For displaying Next link --%>
-			<c:if test="${currentPage lt noOfPages}">
-				<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
-			</c:if>
-		</center>
+					out.print("<table class=" + "table table-bordered table-hover>"
+							+ "");
+					out.print("<tr>");
+					out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
+							+ "</td>");
+					out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
+							+ "</td>");
+					out.print("</tr>");
+					out.print("<tr>");
+					out.print("<td> <h4>Ad Description:</h4>"
+							+ adbean.getAddescription() + "</td>");
+					out.print("<td>");
+					out.print("<div id=" + "container" + ">");
+					out.print("<a href=" + adbean.getFile() + ">");
+					out.print("<img src =" + adbean.getFile() + ">");
+					out.print("</a>");
+					out.print("</div>");
+					out.print("</td>");
+					out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
+					out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
+					out.print("</tr>");
+					out.print("<tr>");
+					out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
+					out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
+
+					out.print("</tr>");
+					out.print("<tr>");
+					if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
+						whatsapp = "Avaliable";
+					} else {
+						whatsapp = "Not Avaliable";
+					}
+					out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
+					out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
+					out.print("</tr>");
+					out.print("</table>");
+					out.print("<br> <br> <br> ");
+				}
+			%>
+			<script>
+				$(function() {
+					/* $('#container a').fullsizable();
+					 */
+					$('a.fullsizable').fullsizable({
+						detach_id : 'wrapper',
+						clickBehaviour : 'next'
+					});
+					$(document).on('fullsizable:opened', function() {
+						$("#jquery-fullsizable").swipe({
+							/* swipeLeft : function() {
+								$(document).trigger('fullsizable:next')
+							},
+							swipeRight : function() {
+								$(document).trigger('fullsizable:prev')
+							}, */
+							swipeUp : function() {
+								$(document).trigger('fullsizable:close')
+							}
+						});
+					});
+				});
+			</script>
+	</center>
 	</div>
 </body>
 

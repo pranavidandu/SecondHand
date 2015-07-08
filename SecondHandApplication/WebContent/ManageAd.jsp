@@ -36,7 +36,8 @@
 img {
 	height: 200px;
 	width: 200px;
-	</style>
+}
+</style>
 <title>Second Hand</title>
 <link rel="stylesheet"
 	src="/SecondHandApplication/WebContent/styling.css">
@@ -55,24 +56,24 @@ img {
 			</ul>
 			<%
 				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-					out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-					out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-					out.print("</ul>");
-				} else {
-					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-					out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-					out.print("</ul>");
-				}
+						out.print("<ul class=\"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+						out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
+						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+						out.print("</ul>");
+					} else {
+						out.print("<ul class = \"nav navbar-nav navbar-right\">");
+						out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+						out.print("</ul>");
+					}
 			%>
 		</div>
 	</div>
 	</nav>
 	<div class="page-header header">
 		<h1>
-			<p class="sansserif" align="center">SecondHand.com</p>
+			<p align="center">SecondHand.com</p>
 		</h1>
 	</div>
 	<div class="showcase">
@@ -88,8 +89,6 @@ img {
 				out.print("<td> <h4> Sub Category:</h4>"
 						+ adbean.getCategory() + "</td>");
 				out.print("<td> <a href = \"updateAd.jsp?adtitle="+adbean.getAdtitle() + "&phone="+adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription="+adbean.getAddescription() + "&price="+adbean.getPrice()+ "&phone="+adbean.getPhone()+"\"> <button class = \"btn btn-success\" >Update</button> </a> </td>");
-				
-				
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td>");

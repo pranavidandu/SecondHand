@@ -13,40 +13,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
-                // When any key is down
-                $(document).keydown(function(){
+	// When any key is down
+	$(document).keydown(function() {
 
-                    // Get the input element and its value
-                    var i=$("#com");
-                    var val=i.val();
+		// Get the input element and its value
+		var i = $("#com");
 
-                    // Send request only if user types alphabet
-                    // because auto.jsp returns names of companies
-                    // which contains only alphabets
-                    if(val.match(/^[A-z]+$/))
-                    {
-                        // Send request and get the data
-                        $.get("index.jsp?com="+val,function(data){
+		var val = i.val();
 
-                            // Get each item separated by new line
-                            var items=data.split("\n");
+		// Send request only if user types alphabet
+		// because auto.jsp returns names of companies
+		// which contains only alphabets
+		if (val.match(/^[A-z]+$/)) {
+			// Send request and get the data
+			$.get("index.jsp?com=" + val, function(data) {
 
-                            // put those items in autocomplete! That's it!
-                            i.autocomplete({source:items});
-                        });
-                    }
-                    
-                });
-        </script>
+				// Get each item separated by new line
+				var items = data.split("\n");
+
+				// put those items in autocomplete! That's it!
+				i.autocomplete({
+					source : items
+				});
+			});
+		}
+
+	});
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Second Hand</title>
 <link rel="stylesheet"
@@ -88,7 +89,8 @@
 		<div class="container tablediv">
 			<h2>Submit a Free Classified Ad</h2>
 			<h3>
-				<form action="AdsController" method="post" enctype="multipart/form-data">
+				<form action="AdsController" method="post"
+					enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="panel-group">
 							<div class="panel panel-default">
@@ -102,7 +104,8 @@
 
 								<div class="panel panel-default">
 									<div class="panel-heading">Select a Sub-Category</div>
-									<div class="panel-body"><input type="text" id="com" name="category" required/>
+									<div class="panel-body">
+										<input type="text" id="com" name="category" required />
 									</div>
 
 									<div class="panel panel-default">
@@ -168,13 +171,52 @@
 																		on whatsapp</label>
 																</div>
 															</div>
+															<script>
+																// When any key is down
+																$(document)
+																		.keydown(
+																				function() {
+
+																					// Get the input element and its value
+																					var i = $("#citi");
+
+																					var val = i
+																							.val();
+
+																					// Send request only if user types alphabet
+																					// because auto.jsp returns names of companies
+																					// which contains only alphabets
+																					if (val
+																							.match(/^[A-z]+$/)) {
+																						// Send request and get the data
+																						$
+																								.get(
+																										"List.jsp?citi="
+																												+ val,
+																										function(
+																												data) {
+
+																											// Get each item separated by new line
+																											var items = data
+																													.split("\n");
+
+																											// put those items in autocomplete! That's it!
+																											i
+																													.autocomplete({
+																														source : items
+																													});
+																										});
+																					}
+
+																				});
+															</script>
 															<div class="panel panel-default">
 																<div class="panel-heading">Enter a City</div>
 																<div class="panel-body">
 																	<div class="panel-body">
 																		<div class="form-group">
-																			<input type="text" class="form-control" name="city"
-																				placeholder="Enter city" required>
+																			<input type="text" class="form-control" id="citi"
+																				name="city" placeholder="Enter city" required>
 																		</div>
 																	</div>
 																</div>
@@ -185,7 +227,6 @@
 												</div>
 											</div>
 										</div>
-
 									</div>
 								</div>
 							</div>
