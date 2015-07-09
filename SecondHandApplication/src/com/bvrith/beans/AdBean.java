@@ -1,16 +1,16 @@
 package com.bvrith.beans;
 
 public class AdBean {
-	String id;
+	int id;
 	String  adtitle, category, addescription, file; 
 	int price;
 	String name, email, phone, whatsapp, city;
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -95,7 +95,7 @@ public class AdBean {
 		this.city = city;
 	}
 
-	public AdBean(String id, String adtitle, String category,
+	public AdBean(int id, String adtitle, String category,
 			String addescription, String file, int price, String name,
 			String email, String phone, String whatsapp, String city) {
 		super();

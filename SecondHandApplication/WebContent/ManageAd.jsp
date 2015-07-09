@@ -101,7 +101,7 @@ img {
 				out.print("<td> <h4>Ad Description:</h4>"
 						+ adbean.getAddescription() + "</td>");
 				out.print("<td>" + adbean.getPrice() + "</td>");
-				out.print("<td> <a href = \"DeleteAdController?adtitle="+adbean.getAdtitle()+"&email="+adbean.getEmail()+"\"> <button class = \"btn btn-success\">Delete</button> </a> </td>");
+				out.print("<td> <a href = \"DeleteAdController?id="+adbean.getId()+"&email="+adbean.getEmail()+"\"> <button class = \"btn btn-success\">Delete</button> </a> </td>");
 				
 				out.print("</tr>");
 				out.print("<tr>");

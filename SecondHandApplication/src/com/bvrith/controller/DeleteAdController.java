@@ -23,10 +23,10 @@ public class DeleteAdController extends HttpServlet {
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String adtitle = request.getParameter("adtitle");
+			int id = Integer.parseInt(request.getParameter("id"));
 			String email = request.getParameter("email");
 			AdDAO addao = new  AdDAO();
-			int result = addao.deleteAd(adtitle);
+			int result = addao.deleteAd(id);
 			if(result >= 1) {
 				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Deleted Successfully");
 			}

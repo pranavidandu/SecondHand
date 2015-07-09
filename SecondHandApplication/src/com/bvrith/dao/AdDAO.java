@@ -25,21 +25,21 @@ public class AdDAO {
 	public int getNoOfRecords() {
 		return noOfRecords;
 	}
-	public List<AdBean> listAds(String category,  int offset,
+	public List<AdBean> listAds(String cat,  int offset,
 			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
 		String query = "select SQL_CALC_FOUND_ROWS * from ad where category = ? limit " + offset + "," + noOfRecords;
 		System.out.println(query);
 		st = conn.prepareStatement(query);
 		
-		st.setString(1, category);
+		st.setString(1, cat);
 		System.out.println("query=");
 		System.out.println(st);
-		System.out.println("addao::category =" + category);
+		System.out.println("addao::category =" + cat);
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("id"), rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"), rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
 
 			lst.add(adbean);
 		}
@@ -60,7 +60,7 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
 
 			lst.add(adbean);
 		}
@@ -79,7 +79,7 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getString("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
 			lst.add(adbean);
 		}
 		return lst;
@@ -116,11 +116,12 @@ public class AdDAO {
 	}*/
 
 
-	public int deleteAd(String adtitle) throws SQLException {
+	public int deleteAd(int ID) throws SQLException {
+	
 		int result = 1;
-		String query = "delete from ad where adtitle = ?";
+		String query = "delete from ad where id = ?";
 		st = conn.prepareStatement(query);
-		st.setString(1, adtitle);
+		st.setInt(1, ID);
 		result = st.executeUpdate();
 		return result;
 	}

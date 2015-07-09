@@ -11,7 +11,7 @@
 	String category = request.getParameter("category");
     System.out.print("show::category=" + category);
 	int pages = 1;
-	int recordsPerPage = 2;
+	int recordsPerPage = 1;
 	if (request.getParameter("pages") != null)
 		pages = Integer.parseInt(request.getParameter("pages"));
 
@@ -24,11 +24,16 @@
 	 if (from == null && to == null) {
 		List<AdBean> lst = submitAnAdDAO.listAds(category, (pages - 1) * recordsPerPage, recordsPerPage);
 		list = lst.listIterator();
+		int size = lst.size();
+		System.out.print(size);
 	}
 	else {
 		List<AdBean> lst = submitAnAdDAO.priceFilter(from, to, category);
         list = lst.listIterator();
+        int size = lst.size();
+		System.out.print(size);
 	} 
+	 
 	int noOfRecords = submitAnAdDAO.getNoOfRecords();
 	int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
 	request.setAttribute("cat", category);
@@ -91,8 +96,9 @@ img {
 								out.print("</ul>");
 							} else {
 								out.print("<ul class = \"nav navbar-nav navbar-right\">");
+								out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
 								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-								out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
+								
 								out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
 								out.print("</ul>");
 							}
@@ -123,7 +129,7 @@ img {
 	<br>
 	<%--For displaying Previous link except for the 1st page --%>
 	<c:if test="${currentPage != 1}">
-		<td><a href="show.jsp?pages=${currentPage - 1}">Previous</a></td>
+		<td><a href="show.jsp?category=${cat}&pages=${currentPage - 1}">Previous</a></td>
 	</c:if>
 
 	<%--For displaying Page numbers.
@@ -137,7 +143,7 @@ img {
 							<td>${i}</td>
 						</c:when>
 						<c:otherwise>
-							<td><a href="show.jsp?pages=${i}">${i}</a></td>
+							<td><a href="show.jsp?category=${cat}&pages=${i}">${i}</a></td>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
@@ -146,12 +152,14 @@ img {
 
 		<%--For displaying Next link --%>
 		<c:if test="${currentPage lt noOfPages}">
-			<td><a href="show.jsp?pages=${currentPage + 1}">Next</a></td>
+		
+			<td><a href="show.jsp?category=${cat}&pages=${currentPage + 1}">Next</a></td>
 		</c:if>
 
 		<div class="showcase">
 			<%
 				String whatsapp = "";
+			    
 				while (list.hasNext()) {
 					AdBean adbean = list.next();
 
