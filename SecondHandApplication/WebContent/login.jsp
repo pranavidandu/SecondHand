@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
+<%
 	String status = request.getParameter("status");
-	if(status != null) {
-		out.print("<h3>"+ status+"</h3>");
+	if (status != null) {
+		out.print("<h3>" + status + "</h3>");
 	}
 
 	/* String error = request.getParameter("error");
 	if(status != null) {
 		out.print("<h3>" + error + "</h3>");
 	} */
-	%>
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,14 +30,15 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
-			<% 
-			out.print("<ul class=\"nav navbar-nav navbar-right\">");
-			out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+			<%
+				out.print("<ul class=\"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+				out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+				out.print("</ul>");
 			%>
 		</div>
 	</div>

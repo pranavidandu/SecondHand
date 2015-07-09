@@ -2,16 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%
 	String status = request.getParameter("status");
-	if(status != null) {
-		out.print("<h3>"+ status +"</h3>");
+	if (status != null) {
+		out.print("<h3>" + status + "</h3>");
 	}
 	String msg = request.getParameter("msg");
 	if (msg != null) {
 		out.print("<h3>" + msg + "</h3>");
 	}
 	String msg1 = request.getParameter("msg1");
-	if(msg1 != null) {
-		out.print("<h3>"+ msg1 +"</h3>");
+	if (msg1 != null) {
+		out.print("<h3>" + msg1 + "</h3>");
 	}
 	String pwdmsg = request.getParameter("pwdmssg");
 	if (pwdmsg != null) {
@@ -34,7 +34,7 @@
 		var pass1 = $("password1").val();
 		var pass2 = $("password2").val();
 		var pass2 = document.getElementsByName("password2");
-		if(pass1 != pass2) {
+		if (pass1 != pass2) {
 			alert("Passwords don't match. Try again");
 		}
 	}
@@ -47,11 +47,16 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
+			<%
+				out.print("<ul class=\"nav navbar-nav navbar-right\">");
+				out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+				out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+				out.print("</ul>");
+			%>
 
 		</div>
 	</div>
@@ -115,7 +120,8 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-offset-4 col-md-7">
-				<button name="submitbtn" type="submit" class="btn btn-success" onclick="display()">Sign Up</button>
+				<button name="submitbtn" type="submit" class="btn btn-success"
+					onclick="display()">Sign Up</button>
 			</div>
 		</div>
 	</form>

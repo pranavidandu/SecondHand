@@ -50,6 +50,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -89,19 +93,18 @@ img {
 			</ul>
 			<%
 				if (email == null) {
-								out.print("<ul class=\"nav navbar-nav navbar-right\">");
-								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-								out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">SignUp</p></a></li>");
-								out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-								out.print("</ul>");
-							} else {
-								out.print("<ul class = \"nav navbar-nav navbar-right\">");
-								out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-								out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-								
-								out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-								out.print("</ul>");
-							}
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
@@ -152,55 +155,55 @@ img {
 
 		<%--For displaying Next link --%>
 		<c:if test="${currentPage lt noOfPages}">
-		
+
 			<td><a href="show.jsp?category=${cat}&pages=${currentPage + 1}">Next</a></td>
 		</c:if>
 
 		<div class="showcase">
 			<%
 				String whatsapp = "";
-			    
-				while (list.hasNext()) {
-					AdBean adbean = list.next();
+						    
+							while (list.hasNext()) {
+								AdBean adbean = list.next();
 
-					out.print("<table class=" + "table table-bordered table-hover>"
-							+ "");
-					out.print("<tr>");
-					out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
-							+ "</td>");
-					out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
-							+ "</td>");
-					out.print("</tr>");
-					out.print("<tr>");
-					out.print("<td> <h4>Ad Description:</h4>"
-							+ adbean.getAddescription() + "</td>");
-					out.print("<td>");
-					out.print("<div id=" + "container" + ">");
-					out.print("<a href=" + adbean.getFile() + ">");
-					out.print("<img src =" + adbean.getFile() + ">");
-					out.print("</a>");
-					out.print("</div>");
-					out.print("</td>");
-					out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
-					out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
-					out.print("</tr>");
-					out.print("<tr>");
-					out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
-					out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
+								out.print("<table class=" + "table table-bordered table-hover>"
+										+ "");
+								out.print("<tr>");
+								out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
+										+ "</td>");
+								out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
+										+ "</td>");
+								out.print("</tr>");
+								out.print("<tr>");
+								out.print("<td> <h4>Ad Description:</h4>"
+										+ adbean.getAddescription() + "</td>");
+								out.print("<td>");
+								out.print("<div id=" + "container" + ">");
+								out.print("<a href=" + adbean.getFile() + ">");
+								out.print("<img src =" + adbean.getFile() + ">");
+								out.print("</a>");
+								out.print("</div>");
+								out.print("</td>");
+								out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
+								out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
+								out.print("</tr>");
+								out.print("<tr>");
+								out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
+								out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
 
-					out.print("</tr>");
-					out.print("<tr>");
-					if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
-						whatsapp = "Avaliable";
-					} else {
-						whatsapp = "Not Avaliable";
-					}
-					out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
-					out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
-					out.print("</tr>");
-					out.print("</table>");
-					out.print("<br> <br> <br> ");
-				}
+								out.print("</tr>");
+								out.print("<tr>");
+								if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
+									whatsapp = "Avaliable";
+								} else {
+									whatsapp = "Not Avaliable";
+								}
+								out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
+								out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
+								out.print("</tr>");
+								out.print("</table>");
+								out.print("<br> <br> <br> ");
+							}
 			%>
 			<script>
 				$(function() {

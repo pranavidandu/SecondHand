@@ -47,20 +47,19 @@
 
 			</ul>
 			<%
-			if (email == null) {
-				out.print("<ul class=\"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-				out.print("</ul>");
-			}
-			else {
-				out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-				out.print("</ul>");
-			}
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
@@ -90,35 +89,42 @@
 	<div>
 		<table>
 			<tr>
-				<td><a href="show.jsp?category=Cars"><img src="./IMG/car.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Cars</h4></a></td>
+				<td><a href="show.jsp?category=Cars"><img
+						src="./IMG/car.png" style="width: 140px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Cars</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Motorcycle"><img src="./IMG/bike.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Motorcycle</h4></a></td>
+				<td><a href="show.jsp?category=Motorcycle"><img
+						src="./IMG/bike.png" style="width: 140px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Motorcycle</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Scooters"><img src="./IMG/scootor.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Scooters</h4></a></td>
+				<td><a href="show.jsp?category=Scooters"><img
+						src="./IMG/scootor.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Scooters</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=Bicycles"><img src="./IMG/cycle.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Bicycles</h4></a></td>
+				<td><a href="show.jsp?category=Bicycles"><img
+						src="./IMG/cycle.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Bicycles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Commercial Vehicles"><img src="./IMG/lorry.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Commercial Vehicles</h4></a></td>
+				<td><a href="show.jsp?category=Commercial Vehicles"><img
+						src="./IMG/lorry.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Commercial Vehicles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Parts"><img src="./IMG/tyres.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Spare Parts</h4></a></td>
+				<td><a href="show.jsp?category=Parts"><img
+						src="./IMG/tyres.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Spare Parts</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=Other Vehicles"><img src="./IMG/auto.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Vehicles</h4></a></td>
+				<td><a href="show.jsp?category=Other Vehicles"><img
+						src="./IMG/auto.png" style="width: 140px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Other Vehicles</h4></a></td>
 			</tr>
 		</table>
 	</div>

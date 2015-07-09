@@ -10,7 +10,7 @@ import com.mysql.jdbc.Statement;
 import com.mysql.jdbc.log.Log;
 
 public class ConnectionDAO {
-	Logger log = Logger.getLogger(ConnectionDAO.class);
+	Logger log = Logger.getRootLogger();
 	String url = "jdbc:mysql://localhost:3306/secondhand";
 	String username = "root";
 	String password = "radheradhe";

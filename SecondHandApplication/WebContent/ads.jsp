@@ -20,6 +20,8 @@
 	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script>
 	// When any key is down
 	$(document).keydown(function() {
@@ -35,6 +37,71 @@
 		if (val.match(/^[A-z]+$/)) {
 			// Send request and get the data
 			$.get("index.jsp?com=" + val, function(data) {
+
+				// Get each item separated by new line
+				var items = data.split("\n");
+
+				// put those items in autocomplete! That's it!
+				i.autocomplete({
+					source : items
+				});
+			});
+		}
+
+	});
+</script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("#fileupload")
+				.change(
+						function() {
+							$("#dvPreview").html("");
+							var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+							if (regex.test($(this).val().toLowerCase())) {
+								if ($.browser.msie
+										&& parseFloat(jQuery.browser.version) <= 9.0) {
+									$("#dvPreview").show();
+									$("#dvPreview")[0].filters
+											.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(
+											this).val();
+								} else {
+									if (typeof (FileReader) != "undefined") {
+										$("#dvPreview").show();
+										$("#dvPreview").append("<img />");
+										var reader = new FileReader();
+										reader.onload = function(e) {
+											$("#dvPreview img").attr("src",
+													e.target.result);
+										}
+										reader
+												.readAsDataURL($(this)[0].files[0]);
+									} else {
+										alert("This browser does not support FileReader.");
+									}
+								}
+							} else {
+								alert("Please upload a valid image file.");
+							}
+						});
+	});
+</script>
+<script>
+	// When any key is down
+	$(document).keydown(function() {
+
+		// Get the input element and its value
+		var i = $("#citi");
+
+		var val = i.val();
+
+		// Send request only if user types alphabet
+		// because auto.jsp returns names of companies
+		// which contains only alphabets
+		if (val.match(/^[A-z]+$/)) {
+			// Send request and get the data
+			$.get("List.jsp?citi=" + val, function(data) {
 
 				// Get each item separated by new line
 				var items = data.split("\n");
@@ -75,17 +142,11 @@ body {
 	<div class="container-fluid ">
 
 		<div>
-			<ul class="nav navbar-nav">
-
-				<li class="active"><a href="submitanad.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
-
-			</ul>
+			
 			<%
 				out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">View Your Ads</button></a></li>");
-				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+				out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span>Home</a></li>");
+				out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 				out.print("</ul>");
 			%>
 		</div>
@@ -128,62 +189,7 @@ body {
 													required></textarea>
 											</div>
 										</div>
-										<script type="text/javascript"
-											src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-										<script language="javascript" type="text/javascript">
-											$(function() {
-												$("#fileupload")
-														.change(
-																function() {
-																	$(
-																			"#dvPreview")
-																			.html(
-																					"");
-																	var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-																	if (regex
-																			.test($(
-																					this)
-																					.val()
-																					.toLowerCase())) {
-																		if ($.browser.msie
-																				&& parseFloat(jQuery.browser.version) <= 9.0) {
-																			$(
-																					"#dvPreview")
-																					.show();
-																			$("#dvPreview")[0].filters
-																					.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(
-																					this)
-																					.val();
-																		} else {
-																			if (typeof (FileReader) != "undefined") {
-																				$(
-																						"#dvPreview")
-																						.show();
-																				$(
-																						"#dvPreview")
-																						.append(
-																								"<img />");
-																				var reader = new FileReader();
-																				reader.onload = function(
-																						e) {
-																					$(
-																							"#dvPreview img")
-																							.attr(
-																									"src",
-																									e.target.result);
-																				}
-																				reader
-																						.readAsDataURL($(this)[0].files[0]);
-																			} else {
-																				alert("This browser does not support FileReader.");
-																			}
-																		}
-																	} else {
-																		alert("Please upload a valid image file.");
-																	}
-																});
-											});
-										</script>
+
 
 										<div class="panel panel-default">
 											<div class="panel-heading">Upload Photo</div>
@@ -191,8 +197,7 @@ body {
 												<div class="panel-body">
 													<div class="form-group">
 														<input type="file" id="fileupload" name="file" size="50"
-															placeholder="Upload Your Image" required /> <b>Live
-															Preview</b>
+															placeholder="Upload Your Image" required />
 														<div id="dvPreview"></div>
 													</div>
 
@@ -241,7 +246,7 @@ body {
 																		on whatsapp</label>
 																</div>
 															</div>
-															<script>
+															<!-- 		<script>
 																// When any key is down
 																$(document)
 																		.keydown(
@@ -279,7 +284,7 @@ body {
 																					}
 
 																				});
-															</script>
+															</script> -->
 															<div class="panel panel-default">
 																<div class="panel-heading">Enter a City</div>
 																<div class="panel-body">

@@ -39,7 +39,7 @@ public class SignupController extends HttpServlet {
 				if(result >= 1) {
 					HttpSession hs = request.getSession();
 					hs.setAttribute("emailid", user);
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("start.jsp");
 				}
 				else {
 					response.sendRedirect("signup.jsp?msg1=Sign up failed. Try again.");

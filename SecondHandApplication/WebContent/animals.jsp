@@ -41,26 +41,24 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
 			<%
-			if (email == null) {
-				out.print("<ul class=\"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-				out.print("</ul>");
-			}
-			else {
-				out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-				out.print("</ul>");
-			}
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
@@ -90,30 +88,36 @@
 	<div>
 		<table>
 			<tr>
-				<td><a href="show.jsp?category=Dogs"><img src="./IMG/dog.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Dogs</h4></a></td>
+				<td><a href="show.jsp?category=Dogs"><img
+						src="./IMG/dog.png" style="width: 140px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Dogs</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Aquarium and Fishes"><img src="./IMG/fishes.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Aquarium and Fishes</h4></a></td>
+				<td><a href="show.jsp?category=Aquarium and Fishes"><img
+						src="./IMG/fishes.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Aquarium and Fishes</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Birds"><img src="./IMG/bird.png"
-					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Birds</h4></a></td>
+				<td><a href="show.jsp?category=Birds"><img
+						src="./IMG/bird.png" style="width: 180px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Birds</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=Cats"><img src="./IMG/cat.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Cats</h4></a></td>
+				<td><a href="show.jsp?category=Cats"><img
+						src="./IMG/cat.png" style="width: 140px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Cats</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Animal food"><img src="./IMG/dogfood.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Animal food</h4></a></td>
+				<td><a href="show.jsp?category=Animal food"><img
+						src="./IMG/dogfood.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Animal food</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Other Animals"><img src="./IMG/rabbit.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Animals</h4></a></td>
+				<td><a href="show.jsp?category=Other Animals"><img
+						src="./IMG/rabbit.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Other Animals</h4></a></td>
 			</tr>
 		</table>
 	</div>

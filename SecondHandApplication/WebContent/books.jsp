@@ -41,25 +41,24 @@
 		<div>
 			<ul class="nav navbar-nav">
 
-				<li class="active"><a href="ads.jsp"><button
-							type="button" class="btn btn-success btn-lg">Submit An
-							Ad</button></a></li>
+				<li class="active"><a href="ads.jsp"><button type="button"
+							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
 			<%
-			if (email == null) {
-				out.print("<ul class=\"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-				out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-				out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-				out.print("</ul>");
-			}
-			else {
-				out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"ManageAd.jsp\"><button type=\"button\" class=\"btn btn-success btn-lg\">Manage Your Ads</button></a></li>");
-				out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-				out.print("</ul>");
-			}
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
@@ -90,30 +89,36 @@
 	<div>
 		<table>
 			<tr>
-				<td><a href="show.jsp?category=Books"><img src="./IMG/books.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Books</h4></a></td>
+				<td><a href="show.jsp?category=Books"><img
+						src="./IMG/books.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Books</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Musical Instruments"><img src="./IMG/guitar.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Musical Instruments</h4></a></td>
+				<td><a href="show.jsp?category=Musical Instruments"><img
+						src="./IMG/guitar.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Musical Instruments</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Sports"><img src="./IMG/ball.png"
-					style="width: 180px; height: 120px;"> <br> <br>
-					<h4 align="center">Sports</h4></a></td>
+				<td><a href="show.jsp?category=Sports"><img
+						src="./IMG/ball.png" style="width: 180px; height: 120px;"> <br>
+						<br>
+						<h4 align="center">Sports</h4></a></td>
 			</tr>
 			<tr>
-				<td><a href="show.jsp?category=Fitness"><img src="./IMG/dumbell.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Fitness</h4></a></td>
+				<td><a href="show.jsp?category=Fitness"><img
+						src="./IMG/dumbell.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Fitness</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Coins and Collectibles"><img src="./IMG/coins.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Coins and Collectibles</h4></a></td>
+				<td><a href="show.jsp?category=Coins and Collectibles"><img
+						src="./IMG/coins.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Coins and Collectibles</h4></a></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><a href="show.jsp?category=Other Hobbies"><img src="./IMG/hobby.png"
-					style="width: 140px; height: 120px;"> <br> <br>
-					<h4 align="center">Other Hobbies</h4></a></td>
+				<td><a href="show.jsp?category=Other Hobbies"><img
+						src="./IMG/hobby.png" style="width: 140px; height: 120px;">
+						<br> <br>
+						<h4 align="center">Other Hobbies</h4></a></td>
 			</tr>
 		</table>
 	</div>
