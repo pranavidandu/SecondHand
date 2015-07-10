@@ -32,9 +32,18 @@ public class ErrorHandler extends HttpServlet {
 	         requestUri = "Unknown";
 	      }
 	      response.setContentType("text/html");
-	      PrintWriter out = response.getWriter();
-		  String title = "Error/Exception Information";
-	      String docType =
+	      //PrintWriter out = response.getWriter();
+		  //String title = "Error/Exception Information";
+		  if (throwable == null && statusCode == null) {
+			  response.sendRedirect("error.jsp");
+		  }
+		  else if(statusCode == null) {
+			  response.sendRedirect("error.jsp");
+		  }
+		  else {
+			  response.sendRedirect("error.jsp");
+		  }
+	      /*String docType =
 	      "<!doctype html public \"-//w3c//dtd html 4.0 " +
 	      "transitional//en\">\n";
 	      out.println(docType +
@@ -65,6 +74,6 @@ public class ErrorHandler extends HttpServlet {
 	                                 throwable.getMessage( ));
 	      }
 	      out.println("</body>");
-	      out.println("</html>");
+	      out.println("</html>");*/
 	}
 }
