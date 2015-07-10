@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
+
+import com.bvrith.beans.AdBean;
 
 /**
  * Servlet implementation class FilterController
@@ -22,6 +25,7 @@ public class FilterController extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String from = request.getParameter("from");
 		String to = request.getParameter("to");
-		response.sendRedirect("show.jsp?from=" + from + "&to=" + to + "&category=Mobiles");
+		String cat = request.getParameter("category");
+		response.sendRedirect("show.jsp?from=" + from + "&to=" + to + "&category=" + cat);
 	}
 }

@@ -29,14 +29,9 @@ public class AdDAO {
 	public List<AdBean> listAds(String cat,  int offset,
 			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
-		String query = "select SQL_CALC_FOUND_ROWS * from ad where category = ? limit " + offset + "," + noOfRecords;
-		System.out.println(query);
-		st = conn.prepareStatement(query);
-		
+		String query = "select SQL_CALC_FOUND_ROWS * from ad where category = ? limit " + offset + "," + noOfRecords;		
+		st = conn.prepareStatement(query);	
 		st.setString(1, cat);
-		System.out.println("query=");
-		System.out.println(st);
-		System.out.println("addao::category =" + cat);
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
@@ -68,9 +63,11 @@ public class AdDAO {
 		return lst;
 	}
 
-	public List<AdBean> priceFilter(String fromRange, String toRange, String category) throws SQLException {
+	public List<AdBean> priceFilter(String fromRange, String toRange, String category, int offset,
+			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
-		String query = "select * from ad where price >= ? and price <= ? and category = ?";
+		String query = "select SQL_CALC_FOUND_ROWS * from ad where price >= ? and price <= ? and category = ? limit " + offset + "," + noOfRecords;
+		System.out.println(category);
 		st = conn.prepareStatement(query);
 		int from = Integer.parseInt(fromRange);
 		int to = Integer.parseInt(toRange);
@@ -83,10 +80,15 @@ public class AdDAO {
 			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
 			lst.add(adbean);
 		}
+		rs.close();
+
+		rs = st.executeQuery("SELECT FOUND_ROWS()");
+		if(rs.next())
+			this.noOfRecords = rs.getInt(1);
 		return lst;
 	}
-	
-/*	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
+
+	/*	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
 		int result = 0;
 	    AdsController adscontroller = new AdsController();
 		String adtitle = adBean.getAdtitle();
@@ -118,7 +120,7 @@ public class AdDAO {
 
 
 	public int deleteAd(int ID) throws SQLException {
-	
+
 		int result = 1;
 		String query = "delete from ad where id = ?";
 		st = conn.prepareStatement(query);
@@ -126,5 +128,5 @@ public class AdDAO {
 		result = st.executeUpdate();
 		return result;
 	}
-	
+
 }
