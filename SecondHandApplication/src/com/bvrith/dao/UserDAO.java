@@ -1,5 +1,6 @@
 package com.bvrith.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ public class UserDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public UserDAO() throws SQLException, ClassNotFoundException{
+	public UserDAO() throws SQLException, ClassNotFoundException, IOException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}

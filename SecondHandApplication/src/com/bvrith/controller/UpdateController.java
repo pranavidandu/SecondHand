@@ -23,7 +23,7 @@ public class UpdateController extends HttpServlet {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public UpdateController() throws SQLException, ClassNotFoundException{
+	public UpdateController() throws SQLException, ClassNotFoundException, IOException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}

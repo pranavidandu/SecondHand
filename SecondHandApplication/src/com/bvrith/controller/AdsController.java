@@ -42,7 +42,7 @@ public class AdsController extends HttpServlet {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public AdsController() throws SQLException, ClassNotFoundException{
+	public AdsController() throws SQLException, ClassNotFoundException, IOException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}
