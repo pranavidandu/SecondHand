@@ -67,7 +67,6 @@ public class AdDAO {
 			int noOfRecords) throws SQLException {
 		List<AdBean> lst = new ArrayList<AdBean>();
 		String query = "select SQL_CALC_FOUND_ROWS * from ad where price >= ? and price <= ? and category = ? limit " + offset + "," + noOfRecords;
-		System.out.println(category);
 		st = conn.prepareStatement(query);
 		int from = Integer.parseInt(fromRange);
 		int to = Integer.parseInt(toRange);
@@ -87,40 +86,7 @@ public class AdDAO {
 			this.noOfRecords = rs.getInt(1);
 		return lst;
 	}
-
-	/*	public int update(AdBean adBean) throws SQLException, ClassNotFoundException {
-		int result = 0;
-	    AdsController adscontroller = new AdsController();
-		String adtitle = adBean.getAdtitle();
-		String addescription = adBean.getAddescription();
-		String category = adBean.getCategory();
-		String file = adscontroller.getFilePath();
-		System.out.println(file);
-		String name = adBean.getName();
-		String phone = adBean.getPhone();
-		String whatsapp = adBean.getWhatsapp();
-		int price = adBean.getPrice();
-		String city = adBean.getCity();
-		String email = adBean.getEmail();
-		String query = "update ad set category = ?, addescription = ?, file = ?, price = ?, name = ?, email = ?, phone = ?, whatsapp = ?, city = ? where adtitle= ?";
-		st.setString(1, category);
-		st.setString(2, addescription);
-		st.setString(3, file);
-		st.setInt(4, price);
-		st.setString(5, name);
-		st.setString(6, email);
-		st.setString(7, phone);
-		st.setString(8, whatsapp);
-		st.setString(9, city);
-		st.setString(10, adtitle);
-		st = conn.prepareStatement(query);
-		result = st.executeUpdate();
-		return result;
-	}*/
-
-
 	public int deleteAd(int ID) throws SQLException {
-
 		int result = 1;
 		String query = "update ad set sold = 'sold out' where id = ?";
 		st = conn.prepareStatement(query);

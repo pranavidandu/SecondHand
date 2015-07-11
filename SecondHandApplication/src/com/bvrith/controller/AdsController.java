@@ -80,7 +80,7 @@ public class AdsController extends HttpServlet {
 
 
 			PreparedStatement st = null;
-			String query = "INSERT INTO ad (adtitle, category, addescription, file, price, name, email, phone, whatsapp, city) VALUES(?,?,?,?,?,?,?,?,?,?)";
+			String query = "INSERT INTO ad (adtitle, category, addescription, file, price, name, email, phone, whatsapp, city, sold) VALUES(?,?,?,?,?,?,?,?,?,?,'available')";
 			st = conn.prepareStatement(query);
 			st.setString(1, adtitle);
 			st.setString(2, category);

@@ -141,4 +141,14 @@
     <servlet-name>DeleteMessageController</servlet-name>
     <url-pattern>/DeleteMessageController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminController</display-name>
+    <servlet-name>AdminController</servlet-name>
+    <servlet-class>com.bvrith.controller.AdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminController</servlet-name>
+    <url-pattern>/AdminController</url-pattern>
+  </servlet-mapping>
 </web-app>
