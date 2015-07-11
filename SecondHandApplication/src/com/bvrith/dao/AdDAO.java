@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.NamingException;
+
 import com.bvrith.beans.AdBean;
 import com.bvrith.controller.AdsController;
 
@@ -16,7 +18,7 @@ public class AdDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public AdDAO() throws SQLException, ClassNotFoundException, IOException{
+	public AdDAO() throws SQLException, ClassNotFoundException, IOException, NamingException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isErrorPage="true"%>
+	pageEncoding="UTF-8"%>
 <%-- <%
     String msg = request.getParameter("errormsg");
     if(msg != null) {
@@ -101,12 +101,7 @@ body {
 	<!-- <h1>Some error has been encountered. Try again.</h1> -->
 	<div class="wrap">
 		<div class="logo">
-		<%
-    String errorMessage = exception.getMessage();
-    %>
-    
 			<p id = "font">OOPS! - Could not Find it</p>
-			<p><%=errorMessage %></p>
 			<img src="./IMG/angrybird.jpg" />
 			<!-- <p>
 				<a href="#">Back </a>

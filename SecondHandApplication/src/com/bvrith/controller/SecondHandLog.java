@@ -11,7 +11,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 public class SecondHandLog {
-	protected static String logFile = "/home/pranavi/Desktop/log.txt";
+	protected static String logFile = "/home/pranavi/git/secondhand.com/SecondHandApplication/WebContent/db.Log";
 	private static org.apache.log4j.Logger log = Logger.getLogger(SecondHandLog.class);
 	private static Object appender;
 	//private Logger logger = null;

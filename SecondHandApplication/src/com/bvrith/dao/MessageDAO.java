@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.NamingException;
+
 import com.bvrith.beans.MessageBean;
 public class MessageDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public MessageDAO() throws SQLException, ClassNotFoundException, IOException{
+	public MessageDAO() throws SQLException, ClassNotFoundException, IOException, NamingException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}

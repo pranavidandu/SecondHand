@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.naming.NamingException;
+
 import com.bvrith.dao.ConnectionDAO;
 import com.bvrith.beans.UserBean;
 
@@ -13,7 +15,7 @@ public class UserDAO {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public UserDAO() throws SQLException, ClassNotFoundException, IOException{
+	public UserDAO() throws SQLException, ClassNotFoundException, IOException, NamingException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}

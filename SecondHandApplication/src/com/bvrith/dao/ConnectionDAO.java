@@ -9,14 +9,31 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
-
-import com.mysql.jdbc.Statement;
-import com.mysql.jdbc.log.Log;
-
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class ConnectionDAO {
-	 Logger log = Logger.getRootLogger();
+	Connection con = null;
+	String URL,PASSWORD,USER;
+	public Connection getConnection() throws SQLException, NamingException{
+		try {
+			Context initContext = new InitialContext();
+			Context envContext = (Context) initContext.lookup("java:comp/env");
+			DataSource ds = (DataSource) envContext.lookup("jdbc/secondhand");
+			Connection conn = ds.getConnection();
+			System.out.println("Driver loaded");
+			System.out.println(conn);
+			return conn;
+		}
+		catch(NamingException c) {
+			System.out.println("driver not loaded");
+			return null;
+		}
+	}
+}
+	 /*Logger log = Logger.getRootLogger();
      String password;
      String url;
      String user;
@@ -57,8 +74,7 @@ public class ConnectionDAO {
 
     	        return conn;
 
-    	    }
-}
+    	    }*/
 
 
 

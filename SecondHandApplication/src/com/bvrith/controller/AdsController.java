@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,7 @@ public class AdsController extends HttpServlet {
 	ConnectionDAO conectionDao = null;
 	Connection conn = null;
 	PreparedStatement st = null;
-	public AdsController() throws SQLException, ClassNotFoundException, IOException{
+	public AdsController() throws SQLException, ClassNotFoundException, IOException, NamingException{
 		conectionDao = new ConnectionDAO();
 		conn = conectionDao.getConnection();
 	}
