@@ -54,19 +54,23 @@ img {
 							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="showmessage.jsp"><button
+							type="button" class="btn btn-success btn-lg">Messages</button></a></li>
+			</ul>
 			<%
 				if (email == null) {
-						out.print("<ul class=\"nav navbar-nav navbar-right\">");
-						out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-						out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-						out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-						out.print("</ul>");
-					} else {
-						out.print("<ul class = \"nav navbar-nav navbar-right\">");
-						out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-						out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-						out.print("</ul>");
-					}
+									out.print("<ul class=\"nav navbar-nav navbar-right\">");
+									out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+									out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
+									out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+									out.print("</ul>");
+								} else {
+									out.print("<ul class = \"nav navbar-nav navbar-right\">");
+									out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+									out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+									out.print("</ul>");
+								}
 			%>
 		</div>
 	</div>
@@ -76,19 +80,19 @@ img {
 			<p align="center">SecondHand.com</p>
 		</h1>
 	</div>
-	<div class="showcase">
+	<center>
+	<div class="showcase" style = "width: 750px;">
 		<%
 			String whatsapp = "";
 			while (list.hasNext()) {
 				AdBean adbean = list.next();
-				out.print("<table class=" + "table table-bordered table-hover>"
-						+ "");
+				out.print("<table class=\"table table-bordered table-hover\" style=\"font-size: 20px;\"");
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Title:</h4>"
 						+ adbean.getAdtitle() + "</td>");
 				out.print("<td> <h4> Sub Category:</h4>"
 						+ adbean.getCategory() + "</td>");
-				out.print("<td> <a href = \"updateAd.jsp?adtitle="+adbean.getAdtitle() + "&phone="+adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription="+adbean.getAddescription() + "&price="+adbean.getPrice()+ "&phone="+adbean.getPhone()+"\"> <button class = \"btn btn-success\" >Update</button> </a> </td>");
+				out.print("<td> <a href = \"updateAd.jsp?adtitle="+adbean.getAdtitle() + "&phone="+adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription="+adbean.getAddescription() + "&price="+adbean.getPrice()+ "&phone="+adbean.getPhone()+"\"> <button class = \"btn btn-success btn-lg\" ><span class = \"glyphicon glyphicon-refresh\"></span></button> </a> </td>"); 
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td>");
@@ -100,9 +104,7 @@ img {
 				out.print("</td>");
 				out.print("<td> <h4>Ad Description:</h4>"
 						+ adbean.getAddescription() + "</td>");
-				out.print("<td>" + adbean.getPrice() + "</td>");
-				out.print("<td> <a href = \"DeleteAdController?id="+adbean.getId()+"&email="+adbean.getEmail()+"\"> <button class = \"btn btn-success\">Delete</button> </a> </td>");
-				
+				out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");			
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td> <h4>Name:</h4>" + adbean.getName()
@@ -121,9 +123,18 @@ img {
 				out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
 				out.print("<td> <h4>City:</h4>" + adbean.getCity()
 						+ "</td>");
+				if (adbean.getSold().equals("sold out")) {
+					out.print("<td class = \"text-danger\">You have marked it sold</td>");
+				} else {
+					out.print("<td> Mark as sold <br/> <a href = \"DeleteAdController?id="
+							+ adbean.getId()
+							+ "&email="
+							+ adbean.getEmail()
+							+ "\"> <button class = \"btn btn-success btn-lg\"><span class = \"glyphicon glyphicon-ok\"></span></button> </a> </td>");
+				}
 				out.print("</tr>");
 				out.print("</table>");
-				out.print("<br> <br> <br> ");
+				out.print("<br> <br> <br> "); 
 			}
 		%>
 		<script>
@@ -150,5 +161,6 @@ img {
 			});
 		</script>
 	</div>
+	</center>
 </body>
 </html>

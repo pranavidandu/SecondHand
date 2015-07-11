@@ -121,4 +121,24 @@
     <servlet-name>UpdateController</servlet-name>
     <url-pattern>/UpdateController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MessageController</display-name>
+    <servlet-name>MessageController</servlet-name>
+    <servlet-class>com.bvrith.controller.MessageController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessageController</servlet-name>
+    <url-pattern>/MessageController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteMessageController</display-name>
+    <servlet-name>DeleteMessageController</servlet-name>
+    <servlet-class>com.bvrith.controller.DeleteMessageController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteMessageController</servlet-name>
+    <url-pattern>/DeleteMessageController</url-pattern>
+  </servlet-mapping>
 </web-app>

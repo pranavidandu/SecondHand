@@ -35,7 +35,7 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getInt("id"), rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"), rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"), rs.getString("sold"));
 
 			lst.add(adbean);
 		}
@@ -56,7 +56,7 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"), rs.getString("sold"));
 
 			lst.add(adbean);
 		}
@@ -77,7 +77,7 @@ public class AdDAO {
 		ResultSet rs = st.executeQuery();
 		AdBean adbean;
 		while(rs.next()) {
-			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"));
+			adbean = new AdBean(rs.getInt("id"),rs.getString("adtitle"), rs.getString("category"), rs.getString("addescription"), rs.getString("file"), rs.getInt("price"), rs.getString("name"), rs.getString("email"), rs.getString("phone"), rs.getString("whatsapp"), rs.getString("city"), rs.getString("sold"));
 			lst.add(adbean);
 		}
 		rs.close();
@@ -122,11 +122,12 @@ public class AdDAO {
 	public int deleteAd(int ID) throws SQLException {
 
 		int result = 1;
-		String query = "delete from ad where id = ?";
+		String query = "update ad set sold = 'sold out' where id = ?";
 		st = conn.prepareStatement(query);
 		st.setInt(1, ID);
 		result = st.executeUpdate();
 		return result;
 	}
+
 
 }

@@ -4,8 +4,16 @@ public class AdBean {
 	int id;
 	String  adtitle, category, addescription, file; 
 	int price;
-	String name, email, phone, whatsapp, city;
+	String name, email, phone, whatsapp, city, sold;
 	
+	public String getSold() {
+		return sold;
+	}
+
+	public void setSold(String sold) {
+		this.sold = sold;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -97,7 +105,8 @@ public class AdBean {
 
 	public AdBean(int id, String adtitle, String category,
 			String addescription, String file, int price, String name,
-			String email, String phone, String whatsapp, String city) {
+			String email, String phone, String whatsapp, String city,
+			String sold) {
 		super();
 		this.id = id;
 		this.adtitle = adtitle;
@@ -110,5 +119,8 @@ public class AdBean {
 		this.phone = phone;
 		this.whatsapp = whatsapp;
 		this.city = city;
+		this.sold = sold;
 	}
+
+
 }

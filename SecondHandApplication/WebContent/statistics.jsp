@@ -52,105 +52,18 @@
 	</div>
 	</nav>
 	<div class="page-header">
-		<h1>
-			<p class="sansserif" align="center">SecondHand.com</p>
-		</h1>
-
-	</div>
-
-
-	<div class="container pagediv">
-		<h3>To buy or find anything select a category below :</h3>
-		<div class="container-fluid" align="center" style="color: green;">
-			<div class="row">
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="mobiles.jsp"><img src="./IMG/mobile.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Mobiles & Tablets</h4></a>
-					</p>
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="electronics.jsp"><img src="./IMG/laptop.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Electronics</h4></a>
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="vehicles.jsp"><img src="./IMG/car.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Vehicles</h4></a>
-					</p>
-
-				</div>
-
-			</div>
-			&nbsp;
-			<div class="row">
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="home.jsp"><img src="./IMG/sofaa.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Home & furniture</h4></a>
-					</p>
-
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="animals.jsp"><img src="./IMG/dog.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Animals</h4></a>
-					</p>
-
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="books.jsp"><img src="./IMG/books.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Sports & Hobbies</h4></a>
-					</p>
-
-				</div>
-
-			</div>
-			&nbsp;
-			<div class="row">
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="fashion.jsp"><img src="./IMG/watch.png"
-							style="width: 100px; height: 130px;"> <br>
-							<h4>Fashion & Beauty</h4></a>
-					</p>
-
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="kids.jsp"><img src="./IMG/toys.png"
-							style="width: 150px; height: 130px;"> <br>
-							<h4>Kid Products</h4></a>
-					</p>
-
-				</div>
-				<div class="col-sm-3" style="background-color: #DFF2BF;">
-					<p>
-						<a href="services.jsp"><img src="./IMG/chef.png"
-							style="width: 120px; height: 130px;"> <br>
-							<h4>Services</h4></a>
-					</p>
-				</div>
-			</div>
-		</div>
+		<h1 class="sansserif" align="center">SecondHand.com</h1>
 	</div>
 	<table>
 		<tr>
-			<td><footer class="footer">
+			<td>
+			<footer class="footer">
 				<h4 align="center"
 					style="color: black; position: absolute; top: 900px; left: 50px;">
 					Designed and Developed by Flora Moses, Pranavi Dandu and Naga
 					Purnika <br /> from Computer Science and Engineering Department
 				</h4>
-				</footer>
+			</footer>
 		</tr>
 	</table>
 </body>

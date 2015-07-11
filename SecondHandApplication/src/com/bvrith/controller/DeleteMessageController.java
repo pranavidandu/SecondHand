@@ -1,17 +1,19 @@
 package com.bvrith.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.bvrith.dao.MessageDAO;
 
 /**
- * Servlet implementation class UpdateAdController
+ * Servlet implementation class DeleteMessageController
  */
-public class ManageAd extends HttpServlet {
+public class DeleteMessageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
@@ -19,11 +21,24 @@ public class ManageAd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	
+
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession httpSession = request.getSession();
-		String email = (String) httpSession.getAttribute("emailid");
-		response.sendRedirect("ManageAd.jsp?email=" + email);
+		String myadddress = request.getParameter("id");
+		try {
+			MessageDAO messageDAO = new MessageDAO();
+			int result = messageDAO.delete(myadddress);
+			if (result >= 1) {
+				response.sendRedirect("showmessage.jsp?message=Message Deleted");
+			}
+			else {
+				response.sendRedirect("showmessage.jsp?message=Message not Deleted");
+			}
+		}
+		catch(ClassNotFoundException ce) {
+			ce.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

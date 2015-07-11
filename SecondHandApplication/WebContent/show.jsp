@@ -92,18 +92,18 @@ img {
 			</ul>
 			<%
 				if (email == null) {
-					out.print("<ul class=\"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
-					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
-				    out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
-					out.print("</ul>");
-				    } else {
-					out.print(email);
-				    out.print("<ul class = \"nav navbar-nav navbar-right\">");
-				    out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
-					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
-					out.print("</ul>");
-				    }
+										out.print("<ul class=\"nav navbar-nav navbar-right\">");
+										out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+										out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+									    out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+										out.print("</ul>");
+									    } else {
+										out.print(email);
+									    out.print("<ul class = \"nav navbar-nav navbar-right\">");
+									    out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+										out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+										out.print("</ul>");
+									    }
 			%>
 		</div>
 	</div>
@@ -121,8 +121,8 @@ img {
 	<form action="FilterController">
 		<input type="text" id="from" name="from" style="width: 80px;"
 			placeholder="From"> - <input type="text" id="to" name="to"
-			style="width: 80px;" placeholder="To">
-			<input type="hidden" name="category" value="<%=category%>">
+			style="width: 80px;" placeholder="To"> <input type="hidden"
+			name="category" value="<%=category%>">
 		<button class="btn btn-success btn-md" onclick="myFunction()">
 			<span class="glyphicon glyphicon-filter">
 		</button>
@@ -165,34 +165,31 @@ img {
 	</c:if>
 
 	<c:if test="${empty fromrange && empty torange}">
-		<%--For displaying Previous link except for the 1st page --%>
-		<c:if test="${currentPage != 1}">
-			<td><a href="show.jsp?category=${cat}&pages=${currentPage - 1}">Previous</a></td>
-		</c:if>
-
-		<%--For displaying Page numbers.
-    The when condition does not display a link for the current page--%>
 		<center>
+			<c:if test="${currentPage != 1}">
+				<td><a href="show.jsp?category=${cat}&pages=${currentPage - 1}"><button
+							class="btn btn-success btn-md">Previous</button></a></td>
+			</c:if>
 			<table border="1" cellpadding="10" cellspacing="10">
 				<tr>
 					<c:forEach begin="1" end="${noOfPages}" var="i">
 						<c:choose>
 							<c:when test="${currentPage eq i}">
-								<td>${i}</td>
+								<td><button class="btn btn-success btn-md active">${i}</button></td>
 							</c:when>
 							<c:otherwise>
-								<td><a href="show.jsp?category=${cat}&pages=${i}">${i}</a></td>
+								<td><a href="show.jsp?category=${cat}&pages=${i}"><button
+											class="btn btn-success btn-md">${i}</button></a></td>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 				</tr>
 			</table>
-
-			<%--For displaying Next link --%>
 			<c:if test="${currentPage lt noOfPages}">
-
-				<td><a href="show.jsp?category=${cat}&pages=${currentPage + 1}">Next</a></td>
+				<td><a href="show.jsp?category=${cat}&pages=${currentPage + 1}"><button
+							class="btn btn-success btn-md">Next</button></a></td>
 			</c:if>
+		</center>
 	</c:if>
 
 
@@ -201,46 +198,48 @@ img {
 			String whatsapp = "";
 								    
 									while (list.hasNext()) {
-										AdBean adbean = list.next();
-
-										out.print("<table class=" + "table table-bordered table-hover>"
-												+ "");
-										out.print("<tr>");
-										out.print("<td> <h4>Ad Title:</h4>" + adbean.getAdtitle()
-												+ "</td>");
-										out.print("<td> <h4>Sub-Category:</h4>" + adbean.getCategory()
-												+ "</td>");
-										out.print("</tr>");
-										out.print("<tr>");
-										out.print("<td> <h4>Ad Description:</h4>"
-												+ adbean.getAddescription() + "</td>");
-										out.print("<td>");
-										out.print("<div id=" + "container" + ">");
-										out.print("<a href=" + adbean.getFile() + ">");
-										out.print("<img src =" + adbean.getFile() + ">");
-										out.print("</a>");
-										out.print("</div>");
-										out.print("</td>");
-										out.print("<td><h4>Price:</h4>" + adbean.getPrice() + "</td>");
-										out.print("<td> <h4>Phone:</h4>" + adbean.getPhone() + "</td");
-										out.print("</tr>");
-										out.print("<tr>");
-										out.print("<td> <h4>Name:</h4>" + adbean.getName() + "</td>");
-										out.print("<td> <h4>Email:</h4>" + adbean.getEmail() + "</td>");
-
-										out.print("</tr>");
-										out.print("<tr>");
-										if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
-											whatsapp = "Avaliable";
-										} else {
-											whatsapp = "Not Avaliable";
-										}
-										out.print("<td> <h4>WhatsApp:</h4>" + whatsapp + "</td>");
-										out.print("<td> <h4>City:</h4>" + adbean.getCity() + "</td>");
-										out.print("</tr>");
-										out.print("</table>");
-										out.print("<br> <br> <br> ");
+										AdBean adbean = list.next();									
+									out.print("<div class=\"container\">");
+									out.print("<div class = \"row\">");
+									out.print("<div class = \"col-lg-4\">");
+									out.print("<div id=" + "container" + ">");
+									out.print("<a href=" + adbean.getFile() + ">");
+									out.print("<img src =" + adbean.getFile() + ">");
+									out.print("</a>");
+									out.print("</div>");
+									out.print("</div>");
+									out.print("<div class=\"col-lg-8\"><table class=\"table table-striped\" style=\"font-size: 20px;\"><tr>");
+									out.print("<td>Ad Title: " + adbean.getAdtitle()
+											+ "</td>");
+									out.print("<td>Price: " + adbean.getPrice() + "</td>");
+									out.print("</tr> <tr>");
+									out.print("<td>Ad Description: "
+											+ adbean.getAddescription() + "</td>");
+									out.print("</tr> <tr>");
+									out.print("<td>Name: " + adbean.getName() + "</td>");
+									out.print("<td>Phone: " + adbean.getPhone() + "</td>");
+									out.print("</tr> <tr>");
+									out.print("<td>Email: " + adbean.getEmail() + "</td>");
+									if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
+										whatsapp = "Avaliable";
+									} else {
+										whatsapp = "Not Avaliable";
 									}
+									out.print("<td>Available On WhatsApp: " + whatsapp + " </td>");
+									out.print("</tr> <tr>");
+									out.print("<td>City: " + adbean.getCity() + "</td>");
+									String availabilty = adbean.getSold();
+									if (availabilty.equalsIgnoreCase("sold out")) {
+										out.print("<td class = \"text-danger\">Sold Out! <span class = \"glyphicon glyphicon-tag\" style = \"color: red; font-size: 18px;\"></span></td>");
+									} else {
+										out.print("<td class = \"text-success\">Available <span class = \"glyphicon glyphicon-ok\" style = \"color: green; font-size: 18px;\"></span></td>");
+									}
+									out.print("</tr> <tr>");
+									out.print("<td>Sub Category: " + adbean.getCategory()
+											+ "</td>");
+									out.print("<td><a href = \"message.jsp?email1="+ adbean.getEmail() +"\">Message Seller <span class = \"glyphicon glyphicon-envelope\" style = \"color: blue; font-size: 22px;\"></span></a></td>");
+									out.print("</tr> </table> </div> </div> </div>");
+									out.print("<br/> <br/> <br/>");}
 		%>
 		<script>
 			$(function() {
@@ -265,10 +264,7 @@ img {
 				});
 			});
 		</script>
-	</center>
+		</center>
 	</div>
 </body>
-
-
-
 </html>
