@@ -151,7 +151,7 @@
 							out.print("<td><a href = \"message.jsp?fromemail1="
 									+ messageBean.getToemail()
 									+ "\"><button class = \"btn btn-successs btn-lg\"><span class = \"glyphicon glyphicon-repeat\"></span></button></a></td>");
-							out.print("<td><a href=\"DeleteMessageController?id=" + messageBean.getToemail() + "\"><button class = \"btn btn-danger btn-md\"><span class=\"glyphicon glyphicon-trash\" style = \"color: white;\"></span></button></a></td>");
+							out.print("<td><a href=\"DeleteMessageController?id=" + messageBean.getId() + "\"><button class = \"btn btn-danger btn-md\"><span class=\"glyphicon glyphicon-trash\" style = \"color: white;\"></span></button></a></td>");
 							out.print("</tr>");
 						}
 					%>

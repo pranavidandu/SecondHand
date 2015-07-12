@@ -28,12 +28,11 @@ public class MessageDAO {
 		result = st.executeUpdate();
 		return result;
 	}
-	public int delete(String myaddress) throws SQLException {
+	public int delete(int id) throws SQLException {
 		int result = 1;
-		System.out.println(myaddress);
-		String query = "delete from message where fromemail=?";
+		String query = "delete from message where id=?";
 		st = conn.prepareStatement(query);
-		st.setString(1, myaddress);
+		st.setInt(1, id);
 		result = st.executeUpdate();
 		return result;
 	}
@@ -45,7 +44,7 @@ public class MessageDAO {
 		ResultSet rs = st.executeQuery();
 		MessageBean messageBean;
 		while(rs.next()) {
-			messageBean = new MessageBean(rs.getString("myaddress"), rs.getString("fromemail"), rs.getString("textarea"));
+			messageBean = new MessageBean(rs.getString("id"),rs.getString("myaddress"), rs.getString("fromemail"), rs.getString("textarea"));
 			lst.add(messageBean);
 		}
 		return lst;

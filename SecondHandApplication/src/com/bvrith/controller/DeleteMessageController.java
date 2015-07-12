@@ -34,10 +34,10 @@ public class DeleteMessageController extends HttpServlet {
 	}
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
-		String myadddress = request.getParameter("id");
+		int id = Integer.parseInt(request.getParameter("id"));
 		try {
 			MessageDAO messageDAO = new MessageDAO();
-			int result = messageDAO.delete(myadddress);
+			int result = messageDAO.delete(id);
 			if (result >= 1) {
 				response.sendRedirect("showmessage.jsp?message=Message Deleted");
 			}

@@ -2,6 +2,7 @@ package com.bvrith.exceptionhandler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ErrorHandler extends HttpServlet { 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException 
 	{ 
 	      Throwable throwable = (Throwable)
 	      request.getAttribute("javax.servlet.error.exception");

@@ -32,7 +32,7 @@ public class AdminDAO {
 		st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		while(rs.next()) {
-			count = rs.getInt("count(*)");
+			count = rs.getInt("count");
 		}
 		return count;
 	}

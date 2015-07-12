@@ -1,18 +1,12 @@
 package com.bvrith.beans;
 
 public class MessageBean {
-	int id;
+	String id;
 	String fromemail, toemail, message;
-	public MessageBean(String fromemail, String toemail, String message) {
-		super();
-		this.fromemail = fromemail;
-		this.toemail = toemail;
-		this.message = message;
-	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getFromemail() {
@@ -33,4 +27,16 @@ public class MessageBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	public MessageBean(String id, String fromemail, String toemail,
+			String message) {
+		super();
+		this.id = id;
+		this.fromemail = fromemail;
+		this.toemail = toemail;
+		this.message = message;
+	}
+	
+	
+	
+	
 }

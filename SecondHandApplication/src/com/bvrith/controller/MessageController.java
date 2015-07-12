@@ -33,11 +33,12 @@ public class MessageController extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
 		try {
-		    
+		    String id = request.getParameter("id");
+		    System.out.println(id);
 			String fromemail = request.getParameter("fromemail");
 			String toemail = request.getParameter("toemail");
 			String message = request.getParameter("message");
-			MessageBean messageBean = new MessageBean(fromemail, toemail, message);
+			MessageBean messageBean = new MessageBean(id, fromemail, toemail, message);
 			MessageDAO messageDAO = new MessageDAO();
 			int result = messageDAO.insertMessage(messageBean);
 			if(result >= 1) {

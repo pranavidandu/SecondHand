@@ -50,24 +50,7 @@
     <servlet-name>LogoutController</servlet-name>
     <url-pattern>/LogoutController</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ErrorHandler</display-name>
-    <servlet-name>ErrorHandler</servlet-name>
-    <servlet-class>com.bvrith.exceptionhandler.ErrorHandler</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ErrorHandler</servlet-name>
-    <url-pattern>/ErrorHandler</url-pattern>
-  </servlet-mapping>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/ErrorHandler</location>
-  </error-page>
-  <error-page>
-    <exception-type>java.lang.Exception</exception-type>
-    <location>/ErrorHandler</location>
-  </error-page>
+  
   <servlet>
     <description></description>
     <display-name>UpdateAdController</display-name>
@@ -157,4 +140,26 @@
     <servlet-name>AdminController</servlet-name>
     <url-pattern>/AdminController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ErrorHandler</display-name>
+    <servlet-name>ErrorHandler</servlet-name>
+    <servlet-class>com.bvrith.exceptionhandler.ErrorHandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ErrorHandler</servlet-name>
+    <url-pattern>/ErrorHandler</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/ErrorHandler</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/ErrorHandler</location>
+  </error-page>
+   <error-page>
+    <exception-type>java.sql.SQLException</exception-type>
+    <location>/ErrorHandler</location>
+  </error-page>
 </web-app>
