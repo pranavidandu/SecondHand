@@ -4,16 +4,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	
 	HttpSession hs = request.getSession();
 	String email = (String) hs.getAttribute("emailid");
 	MessageDAO messageDAO = new MessageDAO();
 	List<MessageBean> lst = messageDAO.mymessages(email);
 	ListIterator<MessageBean> list = lst.listIterator();
-	
+
 	String message = request.getParameter("message");
-	if(message != null) {
-		out.print("<script>alert(\""+ message +"\")</script>");
+	if (message != null) {
+		out.print("<script>alert(\"" + message + "\")</script>");
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -101,31 +100,26 @@
 							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="showmessage.jsp"><button
-							type="button" class="btn btn-success btn-lg">Messages</button></a></li>
-			</ul>
 			<%
 				if (email == null) {
-									out.print("<ul class=\"nav navbar-nav navbar-right\">");
-									out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-									out.print("<li><a href=\"signup.jsp\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-									out.print("<li><a href=\"login.jsp\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
-									out.print("</ul>");
-								} else {
-									out.print("<ul class = \"nav navbar-nav navbar-right\">");
-									out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-									out.print("<li><a href=\"LogoutController\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
-									out.print("</ul>");
-								}
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>
 	</nav>
 	<div class="page-header header">
-		<h1 align="center">
-			SecondHand.com
-		</h1>
+		<h1 align="center">SecondHand.com</h1>
 	</div>
 	<div>
 		<form action="FilterController">
@@ -151,7 +145,9 @@
 							out.print("<td><a href = \"message.jsp?fromemail1="
 									+ messageBean.getToemail()
 									+ "\"><button class = \"btn btn-successs btn-lg\"><span class = \"glyphicon glyphicon-repeat\"></span></button></a></td>");
-							out.print("<td><a href=\"DeleteMessageController?id=" + messageBean.getId() + "\"><button class = \"btn btn-danger btn-md\"><span class=\"glyphicon glyphicon-trash\" style = \"color: white;\"></span></button></a></td>");
+							out.print("<td><a href=\"DeleteMessageController?id="
+									+ messageBean.getId()
+									+ "\"><button class = \"btn btn-danger btn-md\"><span class=\"glyphicon glyphicon-trash\" style = \"color: white;\"></span></button></a></td>");
 							out.print("</tr>");
 						}
 					%>

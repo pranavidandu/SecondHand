@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String email1 = request.getParameter("email1");
-HttpSession hs = request.getSession();
-String email = (String) hs.getAttribute("emailid");
-String adtitle = request.getParameter("adtitle");
-if(email == null) {
-	response.sendRedirect("login.jsp"); 
-}
-if(email1 == null) {
-	email1 = request.getParameter("fromemail1");
-}
+	String email1 = request.getParameter("email1");
+	HttpSession hs = request.getSession();
+	String email = (String) hs.getAttribute("emailid");
+	String adtitle = request.getParameter("adtitle");
+	if (email == null) {
+		response.sendRedirect("login.jsp");
+	}
+	if (email1 == null) {
+		email1 = request.getParameter("fromemail1");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,8 +36,19 @@ if(email1 == null) {
 
 			</ul>
 			<%
-				out.print("<ul class=\"nav navbar-nav navbar-right\">");
-				out.print("<li><a href=\"start.jsp\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
+				if (email == null) {
+					out.print("<ul class=\"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color: #31B94D;\"></span> Sign Up</a></li>");
+					out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color: #31B94D;\"></span> Login</a></li>");
+					out.print("</ul>");
+				} else {
+					out.print(email);
+					out.print("<ul class = \"nav navbar-nav navbar-right\">");
+					out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
+					out.print("</ul>");
+				}
 			%>
 		</div>
 	</div>

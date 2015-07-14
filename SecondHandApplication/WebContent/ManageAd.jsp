@@ -91,13 +91,13 @@ img {
 			String whatsapp = "";
 			while (list.hasNext()) {
 				AdBean adbean = list.next();
-				out.print("<table class=\"table table-bordered table-hover\" style=\"font-size: 20px;\"");
+				out.print("<table class=\"table  table-hover\" style=\"font-size: 20px;\"");
 				out.print("<tr>");
 				out.print("<td> <h4>Ad Title:</h4>"
 						+ adbean.getAdtitle() + "</td>");
 				out.print("<td> <h4> Sub Category:</h4>"
 						+ adbean.getCategory() + "</td>");
-				out.print("<td> <a href = \"updateAd.jsp?id="+ adbean.getId()+ "&adtitle=" + adbean.getAdtitle() + "&phone="+ adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription=" + adbean.getAddescription() + "&price=" + adbean.getPrice() + "&phone="+ adbean.getPhone()+ "\"> <button class = \"btn btn-success btn-lg\" ><span class = \"glyphicon glyphicon-refresh\"></span></button> </a> </td>"); 
+			//	out.print("<td> <a href = \"updateAd.jsp?id="+ adbean.getId()+ "&adtitle=" + adbean.getAdtitle() + "&phone="+ adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription=" + adbean.getAddescription() + "&price=" + adbean.getPrice() + "&phone="+ adbean.getPhone()+ "\"> <button class = \"btn btn-success btn-lg\" ><span class = \"glyphicon glyphicon-refresh\"></span></button> </a> </td>"); 
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td>");
@@ -129,7 +129,7 @@ img {
 				out.print("<td> <h4>City:</h4>" + adbean.getCity()
 						+ "</td>");
 				if (adbean.getSold().equals("sold out")) {
-					out.print("<td class = \"text-danger\">You have marked it sold</td>");
+					out.print("<td class = \"text-danger\">Marked it as sold</td>");
 				} else {
 					out.print("<td> Mark as sold <br/> <a href = \"DeleteAdController?id="
 							+ adbean.getId()

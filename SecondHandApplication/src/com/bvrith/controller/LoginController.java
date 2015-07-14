@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
 		SecondHandLog log = new SecondHandLog();
 		log.write(email);
 		if(result) {
-			response.sendRedirect("start.jsp?status=Login Successful");
+			response.sendRedirect("start.jsp?status=Login Successfull");
 		}
 		else {
 			response.sendRedirect("login.jsp?status=Invalid email or password");

@@ -39,10 +39,10 @@ public class DeleteAdController extends HttpServlet {
 			AdDAO addao = new  AdDAO();
 			int result = addao.deleteAd(id);
 			if(result >= 1) {
-				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Deleted Successfully");
+				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Marked as sold Successfully");
 			}
 			else {
-				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Deletion not successful");
+				response.sendRedirect("ManageAd.jsp?email=" + email + "&message=Mark as sold not successful");
 			}
 
 		} catch(SQLException | ClassNotFoundException e) {

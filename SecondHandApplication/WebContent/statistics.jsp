@@ -44,15 +44,13 @@
 					out.print("</ul>");
 				} else if (email == "admin@gmail.com") {
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-stats\" style=\"font-size: 50px; color: #19A347;\"></span> Admin Statistics</a></li>");
-					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
+			    	out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
 					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-info-sign\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
 					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 					out.print("</ul>");
 				} else {
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
-					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-stats\" style=\"font-size: 50px; color: #19A347;\"></span> Statistics</a></li>");
-					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
+				    out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
 					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-info-sign\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
 					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 					out.print("</ul>");
