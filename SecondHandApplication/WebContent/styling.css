@@ -16,7 +16,6 @@
 .tablediv {
 	height: 300px;
 }
-
 .pagediv {
 	position: absolute;
 	width: 800px;
@@ -48,8 +47,4 @@
 
 .searchbox {
 	width: 200px;
-}
-
-.footer {
-	
 }

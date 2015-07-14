@@ -10,9 +10,6 @@ import javax.websocket.Session;
 
 import com.bvrith.beans.AdBean;
 
-/**
- * Servlet implementation class FilterController
- */
 public class FilterController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);

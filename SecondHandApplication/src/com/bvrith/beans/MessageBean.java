@@ -34,9 +34,5 @@ public class MessageBean {
 		this.fromemail = fromemail;
 		this.toemail = toemail;
 		this.message = message;
-	}
-	
-	
-	
-	
+	}	
 }

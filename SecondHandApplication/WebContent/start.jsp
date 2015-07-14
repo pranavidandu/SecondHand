@@ -4,6 +4,23 @@
 <%
 	HttpSession hs = request.getSession();
 	String email = (String) hs.getAttribute("emailid");
+	String status = request.getParameter("status");
+	if (status != null) {
+		out.print("<script>alert(\"" + status + "\")</script>");
+	}
+	String admessage = request.getParameter("admessage");
+	if (admessage != null) {
+		out.print("<script>alert(\"" + admessage + "\")</script>");
+	}
+	String logoutmessage = request.getParameter("logoutmessage");
+	if (logoutmessage != null) {
+		out.print("<script>alert(\"" + logoutmessage + "\")</script>");
+	}
+	if(email != null) {
+		String[] strings = email.split("@");
+		String name = strings[0];
+		out.print("<center><h3>Welcome "+ name + "</h3></center>");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,16 +59,15 @@
 				} else if (email.equalsIgnoreCase("admin@gmail.com")) {
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
 					out.print("<li><a href=\"AdminController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-stats\" style=\"font-size: 50px; color: #19A347;\"></span> Admin Statistics</a></li>");
-					out.print("<li><a href=\"AdminController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-stats\" style=\"font-size: 50px; color: #19A347;\"></span> Statistics</a></li>");
 					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
-					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-file\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
+					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-info-sign\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
 					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 					out.print("</ul>");
 				} else {
 					out.print("<ul class = \"nav navbar-nav navbar-right\">");
 					out.print("<li><a href=\"AdminController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-stats\" style=\"font-size: 50px; color: #19A347;\"></span> Statistics</a></li>");
 					out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
-					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-file\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
+					out.print("<li><a href=\"aboutus.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-info-sign\" style=\"font-size: 50px; color: #19A347;\"></span> About us</a></li>");
 					out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 					out.print("</ul>");
 				}
@@ -60,13 +76,9 @@
 	</div>
 	</nav>
 	<div class="page-header">
-		<h1>
-			<p class="sansserif" align="center">SecondHand.com</p>
-		</h1>
-
+		<h1 class="sansserif" align="center">SecondHand.com</h1>
 	</div>
-
-
+	<center>
 	<div class="container pagediv">
 		<h3>To buy or find anything select a category below :</h3>
 		<div class="container-fluid" align="center" style="color: green;">
@@ -150,7 +162,8 @@
 			</div>
 		</div>
 	</div>
-	<table>
+	</center>
+	<table align="center">
 		<tr>
 			<td><footer class="footer">
 				<h4 align="center"

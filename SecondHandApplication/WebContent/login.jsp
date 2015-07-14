@@ -3,7 +3,7 @@
 <%
 	String status = request.getParameter("status");
 	if (status != null) {
-		out.print("<h3>" + status + "</h3>");
+		out.print("<script>alert(\""+ status+"\");</script>");
 	}
 
 	/* String error = request.getParameter("error");
@@ -82,13 +82,6 @@
 
 				</div>
 				<!-- <input type="password" class="form-control" name = "pass" placeholder="Enter password" required> -->
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-offset-4 col-md-7">
-				<div class="checkbox">
-					<label><input type="checkbox"> Remember me</label>
-				</div>
 			</div>
 		</div>
 		<div class="form-group">

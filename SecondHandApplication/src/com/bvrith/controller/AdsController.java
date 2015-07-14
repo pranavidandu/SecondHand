@@ -100,10 +100,10 @@ public class AdsController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(result >= 1) {
-			response.sendRedirect("start.jsp");
+			response.sendRedirect("start.jsp?admessage=Ad Submitted Successfully");
 		}
 		else {
-			response.sendRedirect("ad.jsp");
+			response.sendRedirect("ad.jsp?admessage=Ad Failed to get submitted. Try again");
 		}		
 	}
 	private String extractFileName(Part part) {

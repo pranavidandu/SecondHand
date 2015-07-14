@@ -44,5 +44,4 @@ public class UserDAO {
 		result = st.executeUpdate();
 		return result;
 	}
-
 }

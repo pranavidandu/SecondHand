@@ -26,7 +26,7 @@ public class LogoutController extends HttpServlet {
 		hs.invalidate();
 
 		//Redirect to login page
-		response.sendRedirect("start.jsp");
+		response.sendRedirect("start.jsp?logoutmessage=Logged out successfully");
 
 	}
 	

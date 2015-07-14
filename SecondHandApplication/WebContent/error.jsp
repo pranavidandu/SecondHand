@@ -102,7 +102,7 @@ body {
 	<div class="wrap">
 		<div class="logo">
 			<p id = "font">OOPS! - Could not Find it</p>
-			<img src="./IMG/angrybird.jpg" />
+			<img src="./IMG/chameleon.jpg" />
 			<!-- <p>
 				<a href="#">Back </a>
 			</p> -->

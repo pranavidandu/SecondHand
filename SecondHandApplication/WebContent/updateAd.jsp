@@ -125,14 +125,14 @@
 								<div class="panel-body">
 									<div class="form-group">
 										<input type="text" class="form-control" name="adtitle"
-											placeholder="Enter AdTitle" value=<%=adtitle%>
+											placeholder="Enter AdTitle" value=<%=adtitle %>
 											readonly="readonly">
 									</div>
 								</div>
 								<div class="panel panel-default">
 									<div class="panel-heading">Select a Sub-Category</div>
 									<div class="panel-body">
-										<input type="text" id="com" value = <%=category %> name="category" required />
+										<input type="text" id="com" value =<%=category %> name="category" required />
 									</div>
 
 									<div class="panel panel-default">

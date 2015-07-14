@@ -1,3 +1,4 @@
+<%@page import="com.bvrith.dao.MessageDAO"%>
 <%@page import="com.bvrith.dao.AdDAO"%>
 <%@page import="com.bvrith.beans.AdBean"%>
 <%@page import="java.util.*"%>
@@ -12,7 +13,7 @@
 	ListIterator<AdBean> list = lst.listIterator();
 	String message = request.getParameter("message");
 	if(message != null) {
-		out.print("<h3>"+message+"</h3>");
+		out.print("<script>alert(\" "+message+"\")</script>");
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -54,23 +55,27 @@ img {
 							class="btn btn-success btn-lg">Submit An Ad</button></a></li>
 
 			</ul>
+			<% 
+            MessageDAO messageDAO = new MessageDAO();
+			int number = messageDAO.noOfMessages(email);
+			%>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="showmessage.jsp"><button
-							type="button" class="btn btn-success btn-lg">Messages</button></a></li>
+							type="button" class="btn btn-success btn-lg"  <%-- onclick="<%number  = 0;%>" --%>>Messages  <span class="badge"><%=number %></span></button></a></li>
 			</ul>
 			<%
 				if (email == null) {
 									out.print("<ul class=\"nav navbar-nav navbar-right\">");
-									out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-									out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Sign Up</p></a></li>");
-									out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Login</p></a></li>");
+									out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\"> Home</p></a></li>");
+									out.print("<li><a href=\"signup.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-user\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\"> Sign Up</p></a></li>");
+									out.print("<li><a href=\"login.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-in\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\"> Login</p></a></li>");
 									out.print("</ul>");
-								} else {
+				} else {
 									out.print("<ul class = \"nav navbar-nav navbar-right\">");
-									out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Home</p></a></li>");
-									out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color:#31B94D\"></span><p style=\"color:white;\">Logout</p></a></li>");
+									out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span> Home</a></li>");
+									out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color:#31B94D\"></span> Logout</a></li>");
 									out.print("</ul>");
-								}
+				}
 			%>
 		</div>
 	</div>
@@ -92,7 +97,7 @@ img {
 						+ adbean.getAdtitle() + "</td>");
 				out.print("<td> <h4> Sub Category:</h4>"
 						+ adbean.getCategory() + "</td>");
-				out.print("<td> <a href = \"updateAd.jsp?adtitle="+adbean.getAdtitle() + "&phone="+adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription="+adbean.getAddescription() + "&price="+adbean.getPrice()+ "&phone="+adbean.getPhone()+"\"> <button class = \"btn btn-success btn-lg\" ><span class = \"glyphicon glyphicon-refresh\"></span></button> </a> </td>"); 
+				out.print("<td> <a href = \"updateAd.jsp?id="+ adbean.getId()+ "&adtitle=" + adbean.getAdtitle() + "&phone="+ adbean.getPhone() + "&file="+adbean.getFile() + "&name="+adbean.getName()+ "&category="+adbean.getCategory()+ "&city="+adbean.getCity()+ "&email="+adbean.getEmail()+ "&addescription=" + adbean.getAddescription() + "&price=" + adbean.getPrice() + "&phone="+ adbean.getPhone()+ "\"> <button class = \"btn btn-success btn-lg\" ><span class = \"glyphicon glyphicon-refresh\"></span></button> </a> </td>"); 
 				out.print("</tr>");
 				out.print("<tr>");
 				out.print("<td>");

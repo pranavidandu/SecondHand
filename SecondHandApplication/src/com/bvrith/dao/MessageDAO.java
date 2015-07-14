@@ -49,4 +49,45 @@ public class MessageDAO {
 		}
 		return lst;
 	}
+	public int noOfMessages(String email) {
+		int result = 0;
+		try {
+			String sql = "select count(*) from message where myaddress=?";
+			st = conn.prepareStatement(sql);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			while(rs.next()) {
+				result = Integer.parseInt(rs.getString("count(*)"));
+			}
+		} catch(SQLException se) {
+			se.printStackTrace();
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,12 +15,11 @@ import com.bvrith.beans.UserBean;
 import com.bvrith.dao.UserDAO;
 
 public class LoginController extends HttpServlet {
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			doProcess(request, response);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -29,11 +28,10 @@ public class LoginController extends HttpServlet {
 		try {
 			doProcess(request, response);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NamingException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");	
@@ -55,12 +53,12 @@ public class LoginController extends HttpServlet {
 		SecondHandLog log = new SecondHandLog();
 		log.write(email);
 		if(result) {
-			response.sendRedirect("start.jsp");
+			response.sendRedirect("start.jsp?status=Login Successful");
 		}
 		else {
 			response.sendRedirect("login.jsp?status=Invalid email or password");
 		}
-			
+
 	}
 
 }

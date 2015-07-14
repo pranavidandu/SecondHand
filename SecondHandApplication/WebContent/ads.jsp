@@ -6,6 +6,10 @@
 	if (email == null) {
 		response.sendRedirect("login.jsp");
 	}
+	String admessage = request.getParameter("admessage");
+	if (admessage != null) {
+		out.print("<script>alert(\"" + admessage +"\")</script>");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,8 +24,8 @@
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script>
 	$(document).ready(
 			function() {
@@ -66,12 +70,9 @@
 							});
 						});
 					}
-
 				});
 			});
 </script>
-
-
 <!-- <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> <script>
 	$(document)
@@ -168,9 +169,7 @@ body {
 <body>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid ">
-
 		<div>
-
 			<%
 				out.print("<ul class = \"nav navbar-nav navbar-right\">");
 				out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D\"></span>Home</a></li>");
@@ -265,17 +264,40 @@ body {
 					});
 	});
 </script> -->
-
 										<div class="panel panel-default">
 											<div class="panel-heading">Upload Photo</div>
 											<div class="panel-body">
 												<div class="panel-body">
+													<script type="text/javascript"
+														src="http://code.jquery.com/jquery-1.8.2.js"></script>
+													<script type="text/javascript">
+														function showimagepreview(
+																input) {
+															if (input.files
+																	&& input.files[0]) {
+																var filerdr = new FileReader();
+																filerdr.onload = function(
+																		e) {
+																	$(
+																			'#imgprvw')
+																			.attr(
+																					'src',
+																					e.target.result);
+																}
+																filerdr
+																		.readAsDataURL(input.files[0]);
+															}
+														}
+													</script>
 													<div class="form-group">
-														<input type="file" id="fileupload" name="file" size="50"
-															placeholder="Upload Your Image" required />
-														<div id="dvPreview"></div>
+														<form id="form1" runat="server">
+															<div>
+																<input type="file" name="file" id="filUpload"
+																	onchange="showimagepreview(this) " />
+															</div>
+															<img id="imgprvw" alt="uploaded image preview" width = "300px" height="300px;" />
+														</form>
 													</div>
-
 												</div>
 											</div>
 											<div class="panel panel-default">

@@ -3,19 +3,19 @@
 <%
 	String status = request.getParameter("status");
 	if (status != null) {
-		out.print("<h3>" + status + "</h3>");
+		out.print("<script>alert(\""+ status +"\");</script>");
 	}
 	String msg = request.getParameter("msg");
 	if (msg != null) {
-		out.print("<h3>" + msg + "</h3>");
+		out.print("<script>alert(\""+ msg +"\");</script>");
 	}
 	String msg1 = request.getParameter("msg1");
 	if (msg1 != null) {
-		out.print("<h3>" + msg1 + "</h3>");
+		out.print("<script>alert(\""+ msg1 +"\");</script>");
 	}
 	String pwdmsg = request.getParameter("pwdmssg");
 	if (pwdmsg != null) {
-		out.print("<h3>" + pwdmsg + "</h3>");
+		out.print("<script>alert(\""+ pwdmsg +"\");</script>");
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

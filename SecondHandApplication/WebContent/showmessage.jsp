@@ -103,7 +103,7 @@
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="showmessage.jsp"><button
-							type="button" class="btn btn-success btn-md">Messages</button></a></li>
+							type="button" class="btn btn-success btn-lg">Messages</button></a></li>
 			</ul>
 			<%
 				if (email == null) {

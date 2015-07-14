@@ -11,15 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bvrith.dao.MessageDAO;
 
-/**
- * Servlet implementation class DeleteMessageController
- */
 public class DeleteMessageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			doProcess(request, response);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -28,7 +24,6 @@ public class DeleteMessageController extends HttpServlet {
 		try {
 			doProcess(request, response);
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -51,5 +46,4 @@ public class DeleteMessageController extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
 }

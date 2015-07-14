@@ -18,7 +18,7 @@ public class ErrorHandler extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		try {
 			doProcess(request, response);
 		} catch (SQLException e) {

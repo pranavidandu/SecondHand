@@ -1,109 +1,83 @@
 package com.bvrith.beans;
 
 public class AdBean {
-	int id;
+	String id;
 	String  adtitle, category, addescription, file; 
 	int price;
 	String name, email, phone, whatsapp, city, sold;
-	
-	public String getSold() {
-		return sold;
-	}
-
-	public void setSold(String sold) {
-		this.sold = sold;
-	}
-
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getAdtitle() {
 		return adtitle;
 	}
-
 	public void setAdtitle(String adtitle) {
 		this.adtitle = adtitle;
 	}
-
 	public String getCategory() {
 		return category;
 	}
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
 	public String getAddescription() {
 		return addescription;
 	}
-
 	public void setAddescription(String addescription) {
 		this.addescription = addescription;
 	}
-
 	public String getFile() {
-		String image = file.substring(66);
-		return image;
+		return file.substring(66);
 	}
-
 	public void setFile(String file) {
 		this.file = file;
 	}
-
 	public int getPrice() {
 		return price;
 	}
-
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public String getPhone() {
 		return phone;
 	}
-
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 	public String getWhatsapp() {
 		return whatsapp;
 	}
-
 	public void setWhatsapp(String whatsapp) {
 		this.whatsapp = whatsapp;
 	}
-
 	public String getCity() {
 		return city;
 	}
-
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-	public AdBean(int id, String adtitle, String category,
+	public String getSold() {
+		return sold;
+	}
+	public void setSold(String sold) {
+		this.sold = sold;
+	}
+	public AdBean(String id, String adtitle, String category,
 			String addescription, String file, int price, String name,
 			String email, String phone, String whatsapp, String city,
 			String sold) {
@@ -121,6 +95,4 @@ public class AdBean {
 		this.city = city;
 		this.sold = sold;
 	}
-
-
 }

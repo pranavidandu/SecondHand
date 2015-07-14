@@ -11,7 +11,7 @@
 	String category = request.getParameter("category");
     
 	int pages = 1;
-	int recordsPerPage = 1;
+	int recordsPerPage = 3;
 	if (request.getParameter("pages") != null)
 		pages = Integer.parseInt(request.getParameter("pages"));
 
@@ -68,7 +68,46 @@
 <link rel="stylesheet" href="/css/jquery-fullsizable-theme.css" />
 <script src="/js/jquery-1.7.2.js"></script>
 <script src="/js/jquery.fullsizable.js"></script>
+<script type="text/javascript">
+(function(document) {
+	'use strict';
 
+	var LightTableFilter = (function(Arr) {
+
+		var _input;
+
+		function _onInputEvent(e) {
+			_input = e.target;
+			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+			Arr.forEach.call(tables, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, _filter);
+				});
+			});
+		}
+
+		function _filter(row) {
+			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('light-table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = _onInputEvent;
+				});
+			}
+		};
+	})(Array.prototype);
+
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+})(document);</script>
 <style type="text/css">
 img {
 	height: 200px;
@@ -101,6 +140,7 @@ img {
 										out.print(email);
 									    out.print("<ul class = \"nav navbar-nav navbar-right\">");
 									    out.print("<li><a href=\"start.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-home\" style=\"font-size: 50px; color:#31B94D;\"></span>Home</a></li>");
+									    out.print("<li><a href=\"ManageAd.jsp\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-pencil\" style=\"font-size: 50px; color: #19A347;\"></span> Manage Your Ads</a></li>");
 										out.print("<li><a href=\"LogoutController\" style = \"font-size: 20px; color: white;\"><span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 50px; color: #31B94D;\"></span> Logout</a></li>");
 										out.print("</ul>");
 									    }
@@ -109,12 +149,12 @@ img {
 	</div>
 	</nav>
 	<div class="page-header header">
-		<h1>
-			<p class="sansserif" align="center">SecondHand.com</p>
+		<h1 class="sansserif" align="center">
+			SecondHand.com
 		</h1>
 	</div>
 	<div>
-		<h3>
+		<h3 align="center">
 			<%=category%>
 		</h3>
 	</div>
@@ -128,13 +168,11 @@ img {
 		</button>
 	</form>
 	<br>
-	<br>
-	<br>
 	<c:if test="${not empty fromrange && not empty torange}">
 		<%--For displaying Previous link except for the 1st page --%>
 		<c:if test="${currentPage != 1}">
 			<td><a
-				href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${currentPage - 1}">Previous</a></td>
+				href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${currentPage - 1}"><button class="btn btn-success btn-md active">Previous</button></a></td>
 		</c:if>
 
 		<%--For displaying Page numbers.
@@ -149,7 +187,7 @@ img {
 							</c:when>
 							<c:otherwise>
 								<td><a
-									href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${i}">${i}</a></td>
+									href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${i}"><button class="btn btn-success btn-md active">${i}</button></a></td>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -160,7 +198,7 @@ img {
 			<c:if test="${currentPage lt noOfPages}">
 
 				<td><a
-					href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${currentPage + 1}">Next</a></td>
+					href="show.jsp?from=${fromrange}&to=${torange}&category=${cat}&pages=${currentPage + 1}"><button class="btn btn-success btn-md active">Next</button></a></td>
 			</c:if>
 	</c:if>
 
@@ -192,55 +230,58 @@ img {
 		</center>
 	</c:if>
 
-
+ <br> <br>
 	<div class="showcase">
 		<%
 			String whatsapp = "";
-								    
-									while (list.hasNext()) {
-										AdBean adbean = list.next();									
-									out.print("<div class=\"container\">");
-									out.print("<div class = \"row\">");
-									out.print("<div class = \"col-lg-4\">");
-									out.print("<div id=" + "container" + ">");
-									out.print("<a href=" + adbean.getFile() + ">");
-									out.print("<img src =" + adbean.getFile() + ">");
-									out.print("</a>");
-									out.print("</div>");
-									out.print("</div>");
-									out.print("<div class=\"col-lg-8\"><table class=\"table table-striped\" style=\"font-size: 20px;\"><tr>");
-									out.print("<td>Ad Title: " + adbean.getAdtitle()
-											+ "</td>");
-									out.print("<td>Price: " + adbean.getPrice() + "</td>");
-									out.print("</tr> <tr>");
-									out.print("<td>Ad Description: "
-											+ adbean.getAddescription() + "</td>");
-									out.print("</tr> <tr>");
-									out.print("<td>Name: " + adbean.getName() + "</td>");
-									out.print("<td>Phone: " + adbean.getPhone() + "</td>");
-									out.print("</tr> <tr>");
-									out.print("<td>Email: " + adbean.getEmail() + "</td>");
-									if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
-										whatsapp = "Avaliable";
-									} else {
-										whatsapp = "Not Avaliable";
-									}
-									out.print("<td>Available On WhatsApp: " + whatsapp + " </td>");
-									out.print("</tr> <tr>");
-									out.print("<td>City: " + adbean.getCity() + "</td>");
-									String availabilty = adbean.getSold();
-									if (availabilty.equalsIgnoreCase("sold out")) {
-										out.print("<td class = \"text-danger\">Sold Out! <span class = \"glyphicon glyphicon-tag\" style = \"color: red; font-size: 18px;\"></span></td>");
-									} else {
-										out.print("<td class = \"text-success\">Available <span class = \"glyphicon glyphicon-ok\" style = \"color: green; font-size: 18px;\"></span></td>");
-									}
-									out.print("</tr> <tr>");
-									out.print("<td>Sub Category: " + adbean.getCategory()
-											+ "</td>");
-									out.print("<td><a href = \"message.jsp?email1="+ adbean.getEmail() +"\">Message Seller <span class = \"glyphicon glyphicon-envelope\" style = \"color: blue; font-size: 22px;\"></span></a></td>");
-									out.print("</tr> </table> </div> </div> </div>");
-									out.print("<br/> <br/> <br/>");}
+								   while (list.hasNext()) {
+									   AdBean adbean = list.next();
+									   out.print("<div class=\"container\">");
+										out.print("<div class = \"row\">");
+										out.print("<div class = \"col-lg-4\">");
+										out.print("<div id=" + "container" + ">");
+										out.print("<a href=" + adbean.getFile() + ">");
+										out.print("<img src =" + adbean.getFile() + ">");
+										out.print("</a>");
+										out.print("</div>");
+										out.print("</div>");
+										out.print("<div class=\"col-lg-8\"><table class=\"table table-striped\" style=\"font-size: 20px;\"><tr>");
+										out.print("<td>Ad Title: " + adbean.getAdtitle()
+												+ "</td>");
+										out.print("<td>Price: " + adbean.getPrice() + "</td>");
+										out.print("</tr> <tr>");
+										out.print("<td>Ad Description: "
+												+ adbean.getAddescription() + "</td>");
+										out.print("</tr> <tr>");
+										out.print("<td>Name: " + adbean.getName() + "</td>");
+										out.print("<td>Phone: " + adbean.getPhone() + "</td>");
+										out.print("</tr> <tr>");
+										out.print("<td>Email: " + adbean.getEmail() + "</td>");
+										if (adbean.getWhatsapp().equalsIgnoreCase("y")) {
+											whatsapp = "Avaliable";
+										} else {
+											whatsapp = "Not Avaliable";
+										}
+										out.print("<td>Available On WhatsApp: " + whatsapp + " </td>");
+										out.print("</tr> <tr>");
+										out.print("<td>City: " + adbean.getCity() + "</td>");
+										String availabilty = adbean.getSold();
+										if (availabilty.equalsIgnoreCase("sold out")) {
+											out.print("<td class = \"text-danger\">Sold Out! <span class = \"glyphicon glyphicon-tag\" style = \"color: red; font-size: 18px;\"></span></td>");
+										} else {
+											out.print("<td class = \"text-success\">Available <span class = \"glyphicon glyphicon-ok\" style = \"color: green; font-size: 18px;\"></span></td>");
+										}
+										out.print("</tr> <tr>");
+										out.print("<td>Sub Category: " + adbean.getCategory()
+												+ "</td>");
+										if (!availabilty.equalsIgnoreCase("sold out")) {
+											out.print("<td><a href = \"message.jsp?email1="+ adbean.getEmail() +"\">Message Seller <span class = \"glyphicon glyphicon-envelope\" style = \"color: blue; font-size: 22px;\"></span></a></td>");
+										}
+										out.print("</tr> </table> </div> </div> </div>");
+										out.print("<br/> <br/> <br/>");}
 		%>
+		
+		
 		<script>
 			$(function() {
 				/* $('#container a').fullsizable();
